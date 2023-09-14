@@ -1,0 +1,43 @@
+botton{}
+
+.wrap{margin-bottom: 100px;}
+
+.search_header{border-bottom: 1px solid #4c4c4c; width: 1000px;  height: 104px; display: flex; align-items: center;}
+.search_header h2{font-size: 1.9rem; color: #fff; }
+.search_header ul{position: relative; display: flex; width: 450px; justify-content: space-between;}
+.search_header button{border: none; background: none; font-size: 1rem; font-family: SUIT-Regular; color: #fff; line-height: 30px; height: 30px; cursor: pointer;}
+
+.search_body p{color:#fff; font-size: 0.9rem; line-height: 80px; height: 80px;}
+.search_body table {position: relative; width: 100%;}
+.search_body table p {height: 35px; line-height: 35px;}
+.search_body tr{position: relative; display: flex; border-bottom: 1px solid #3c3c3c; padding: 15px 0; height: 35px;}
+
+.search_body td:nth-child(1){width: 40px;}
+.search_body td:nth-child(2){width: 60px;}
+.search_body td:nth-child(3){width: 40%; min-width: 250px;}
+.search_body td:nth-child(4){width: 20%; min-width: 190px;}
+.search_body td:nth-child(5){width: 20%; min-width: 100px;}
+.search_body td:nth-child(6){width: 10%; min-width: 100px;}
+.search_body img{width: 36px; border-radius: 4px;}
+.search_body input[type="checkbox"]{width: 13px; height: 13px; appearance: none; border:1px solid #aaa; border-radius: 4px; margin: 11px 11px 0;}
+.search_body input[type="checkbox"]:checked::before{content: '\f00c'; font-family:"Font Awesome 5 free"; font-weight:900; font-size: 0.8rem; vertical-align: super; line-height: -1px;color: #04E632; }
+.search_body h3,a{color: #fff; line-height: 2;}
+.search_body h3{color:#fff; font-size: 1.1rem; line-height: 80px; height: 80px; width: 230px;}
+.search_body a:hover,a:visited,a:active{color: #fff;}
+@media(max-width: 1180px){
+    .search_body td:nth-child(6){display: none;}
+}
+
+/* 앨범 */
+.search_album tr{position: relative; display: flex; flex-wrap: wrap; width: 230px;}
+.search_album h3{color:#fff; font-size: 1.1rem; line-height: 80px; height: 80px; width: 230px;}
+.search_album p{color:#fff; font-size: 1rem; line-height: 30px; height: 30px; width: 230px;}
+.search_album img{width: 230px; border-radius: 10px;}
+.search_album tbody{position: relative; width: 1000px; display: flex; flex-wrap: wrap; justify-content: space-between;}
+
+/* 아티스트 */
+.search_artist tr{position: relative; display: flex; flex-wrap: wrap; width: 230px; margin: 0 10px;}
+.search_artist h3{color:#fff; font-size: 1.1rem; line-height: 80px; height: 80px; width: 230px;}
+.search_artist p{color:#fff; font-size: 1rem; line-height: 30px; height: 30px; width: 230px; text-align: center;}
+.search_artist img{width: 230px; border-radius: 50%;}
+.search_artist tbody{position: relative; width: 1000px; display: flex; flex-wrap: wrap; justify-content: flex-start;}

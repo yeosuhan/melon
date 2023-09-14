@@ -1,0 +1,189 @@
+.container {
+    border: 0px solid white; height: 936px;
+}
+a {
+    text-decoration: none; color: inherit; /* 기본 텍스트 색상 상속 */
+}
+/*앨범사진과 앨범정보들이 보이는 상단*/
+.album_top {
+    border: 0px solid white; width: 1393px; height: 250px; display: flex;
+    position: relative; margin-left: auto; margin-right: auto;
+}
+/*앨범 사진 부분*/
+.album_top_img {
+    border: 0px solid white; width: 200px; height: 250px; display: flex;
+    align-items: center;
+}
+.album_img {
+    border: 0px solid red; width: 200px; height: 190px; border-radius: 10px;
+}
+.album_img img {
+    width: 200px; border-radius: 10px;
+}
+
+/*앨범 정보 부분*/
+.album_top_text {
+    border: 0px solid white; width: 1193px; height: 250px; color: #999999;
+    position: relative;
+}
+.album_top_text > .album_top_type {
+    border: 0px solid white; display: inline-block; height: 60px; line-height: 80px;
+    margin-left: 50px;
+}
+.album_top_text > .album_top_song_name {
+    border: 0px solid white; font-size: 1.5rem; height: 30px; line-height: 30px;
+    margin-left: 50px; color: white; font-weight: 10;
+}
+.album_top_text > .album_top_artist {
+    border: 0px solid white; display: inline-block; height: 30px; line-height: 30px;
+    margin-left: 50px; color: #53B426;
+}
+.album_top_text > .album_top_release {
+    border: 0px solid white; height: 40px; line-height: 40px; margin-left: 50px;
+}
+.album_top_text > .album_top_release > .release{
+    display: inline-block;
+}
+.album_top_text > .album_top_release > .date{
+    display: inline-block; margin-left: 30px;
+}
+.album_top_text > .album_top_release > .comment{
+    display: inline-block; margin-left: 700px;
+}
+.album_top_text > .album_top_release > .comment_count{
+    display: inline-block;
+}
+.album_top_text > .album_top_genre {
+    border: 0px solid white; height: 40px; line-height: 40px; margin-left: 50px;
+    display: inline-block;
+}
+.album_top_text > .album_top_genre > .genre{
+    display: inline-block;
+}
+.album_top_text > .album_top_genre > .genre_name{
+    display: inline-block; margin-left: 44px;
+}
+.album_top_text > .album_top_genre > .hart{
+    display: inline-block; margin-left: 750px;
+}
+.album_top_text > .album_top_genre > .hart_count{
+    display: inline-block; margin-left: 11px;
+}
+.album_top_text > .album_top_agency {
+    border: 0px solid white; height: 40px; line-height: 40px; margin-left: 50px;
+}
+.album_top_text > .album_top_agency > .agency{
+    display: inline-block; border: 0px solid white;
+}
+.album_top_text > .album_top_agency > .agency_name{
+    display: inline-block; margin-left: 27px;
+}
+
+/*메뉴들이 있는 부분*/
+.album_menu {
+    border: 0px solid white; width: 1393px; height: 70px; display: flex; justify-content: space-between;
+    border-bottom: 1px solid #999999; margin-left: auto; margin-right: auto;
+}
+/*수록곡, 앨범상세, 댓글 메뉴버튼 ajax로 구현하기*/
+.album_menu_left {
+    border: 0px solid red; width: 300px; height: 70px; display: flex; justify-content: space-around; text-align: center;
+    color: white; line-height: 70px; font-size: 1.2rem;
+}
+.album_menu_left > .album_left_song {
+    border: 0px solid white; width: 100px; height: 70px;
+}
+.album_menu_left > .album_left_detail {
+    border: 0px solid white; width: 100px; height: 70px;
+}
+.album_menu_left > .album_left_comment {
+    border: 0px solid white; width: 100px; height: 70px; color: #04E632;
+}
+
+/*댓글작성박스부분*/
+.comment_box {
+    border: 0px solid white;width: 1400px; height: 778px; color: white;
+    margin-left: auto; margin-right: auto;
+}
+.comment_box > .comment_write_count_box{
+    border: 0px solid white; width: 1400px; height: 200px; display: flex;
+    justify-content: center; align-items: center;
+}
+.comment_box > .comment_write_count_box > .comment_write_box{
+    border: 0px solid white; width: 1000px; height: 150px;
+    border-bottom: 1px solid #999999;
+}
+.comment_box > .comment_write_count_box > .comment_write_box > .comment_write_count{
+    border: 0px solid white; width: 250px; height: 60px; text-align: center;
+    line-height: 60px; font-size: 1.3rem;
+}
+.comment_box > .comment_write_count_box > .comment_write_box > .user_comment_form {
+    border: 0px solid white; width: 1000px; height: 50px;
+}
+.comment_form{
+    width: 1000px; height: 50px; display: flex; align-items: center;
+}
+.comment_write_img{
+    border: 0px solid white; height: 50px; width: 50px; text-align: center;
+    line-height: 60px;
+}
+.comment_write_img i {
+    width: 50px; height: 50px; font-size: 1.7rem;
+}
+.comment_write_input {
+    width: 800px; height: 50px; margin-left: 34px; line-height: 50px;
+    border-bottom: 1px solid #999999;
+}
+.comment_write_input input {
+    border: none; width: 800px; height: 40px; outline: none; background-color: #2a2a2a;
+    color: white; font-size: 0.9rem;
+}
+.comment_write_btn {
+    border: 0px solid white; width: 50px; height: 50px; margin-left: 20px;
+    text-align: center; display: flex; justify-content: center; align-items: center;
+}
+.comment_write_btn button {
+    border: 1px solid #aaa; background: #2a2a2a; color: white;
+    width: 48px; height: 28px; border-radius: 5px; cursor: pointer;
+}
+.comment_write_btn button:hover {
+    opacity: 0.8; transition: 0.2s all;
+}
+
+/*본인과 다른사람이 볼 수 있는 댓글목록*/
+.people_comment_box {
+    border: 0px solid white; width: 1400px; height: 575px; display: flex;
+    justify-content: center;
+}
+.people_comment_box > .member_comment_box {
+    border: 0px solid white; width: 1000px; height: 575px;
+}
+.people_comment_box > .member_comment_box > .member_comment_count {
+    border: 0px solid white; width: 100px; height: 35px; line-height: 35px;
+    text-align: center;
+}
+.people_comment_box > .member_comment_box > .member_comment {
+    border: 0px solid white; width: 1000px; height: 80px; display: flex;
+    border-bottom: 1px solid #999999;
+}
+.people_comment_box > .member_comment_box > .member_comment > .member_comment_pic_box {
+    border: 0px solid white; width: 10%; height: 80px; text-align: center;
+    display: flex; justify-content: center; align-items: center;
+}
+.member_comment_pic {
+    border: 0px solid white; border-radius: 50px; width: 60px; height: 60px;
+}
+.member_comment_pic img {
+    border-radius: 50px; width: 60px; height: 60px;
+}
+.people_comment_box > .member_comment_box > .member_comment > .member_comment_mem_id {
+    border: 0px solid white; width: 15%; text-align: center; display: flex;
+    justify-content: center; align-items: center;
+}
+.people_comment_box > .member_comment_box > .member_comment > .member_comment_mem_content {
+    border: 0px solid white; width: 60%; height: 80px; display: flex;
+    align-items: center; text-indent: 10px;
+}
+.people_comment_box > .member_comment_box > .member_comment > .member_comment_mem_date {
+    border: 0px solid white; width: 15%; display: flex; justify-content: center;
+    align-items: center;
+}

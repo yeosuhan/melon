@@ -1,0 +1,16 @@
+button{border: none;}
+button:hover{cursor: pointer;}
+
+.login_wrap{position: relative}
+.login_wrap a,h2{color:#fff;}
+.join{display: block; width: 100%; text-align: center; height: 70px; line-height: 70px; font-size: 0.85rem; letter-spacing: 2px;}
+.login_wrap h2{width: 100%; text-align: center; height: 200px; line-height: 200px; font-size: 2.2rem; font-family: 'KCC-Ganpan'; color: #04E632;}
+.kakao_btn{ position: relative}
+.kakao_btn form{ display: flex; justify-content: center;}
+.kakao_btn form button{width: 360px; height: 50px; font-size: 0.95rem; position: relative; display: flex; justify-content: center; align-items: center; background-color:#fddc3f; border-radius: 2px; margin: 0 0 8px 0;}
+.kakao_btn img{ width: 28px;}
+
+.melon_btn{ position: relative}
+.melon_btn form{ display: flex; justify-content: center;}
+.melon_btn form button{width: 360px; height: 50px; font-size: 0.95rem; position: relative; display: flex; justify-content: center; align-items: center; background-color:#333; border-radius: 2px; border:1px solid #555; color:#fff;}
+.melon_btn img{ width: 18px;}

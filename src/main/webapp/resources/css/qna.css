@@ -1,0 +1,8 @@
+.qna_title{position: relative; display: flex; justify-content: space-between; margin: 10px 20px 10px 0; border-bottom: 1px solid #4c4c4c; padding: 0 0 25px 0;}
+.qna_title h3{font-size: 1.1rem; color: #fff; display: inline-block;}
+.qna_title button{width: 100px; height: 30px; border: 1px solid #04E632; background: none; color: #fff; border-radius: 12px;}
+
+.table_text{width: 1000px;}
+.table_text p {width: 100%; color: #fff;}
+.table_text tr th{position: relative; display: flex; width: 100%; justify-content: flex-start; text-align: left; padding: 19px;}
+.table_text tr td{position: relative; display: flex; width: 100%; justify-content: flex-start; text-align: left; padding: 19px;}

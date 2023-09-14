@@ -1,0 +1,14 @@
+.qna_title{position: relative; display: flex; justify-content: space-between; margin: 10px 20px 10px 0; border-bottom: 1px solid #4c4c4c; padding: 0 0 25px 0;}
+.qna_title h3{font-size: 1.1rem; color: #fff; display: inline-block;}
+
+
+.table_text{width: 1000px;}
+.table_text p { color: #fff; width: 200px; line-height: 50px; text-align: center;}
+.table_text tr th{position: relative; display: flex; width: 100%; justify-content: flex-start; text-align: left; padding: 19px;}
+.table_text textarea{width: 750px; height: 500px; border: 1px solid #4c4c4c; background: none; color: #fff; font-size: 1rem; resize: none;}
+.table_text th:first-child textarea{height: 40px;}
+
+#qna_pull{width: 979px;}
+#qna_pull button{float: right; width: 100px; height: 30px; color: #fff; background: none; border: 1px solid #04E632; border-radius: 11px; position: relative; display: flex; justify-content: center; align-items: center; cursor: pointer;}
+#qna_pull button::before{content: ''; position: absolute; width: 0%; height: 100%; transition: all 0.2s; background-color: #04E632; border-radius: 10px; z-index: -1;}
+#qna_pull button:hover::before{width: 100%;}

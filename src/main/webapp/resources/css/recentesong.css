@@ -1,0 +1,83 @@
+.wrap {
+	padding-left:22px;
+	color:white;
+}
+.wrap .head-title {
+	display:flex;
+}
+.wrap .head-title .head-title-menu{
+	display:flex;
+	padding-left:40px;
+	padding-top:30px;
+}
+.wrap .head-title .head-title-menu .domestic {
+	height:20px;
+}
+.wrap .head-title .head-title-menu .domestic, .foreign{
+	cursor:pointer;
+}
+.wrap .top-100 {
+	font-size:35px;
+	padding-top: 22px;
+	width:100px;
+}
+button {
+	cursor: pointer;
+}
+.wrap .allplay:hover {
+	color: #b7b7b7;
+	border: solid 1px #b7b7b7;
+}
+.wrap .allplay {
+	background-color:#2a2a2a;
+	height:30px;
+	line-height:28px;
+	border: 1px solid #808080;
+	border-radius:100px;
+	color:#808080;
+	font-size:12px;
+	float:right;
+}
+/* 차트 */
+.wrap .chart-table {
+	padding-top: 50px;
+	width:1350px;
+}
+.wrap .chart-table .charts {
+	width:100%;
+}
+.wrap .chart-table .charts thead td {
+	height:50px;
+	vertical-align: middle;
+	border-top: 1px solid gray;
+}
+.wrap .chart-table .charts tbody td {
+	height:90px;
+	vertical-align: middle;
+	border-top: 1px solid gray;
+}
+.wrap .chart-table .charts tbody td:nth-child(7) {
+	padding-left:15px
+}
+.wrap .chart-table .charts td:nth-child(1){
+	width:50px;
+}
+.wrap .chart-table .charts td:nth-child(2){
+	width:70px;
+}
+.wrap .chart-table .charts td:nth-child(3){
+	width:70px;
+	text-align:center;
+}
+.wrap .chart-table .charts td:nth-child(4){
+	width:500px;
+}
+.wrap .chart-table .charts td:nth-child(5){
+	width:250px;
+}
+.wrap .chart-table .charts td:nth-child(6){
+	width:250px;
+}
+.wrap .chart-table .charts td:nth-child(7){
+	width:160px;
+}

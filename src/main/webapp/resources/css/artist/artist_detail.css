@@ -1,0 +1,187 @@
+.container {
+    border: 0px solid white; height: 1100px;
+}
+a {
+    text-decoration: none; color: inherit; /* 기본 텍스트 색상 상속 */
+}
+/*앨범사진과 앨범정보들이 보이는 상단*/
+.artist_top {
+    border: 0px solid white; width: 1393px; height: 250px; display: flex;
+    position: relative; margin-left: auto; margin-right: auto;
+}
+/*앨범 사진 부분*/
+.artist_top_img {
+    border: 0px solid white; width: 250px; display: flex; align-items: center;
+}
+.artist_img {
+    border: 0px solid red; width: 200px; height: 190px; border-radius: 10px;
+}
+.artist_img img {
+    width: 200px; border-radius: 100px;
+}
+
+/*앨범 정보 부분*/
+.artist_top_text {
+    border: 0px solid white; width: 1193px; height: 250px; color: #999999;
+    position: relative;
+}
+.artist_top_text > .artist_top_text_box {
+    border: 0px solid white; width: 600px; height: 250px; line-height: 60px;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_name {
+    border: 0px solid white; font-size: 1.5rem; height: 80px; line-height: 120px;
+    color: white; font-weight: 10; width: 100px;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_hart_play {
+    border: 0px solid white; height: 40px; line-height: 40px; display: inline-block;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_hart_play > .hart{
+    display: inline-block;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_hart_play > .hart_count{
+    display: inline-block; font-size: 1.0rem;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_hart_play > .play_btn{
+    display: inline-block; margin-left: 40px;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_hart_play > .rep_song{
+    display: inline-block; margin-left: 10px;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_agency {
+    border: 0px solid white; height: 40px; line-height: 40px;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_agency > .agency{
+    display: inline-block; border: 0px solid white;
+}
+.artist_top_text > .artist_top_text_box > .artist_top_agency > .agency_name{
+    display: inline-block; margin-left: 27px;
+}
+
+/*메뉴들이 있는 부분*/
+.artist_menu {
+    border: 0px solid white; width: 1393px; height: 70px; display: flex; justify-content: space-between;
+    border-bottom: 1px solid #999999; margin-left: auto; margin-right: auto;
+}
+
+/*수록곡, 앨범상세, 댓글 메뉴버튼 ajax로 구현하기*/
+.artist_menu_left {
+    border: 0px solid red; width: 300px; height: 70px; display: flex; justify-content: space-around; text-align: center;
+    color: white; line-height: 70px; font-size: 1.2rem;
+}
+.artist_menu_left > .artist_left_song {
+    border: 0px solid white; width: 90px; height: 70px;
+}
+.artist_menu_left > .artist_left_detail {
+    border: 0px solid white; width: 100px; height: 70px;
+}
+.artist_menu_left > .artist_left_comment {
+    border: 0px solid white; width: 100px; height: 70px; color: #04E632;
+}
+
+/*가수 정보*/
+.artist_info_body {
+    border: 0px solid white; width: 1393px; height: 800px; margin-left: auto;
+    margin-right: auto;
+}
+.artist_info_body > .artist_info_text_box {
+    border: 0px solid white; width: 1393px; height: 230px; display: flex;
+    align-items: center; margin-left: auto; margin-right: auto;
+    border-bottom: 1px solid #999999;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text {
+    border: 0px solid white; width: 400px; height: 230px; color: white;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_activity_info{
+    border: 0px solid white; width: 200px; height: 50px; display: flex;
+    align-items: center;
+}
+.artist_activity_info p {
+    font-weight: bold; font-size: 1.05rem; margin-left: 20px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_debut{
+    border: 0px solid white; width: 300px; height: 30px; display: flex;
+    align-items: center;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_debut p:nth-child(1){
+    border: 0px solid white; display: inline-block; margin-left: 20px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_debut p:nth-child(2){
+    display: inline-block; margin-left: 70px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_recent_song{
+    border: 0px solid white; width: 400px; height: 60px; display: flex;
+    align-items: center;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_recent_song > .artist_recent_song_text{
+    border: 0px solid white; width: 50px; height: 50px; display: flex;
+    align-items: center; margin-left: 20px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_recent_song > .artist_album{
+    border: 0px solid white; width: 50px; height: 50px; display: flex;
+    align-items: center; margin-left: 47px; border-radius: 10px;
+    justify-content: center; position: relative; cursor: pointer;
+}
+.artist_album p {
+    font-size: 0.9rem; position: absolute; top: 18px; left: 22px;
+}
+.artist_album:hover p{
+    color: #04E632; transition: 0.2s all;
+}
+.artist_album img {
+    width: 50px; border-radius: 10px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_recent_song > .artist_song_name{
+    border: 0px solid white; height: 50px; margin-left: 10px; font-size: 0.9rem;
+}
+.artist_song_name p:nth-child(1) {
+    border: 0px solid white; font-size: 1.1rem; height: 30px; line-height: 30px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_type {
+    border: 0px solid white; height: 50px; display: flex; align-items: center;
+    width: 400px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_type p{
+    display: inline-block;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_type p:nth-child(1){
+    margin-left: 20px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_type p:nth-child(2){
+    margin-left: 68px;
+}
+
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_group {
+    border: 0px solid white; height: 30px; display: flex;align-items: center;
+    width: 400px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_group p{
+    display: inline-block;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_group p:nth-child(1){
+    margin-left: 20px;
+}
+.artist_info_body > .artist_info_text_box > .artist_info_text > .artist_group p:nth-child(2){
+    margin-left: 40px;
+}
+.artist_pro_box {
+    border: 0px solid white; width: 1393px; height: 550px; margin-left: auto;
+    margin-right: auto;
+}
+.artist_pro_box > .artist_pro_text_box {
+    border: 0px solid white; width: 1393px; height: 70px; color: white;
+    line-height: 70px;
+    display: flex; align-items: center; border-bottom: 1px solid #999999;
+}
+.artist_pro_box > .artist_pro_text_box p{
+    margin-left: 20px; font-weight: bold; font-size: 1.2rem;
+}
+.artist_pro_box > .artist_pro_content_box {
+    border: 0px solid #999999; width: 1393px; height: 480px; color: white;
+}
+.artist_pro_box > .artist_pro_content_box > .artist_pro_content{
+    border: 0px solid white; width: 1293px; height: 480px;
+    overflow-y: auto;
+}
+.artist_pro_box > .artist_pro_content_box > .artist_pro_content p{
+    margin-top: 20px; margin-left: 20px;
+}

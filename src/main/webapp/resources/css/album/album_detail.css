@@ -1,0 +1,179 @@
+.container {
+    border: 0px solid white; height: 936px;
+}
+a {
+    text-decoration: none; color: inherit; /* 기본 텍스트 색상 상속 */
+}
+/*앨범사진과 앨범정보들이 보이는 상단*/
+.album_top {
+    border: 0px solid white; width: 1393px; height: 250px; display: flex;
+    position: relative; margin-left: auto; margin-right: auto;
+}
+/*앨범 사진 부분*/
+.album_top_img {
+    border: 0px solid white; width: 200px; height: 250px; display: flex;
+    align-items: center;
+}
+.album_img {
+    border: 0px solid red; width: 200px; height: 190px; border-radius: 10px;
+}
+.album_img img {
+    width: 200px; border-radius: 10px;
+}
+
+/*앨범 정보 부분*/
+.album_top_text {
+    border: 0px solid white; width: 1193px; height: 250px; color: #999999;
+    position: relative;
+}
+.album_top_text > .album_top_type {
+    border: 0px solid white; display: inline-block; height: 60px; line-height: 80px;
+    margin-left: 50px;
+}
+.album_top_text > .album_top_song_name {
+    border: 0px solid white; font-size: 1.5rem; height: 30px; line-height: 30px;
+    margin-left: 50px; color: white; font-weight: 10;
+}
+.album_top_text > .album_top_artist {
+    border: 0px solid white; display: inline-block; height: 30px; line-height: 30px;
+    margin-left: 50px; color: #53B426;
+}
+.album_top_text > .album_top_release {
+    border: 0px solid white; height: 40px; line-height: 40px; margin-left: 50px;
+}
+.album_top_text > .album_top_release > .release{
+    display: inline-block;
+}
+.album_top_text > .album_top_release > .date{
+    display: inline-block; margin-left: 30px;
+}
+.album_top_text > .album_top_release > .comment{
+    display: inline-block; margin-left: 700px;
+}
+.album_top_text > .album_top_release > .comment_count{
+    display: inline-block;
+}
+.album_top_text > .album_top_genre {
+    border: 0px solid white; height: 40px; line-height: 40px; margin-left: 50px;
+    display: inline-block;
+}
+.album_top_text > .album_top_genre > .genre{
+    display: inline-block;
+}
+.album_top_text > .album_top_genre > .genre_name{
+    display: inline-block; margin-left: 44px;
+}
+.album_top_text > .album_top_genre > .hart{
+    display: inline-block; margin-left: 750px;
+}
+.album_top_text > .album_top_genre > .hart_count{
+    display: inline-block; margin-left: 11px;
+}
+.album_top_text > .album_top_agency {
+    border: 0px solid white; height: 40px; line-height: 40px; margin-left: 50px;
+}
+.album_top_text > .album_top_agency > .agency{
+    display: inline-block; border: 0px solid white;
+}
+.album_top_text > .album_top_agency > .agency_name{
+    display: inline-block; margin-left: 27px;
+}
+
+/*메뉴들이 있는 부분*/
+.album_menu {
+    border: 0px solid white; width: 1393px; height: 70px; display: flex; justify-content: space-between;
+    border-bottom: 1px solid #999999; margin-left: auto; margin-right: auto;
+}
+/*수록곡, 앨범상세, 댓글 메뉴버튼 ajax로 구현하기*/
+.album_menu_left {
+    border: 0px solid red; width: 300px; height: 70px; display: flex; justify-content: space-around; text-align: center;
+    color: white; line-height: 70px; font-size: 1.2rem;
+}
+.album_menu_left > .album_left_song {
+    border: 0px solid white; width: 100px; height: 70px;
+}
+.album_menu_left > .album_left_detail {
+    border: 0px solid white; width: 100px; height: 70px; color: #04E632;
+}
+.album_menu_left > .album_left_comment {
+    border: 0px solid white; width: 100px; height: 70px;
+}
+
+/*앨범상세 내용*/
+.album_detail_body {
+    border: 0px solid white; width: 100%; height: 616px; margin-left: auto;
+    margin-right: auto; color: white;
+}
+.album_detail_body > .album_information_body {
+    border: 0px solid white; width: 500px; height: 200px; font-size: 1.0rem;
+    position: relative;
+}
+
+/*앨범상세 - 앨범명*/
+.album_detail_body > .album_information_body > .album_detail_name_box {
+    border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
+    margin-left: 40px;
+}
+.album_detail_body > .album_information_body > .album_detail_name_box  > .album_name{
+    border: 0px solid white; display: inline-block; width: 85px;
+}
+.album_detail_body > .album_information_body > .album_detail_name_box  > .album_name_value{
+    display: inline-block;
+}
+
+/*앨범상세 - 아티스트*/
+.album_detail_body > .album_information_body > .album_detail_artist_box {
+    border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
+    margin-left: 40px;
+}
+.album_detail_body > .album_information_body > .album_detail_artist_box > .album_artist {
+    border: 0px solid white; display: inline-block; width: 85px;
+}
+.album_detail_body > .album_information_body > .album_detail_artist_box > .album_artist_value {
+    display: inline-block;
+}
+
+/*앨범상세 - 장르*/
+.album_detail_body > .album_information_body > .album_detail_genre_box {
+    border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
+    display: inline-block; margin-left: 40px;
+}
+.album_detail_body > .album_information_body > .album_detail_genre_box > .album_genre {
+    border: 0px solid white; display: inline-block; width: 85px;
+}
+.album_detail_body > .album_information_body > .album_detail_genre_box > .album_genre_value {
+    display: inline-block;
+}
+
+/*앨범상세 - 소속사*/
+.album_detail_body > .album_information_body > .album_detail_agency_box {
+    border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
+    margin-left: 40px;
+}
+.album_detail_body > .album_information_body > .album_detail_agency_box > .album_agency {
+    border: 0px solid white; display: inline-block; width: 85px;
+}
+.album_detail_body > .album_information_body > .album_detail_agency_box > .album_agency_value {
+    display: inline-block;
+}
+
+/*앨범소개 텍스트박스*/
+.album_produce_text_box {
+    border-bottom: 1px solid #999999; height: 80px; width: 1400px; display: flex;
+    text-align: center;
+}
+.album_produce_text_box > .album_produce_text {
+    border: 0px solid white; font-size: 1.6rem; margin-left: 40px; height: 80px;
+    line-height: 80px;
+}
+
+/*앨범소개 - 앨범소개내용*/
+.album_produce_content_box {
+    border: 0px solid blue; height: 334px; width: 1338px; display: flex;
+}
+.album_produce_content_box > .album_produce_content {
+    border: 0px solid white; padding: 40px; width: 1338px;
+}
+
+
+

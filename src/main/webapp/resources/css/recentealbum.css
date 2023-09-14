@@ -1,0 +1,46 @@
+.wrap {
+	padding-left:22px;
+	color:white;
+}
+.wrap .head-title {
+	display:flex;
+}
+.wrap .head-title .head-title-menu{
+	display:flex;
+	padding-left:40px;
+	padding-top:30px;
+}
+.wrap .head-title .head-title-menu .all {
+	height:20px;
+}
+.wrap .head-title .head-title-menu .all, .domestic, .foreign{
+	cursor:pointer;
+}
+.wrap .top-100 {
+	font-size:35px;
+	padding-top: 22px;
+	width:130px;
+}
+.wrap ul {
+	display:flex;
+	padding-top:30px;
+}
+.wrap ul li {
+	width:235px;
+	height:280px;
+}
+.wrap ul li img {
+	border-radius:10px;
+}
+.wrap ul div {
+	padding-top:5px;
+}
+.wrap ul div p {
+	padding-top:7px;
+}
+.wrap ul div p:nth-child(1) {
+	font-size:14.5px
+}
+.wrap ul div p:nth-child(2), p:nth-child(3) {
+	font-size:13px
+}

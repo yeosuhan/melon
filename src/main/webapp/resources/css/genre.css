@@ -1,0 +1,250 @@
+.wrap .dropdown {
+	display:flex;
+	padding-top:30px;
+}
+.wrap .dropdown p {
+	font-size:28px;
+	padding-left: 22px;
+	padding-right:10px;
+	color: white;
+}
+.dropdown-btn {
+	padding-top:5px;
+}
+/* 드롭다운 버튼 스타일 */
+.dropbtn {
+    background-color: #2a2a2a;
+    color: #808080;
+    border:1px solid #808080;
+    border-radius:50%;
+    width:20px;
+    height:23px;
+    font-size:8px; 
+    text-align:center;
+    padding-right:16px;
+}
+.dropbtn:hover {
+	cursor:pointer;
+	color: #b7b7b7;
+	border: solid 1px #b7b7b7;
+}
+/* 시대별 */
+.era {
+	display:flex;
+}
+.era p {
+	color:#999898 !important;
+	font-size:15px !important;
+	line-height:28px;
+}
+.era p:hover {
+	cursor:pointer;
+	color:#04E632 !important;
+}
+/* 드롭다운 컨테이너 스타일 (기본적으로 숨겨져 있음) */
+#dropdown-title {
+    display: none;
+    position:absolute;
+    background-color: #333;
+    width: 130px;
+   	height:265px;
+    margin-top:32px;
+    margin-left:-77px;
+    border-radius: 10px;
+    top:30px;
+    left:135px;
+}
+.dropdown-content {
+    display: show;
+    background-color: #333;
+	width:130px;
+    max-height:240px;
+    margin-top:10px;
+    overflow-y: auto;
+    border-radius: 10px;
+    z-index: 1;
+}
+.dropdown-content a:hover {
+	background-color:#444;
+}
+::-webkit-scrollbar {
+    width: 5px; /* 스크롤바의 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* 스크롤바 색상 */
+    border-radius: 5px; /* 스크롤바 썸네일의 둥근 모서리 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 스크롤바 색상 (호버 상태) */
+}
+/* 드롭다운 옵션 스타일 */
+.dropdown-content a {
+    padding: 12px 16px;
+    font-size:13px;
+    text-decoration: none;
+    display: block;
+    color: #dfdfdf;
+}
+.dropdown-content a:hover {
+	cursor:pointer;
+}
+.show {
+    display: block !important;
+}
+/* 내가 즐겨찾기한거 즐겨찾기 */
+.favorites {
+	padding-top:30px;
+	padding-left:30px;
+}
+.favorites ul {
+	display:flex;
+}
+.favorites ul li {
+	border-radius:30px;
+	height:25px;
+	font-size:15px;
+	text-align:center;
+	line-height:25px;
+	margin-right:15px;
+	padding-left:9px;
+	padding-right:9px;
+	cursor:pointer;
+	display:none;
+}
+.myballade {
+	color:#1fc561; border:1px ridge #167d3f
+}
+.mydance {
+	color:#1fbcc5; border:1px solid #127b81
+}
+.myhiphop {
+	color:#a571f5; border:1px solid #614291
+}
+.myindie {
+	color:#fd6a6a; border:1px solid #933939
+}
+.myrnb {
+	color:#DB3D23; border:1px solid #8b2615
+}
+.myost {
+	color:#886fe5; border:1px solid #6855ad
+}
+.myforeign {
+	color:#19d7a4; border:1px solid #0d8766
+}
+.myballade:hover {
+	color:#1fc561; border:1px solid #1fc561
+}
+.mydance:hover {
+	color:#1fbcc5; border:1px solid #1fbcc5
+}
+.myhiphop:hover {
+	color:#a571f5; border:1px solid #a571f5
+}
+.myindie:hover {
+	color:#fd6a6a; border:1px solid #fd6a6a
+}
+.myrnb:hover {
+	color:#DB3D23; border:1px solid #DB3D23
+}
+.myost:hover {
+	color:#886fe5; border:1px solid #9a7ffd
+}
+.myforeign:hover {
+	color:#19d7a4; border:1px solid #19d7a4
+}
+.favorites ul li:hover {
+	border-width: 1.5px;
+}
+/* 즐겨찾기 메뉴 */
+.favorite-menu {
+	padding-top:41px;
+	padding-left:30px;
+	width:95%;
+	display:none;
+}
+.favorite-menu ul {
+	padding-top:41px;
+	display:flex;
+}
+.favorite-menu ul.showline {
+	border-top:1px solid #414141;
+	margin-top:-1px;
+}
+.favorite-menu ul.none {
+	border-top:none;
+	margin-top:0px;
+}
+.favorite-menu ul li {
+	border:1px solid #777;
+	color :#777;
+	border-radius:30px;
+	height:25px;
+	font-size:15px;
+	text-align:center;
+	line-height:25px;
+	margin-right:15px;
+	padding-left:9px;
+	padding-right:9px;
+}
+.menu-toggle {
+	width:1325px;
+	display:flex;
+	justify-content: center;
+    align-items: center;
+    border-bottom:1px solid #414141;
+    padding-left:50px;
+    margin-left:29px;
+}
+.menu-toggle i {
+	color:#ccc;
+	padding-top:14px;
+	padding-bottom:14px;
+	cursor:pointer;
+}
+.favorite-menu ul li i:hover {
+	cursor:pointer;
+	color:#ccc;
+}
+.favorite-menu ul li .check {
+	display:none;
+}
+.menu-toggle #favoriteup {
+	display:none;
+}
+/* 앨범 */
+.genre_album {
+	padding:29px;
+	width:1370px;
+	color:#fff;
+}
+.genre_album p {
+	font-size:30px;
+}
+.genre_album ul {
+	padding-top:15px;
+	display:flex;
+	justify-content: space-between;
+}
+.genre_album ul li {
+	width:300px;
+	height:400px;
+}
+.genre_album ul li img {
+	border-radius:10px;
+	width:100%;
+}
+.genre_album ul div {
+	padding-top:5px;
+}
+.genre_album ul div p {
+	padding-top:7px;
+}
+.genre_album ul div p:nth-child(1) {
+	font-size:14.5px
+}
+.genre_album ul div p:nth-child(2), p:nth-child(3) {
+	font-size:13px
+}

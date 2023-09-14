@@ -1,0 +1,37 @@
+.wrap{margin: 0 0 100px 0;}
+
+/* 함께 들어요 */
+.with_playlist tr{position: relative; display: flex; flex-wrap: wrap; width: 240px; margin: 0 18px 18px 0;}
+.with_playlist h3{color:#fff; font-size: 1.1rem; line-height: 80px; height: 80px; width: 230px;}
+.with_playlist p{color:#fff; font-size: 1rem; height: 60px; width: 208px; position: absolute; bottom: 2px; left: 0; opacity: 0.6; background: #222; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px; padding: 16px 16px 0 16px; line-height: 20px;}
+.with_playlist img{width: 100%; border-radius: 10px; position: relative;}
+.with_playlist tbody{position: relative; width: 1050px; display: flex; flex-wrap: wrap; justify-content: flex-start;}
+
+/* 탑100 */
+.main_topsong{position: relative;}
+.main_topsong table{ margin: 0 auto;}
+.main_topsong p{color: #fff; font-size: 0.9rem;}
+.main_topsong h3{color: #fff; font-size: 1.1rem; height: 80px; line-height: 80px; }
+.main_topsong img{width: 45px;}
+.main_topsong tr{position: relative; display: flex; justify-content: space-between; line-height: 20px; width: 350px;}
+.main_topsong_wrap{position: relative; display: flex; width: 1000px;}
+.main_topsong .topsong_fst{width: 45px;}
+.main_topsong .topsong_sec{width: 75px; text-align: center;}
+.main_topsong .topsong_thd{width: 100%;}
+
+/* 추천 음악 */
+.sug_newsong{position: relative;}
+.sug_newsong h3{color: #fff; font-size: 1.1rem; height: 80px; line-height: 80px; }
+.sug_newsong img{width: 40px; margin: 10px;}
+.sug_newsong table tr{position: relative; width: 1000px; display: flex; justify-content: space-between; flex-wrap: wrap;}
+.sug_newsong table tr td{width: 496px; position: relative; display: flex; margin: 10px 0 0 0; background-color: #333; border-radius: 6px; align-items: center;}
+.sug_newsong td>div>p{ color: #fff; font-size: 0.9rem; line-height: 19px;}
+.sug_newsong td>div>p:last-child{ color: #aaa; font-size: 0.8rem;}
+
+/* 마이 뮤직 */
+.my_music{position: relative;}
+.my_music h3{color: #fff; font-size: 1.1rem; height: 80px; line-height: 80px; }
+.my_music tr{position: relative; display: flex; flex-wrap: wrap; width: 240px; margin: 0 18px 18px 0;}
+.my_music p{color:#fff; font-size: 1rem; height: 60px; width: 208px; position: absolute; bottom: 2px; left: 0; opacity: 0.6; background: #222; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px; padding: 16px 16px 0 16px; line-height: 20px;}
+.my_music img{width: 100%; border-radius: 10px; position: relative;}
+.my_music tbody{position: relative; width: 1050px; display: flex; flex-wrap: wrap; justify-content: flex-start;}

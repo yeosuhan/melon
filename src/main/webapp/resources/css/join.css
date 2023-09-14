@@ -1,0 +1,21 @@
+button{border: none;}
+button:hover{cursor: pointer;}
+
+.login_wrap{position: relative}
+.login_wrap a,h2{color:#fff;}
+.login_wrap h2{width: 100%; text-align: center; height: 200px; line-height: 200px; font-size: 2.2rem; font-family: 'KCC-Ganpan'; color: #04E632;}
+
+.join_form{ position: relative; margin: 0 auto; width: 360px;}
+.join_form form{ display: flex; justify-content: center; flex-wrap: wrap; width: 360px;}
+.join_form input{width: 360px; height: 50px; border: none; margin: 0 0 14px 0; background: none; border-bottom: 1px solid #4c4c4c; font-size: 0.8rem; color: #fff; letter-spacing: 1.1px;}
+.join_form form button{width: 360px; height: 50px; font-size: 0.95rem; position: relative; display: flex; justify-content: center; align-items: center; background: none; border-radius: 30px; margin: 10px 0; border:1px solid #04E632; color: #04E632;}
+.join_form form button:before{content: ''; position: absolute; width: 0; height: 100%; background-color: #04E632; transition: 0.3s all; border-radius: 30px;}
+.join_form form button:hover:before{width: 100%; z-index: -1;}
+.join_form form button:hover{color:#fff;}
+.join_form p{ text-align: left; color: #f00; width: 100%; font-size: 0.75rem; margin: 0 0 16px 0;}
+.join_form button p{ color: #fff; text-align: center; font-size: 0.95rem; margin: 0;}
+
+.join_form .idbox{ display: flex;}
+.join_form .idbox input { transform: translateX(46px);}
+.join_form .idbox button { width:90px; height:30px; font-size:0.8rem; transform: translateX(-46px); border-radius:3px; }
+.join_form .idbox button:before{ border-radius:1px;}

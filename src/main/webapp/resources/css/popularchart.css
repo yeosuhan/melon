@@ -1,0 +1,41 @@
+.wrap {
+	padding-left:22px;
+	color:white;
+}
+.wrap .top-100 {
+	font-size:35px;
+	padding-top: 22px;
+}
+.wrap .now {
+	padding-top: 22px;
+	font-size:15px;
+}
+.wrap .chart-table {
+	padding-top: 50px;
+	width:1300px;
+}
+.wrap .chart-table .charts {
+	width:100%;
+}
+.wrap .chart-table .charts thead td {
+	height:50px;
+	vertical-align: middle;
+	border-top: 1px solid gray;
+}
+.wrap .chart-table .charts tbody td {
+	height:90px;
+	vertical-align: middle;
+	border-top: 1px solid gray;
+}
+.wrap .chart-table .charts td:nth-child(1){
+	width:50px;
+}
+.wrap .chart-table .charts td:nth-child(2){
+	width:70px;
+}
+.wrap .chart-table .charts td:nth-child(3){
+	width:70px;
+	text-align:center;
+}
+#top_like_btn1 .top_song_like1{font-size: 1.1rem; font-weight: 300; color: #fff;}
+#top_like_btn1 .green{font-size: 1.1rem; font-weight: 300; color: #04E632 !important;}
