@@ -13,26 +13,20 @@
 
         <div class="song_button">
             <div class="song_add_title"><p>앨범 추가</p></div>
-            <a href="/admin"><button>뒤로가기</button></a>
-            <form action="" method="post" class="data_form">
+            <a href="/admin/album"><button>뒤로가기</button></a>
+            <form action="/album/add" method="post" class="data_form">
                 <label>가수이름</label>
                 <input type="text" size="30px" placeholder="가수이름">
                 <label>앨범명</label>
-                <input type="text" size="30px" placeholder="앨범명">
+                <input type="text" size="30px" placeholder="앨범명" name="albumName">
                 <label>발매일</label>
-                <input type="text" size="30px" placeholder="발매일">
+                <input type="text" size="30px" placeholder="발매일" name="releaseDate">
                 <label for="albumImage">앨범이미지 파일선택</label>
                 <input type="file" id="albumImage">
                 <label>앨범타입</label>
-                <input type="text" size="30px" placeholder="앨범타입">
+                <input type="text" size="30px" placeholder="앨범타입" name="albumType">
                 <p>앨범소개</p>
-                <textarea name="" id="" cols="50" rows="12"></textarea>
-<%--                <input type="text" size="30px" placeholder="가수이름">--%>
-<%--                <input type="text" size="30px" placeholder="노래제목">--%>
-<%--                <input type="text" size="30px" placeholder="재생시간">--%>
-<%--                <input type="text" size="30px" placeholder="노래파일">--%>
-<%--                <p>노래가사</p>--%>
-<%--                <textarea name="" id="" cols="50" rows="12"></textarea>--%>
+                <textarea  cols="50" rows="12" name="albumPro"></textarea>
                 <div><input type="submit"></div>
 
             </form>
