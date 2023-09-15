@@ -1,5 +1,7 @@
 package com.melon.controller.common;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.RequiredArgsConstructor;
@@ -30,13 +32,13 @@ public class LoginController {
     }
     
     @PostMapping
-    private String login(LoginDto m, HttpSession session, RedirectAttributes rttr){
-    	return ILoginService.login(m, session, rttr);
+    private String login(LoginDto m, HttpSession session, RedirectAttributes rttr, HttpServletResponse response){
+    	return ILoginService.login(m, session, rttr, response);
     }
     
     @GetMapping("/logout")
-    private String logout(LoginDto m, HttpSession session, RedirectAttributes rttr) {
-    	ILoginService.logout(m, session, rttr);
+    private String logout(LoginDto m, HttpSession session, RedirectAttributes rttr, HttpServletResponse response) {
+    	ILoginService.logout(m, session, rttr, response);
     	return "redirect:/";
     }
     
