@@ -14,6 +14,8 @@ public class AlbumDetails {
     private int albumId;
     private int songId;
     private int artistId;
+    private int albumLike;
+    private int songLike;
     private String albumType;
     private String songName;
     private String artistName;
