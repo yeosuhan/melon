@@ -1,13 +1,15 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
 <link href="<%=request.getContextPath()%>/resources/css/ticket.css" rel="stylesheet">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/ticket.js"></script>
+
 <body>
 <%@ include file="/WEB-INF/view/common/header.jsp" %>
-<script src="<%=request.getContextPath()%>/resources/js/ticket.js"></script>
 <section class="sec1">
     <%@ include file="/WEB-INF/view/common/aside.jsp" %>
     <div class="wrap">
@@ -29,30 +31,28 @@
                     <div class="ticket_payment_first_box">
                         <div class="ticket_payment_first_left_box">
                             <div class="ticket_payment_left_text">
-                                <p>${ticket8.ticketName}</p>
-                                <p>${ticket8.ticketComment}</p>
+                                <p>스트리밍 플러스 정기결제</p>
+                                <p>무제한 듣기 + 오프라인 재생</p>
                             </div>
                         </div>
                         <div class="ticket_payment_first_right_box">
                             <div class="ticket_payment_right_text">
-                                <fmt:formatNumber value="${ticket8.ticketPrice}" type="number" pattern="###,###,### 원" var="formattedPrice8" />
-                                <p>${formattedPrice8}</p>
-                                <button type="button" name="pay_btn">구매</button>
+                                <p>10,900원</p>
+                                <button type="button" name="pay_btn" onclick="requestPay()">구매</button>
                             </div>
                         </div>
                     </div>
                     <div class="ticket_payment_first_box">
                         <div class="ticket_payment_first_left_box">
                             <div class="ticket_payment_left_text">
-                                <p>${ticket9.ticketName}</p>
-                                <p>${ticket9.ticketComment}</p>
+                                <p>스트리밍 플러스 30일</p>
+                                <p>무제한 듣기 + 오프라인 재생</p>
                             </div>
                         </div>
                         <div class="ticket_payment_first_right_box">
                             <div class="ticket_payment_right_text">
-                                <fmt:formatNumber value="${ticket9.ticketPrice}" type="number" pattern="###,###,### 원" var="formattedPrice9" />
-                                <p>${formattedPrice9}</p>
-                                <button type="button" name="pay_btn">구매</button>
+                                <p>11,400원</p>
+                                <button type="button" name="pay_btn" onclick="requestPay()">구매</button>
                             </div>
                         </div>
                     </div>
