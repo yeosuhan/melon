@@ -33,7 +33,7 @@ input:focus,textarea:focus,select:focus{outline:none; border:none;}
 a,a:active,a:visited,a:hover{text-decoration: none;}
 body{background-color: #2a2a2a; font-family: 'SUIT-Regular';}
 input[type="checkbox"]:hover{cursor: pointer;}
-p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+h2,h3,p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 
 .header{position: relative; display: flex; height: 65px; width: calc(100% - 350px);}
 .header>.header_left>a{font-size: 1.2rem; color:#04E632; margin: 20px; font-family: 'KCC-Ganpan'; height: 23px; line-height: 23px;}
@@ -81,6 +81,8 @@ p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 .playsong_list_wrap_div{display: flex; flex-wrap: wrap; align-content: space-between; margin: 0 0 0 13px;}
 .playsong_list_wrap_div p { font-size: 0.8rem; width: 100%;}
 .playsong_list_wrap_box{width: 4px; height: 4px;}
+.playsong_oper_wrap .shuffle {font-size:1.4rem;}
+.playsong_oper_wrap .shuffle:hover {color: #04E632; cursor:pointer;}
 
 .sec1{position: relative; display: flex;}
 
