@@ -7,6 +7,7 @@
 	rel="stylesheet">
 <%@ include file="/WEB-INF/view/common/front_header.jsp"%>
 <script src="<%=request.getContextPath()%>/resources/js/popularchart.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <body>
 	<%@ include file="/WEB-INF/view/common/header.jsp"%>
 	<section class="sec1">
@@ -15,8 +16,14 @@
 			<div>
 				<h1 class="top-100">TOP 100</h1>
 			</div>
-			<div>
-				<h4 class="now">현재 시간</h4>
+			<div class="time">
+				<h4 class="now"></h4>
+				<i class="fa-solid fa-rotate-right retate"></i>
+			</div>
+			<div style="width: 1350px; padding-top: 30px">
+				<button class="allplay">
+					<i class="fa-solid fa-play" style="padding: 5px"></i>전체 재생
+				</button>
 			</div>
 			<div class="chart-table">
 				<table class="charts">
@@ -25,7 +32,7 @@
 							<td><input type="checkbox"></td>
 							<td></td>
 							<td>순위</td>
-							<td>-</td>
+							<td></td>
 							<td>곡정보</td>
 							<td>아티스트명</td>
 							<td>앨범명</td>
@@ -33,22 +40,25 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td><input type="checkbox"></td>
-							<td><img
-								src="<%=request.getContextPath()%>/resources/Img/album2.png"
-								style="height: 55px;"></td>
-							<td>1</td>
-							<td>-</td>
-							<td>Hype boy</td>
-							<td>NewJeans</td>
-							<td>NewJeans'OMG'</td>
-							<td>
-								<p id="top_like_btn1">
-									<a href="#" class="top_song_like1"><strong>♥</strong></a>
-								</p>
-							</td>
-						</tr>
+						<c:forEach var="psd" items="${sd}" varStatus="loop">
+							<tr>
+								<td><input type="checkbox"></td>
+								<td><img
+									src="<%=request.getContextPath()%>/resources/Img/album2.png"
+									style="height: 55px;"></td>
+								<td>${loop.index+i+1}</td>
+								<td class="changeRank">${rankChange[loop.index]}</td>
+								<td class="play_song">${psd.songName}</td>
+								<td>${psd.artistName}</td>
+								<td>${psd.albumName}</td>
+								<td>
+									<p id="top_like_btn${loop.index+i}">
+										<a id="top_song_like${loop.index+i}"><strong class="none">♡</strong><strong class="ilike">♥</strong></a>
+									</p>
+									${psd.songLike}
+								</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>

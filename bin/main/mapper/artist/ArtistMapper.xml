@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.melon.dao.artist.IArtistDao">
+
+    <select id="selectArtistInfo" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            AR.ARTIST_ID AS artistId,
+            S.SONG_ID AS songId,
+            A.ALBUM_ID AS albumId,
+            AR.ARTIST_NAME AS artistName,
+            AR.ACTIVITY_TYPE AS activityType,
+            S.SONG_NAME AS songName,
+            A.ALBUM_NAME AS albumName,
+            AR.AGENCY AS agency
+        FROM
+            ARTIST AR, SONG S, ALBUM A
+        WHERE
+            AR.ARTIST_ID = S.ARTIST_ID
+          AND
+            S.ALBUM_ID = A.ALBUM_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+    <select id="selectArtistSongs" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            A.ALBUM_ID AS albumId,
+            A.ALBUM_NAME AS albumName,
+            S.SONG_ID AS songId,
+            S.SONG_NAME AS songName,
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_NAME AS artistName
+        FROM
+            ALBUM A, SONG S, ARTIST AR
+        WHERE
+            A.ALBUM_ID = S.ALBUM_ID
+          AND
+            S.ARTIST_ID = AR.ARTIST_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+    <select id="selectArtistAlbums" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            S.SONG_ID AS songId,
+            S.SONG_NAME AS songName,
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_NAME AS artistName,
+            A.ALBUM_ID AS albumId,
+            A.RELEASE_DATE AS releaseDate
+        FROM
+            ALBUM A, SONG S, ARTIST AR
+        WHERE
+            A.ALBUM_ID = S.ALBUM_ID
+        AND
+            S.ARTIST_ID = AR.ARTIST_ID
+        AND
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+    <select id="selectArtistActivity" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            AR.DEBUT AS debut,
+            AR.ARTIST_NAME AS artistName,
+            S.SONG_NAME AS songName,
+            AR.ACTIVITY_TYPE AS activityType,
+            G.GENRE_NAME AS genreName,
+            AR.ARTIST_PRO AS artistPro
+        FROM
+            ARTIST AR, SONG S, GENRE G
+        WHERE
+            AR.ARTIST_ID = S.ARTIST_ID
+          AND
+            S.GENRE_ID = G.GENRE_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+
+</mapper>

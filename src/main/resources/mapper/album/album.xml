@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.melon.dao.album.IAlbumDao">
+
+    <select id="selectRecentAlbum" resultType="com.melon.dto.album.AlbumDto">
+        <![CDATA[
+	        SELECT * FROM (
+	            SELECT
+	                AR.ARTIST_NAME AS artistName,
+	                AL.ALBUM_NAME AS albumName,
+	                AL.RELEASE_DATE AS releaseDate
+	            FROM
+	                SONG S, ALBUM AL, ARTIST AR, GENRE G
+	            WHERE
+	                S.ARTIST_ID = AR.ARTIST_ID
+	            AND
+	                S.ALBUM_ID = AL.ALBUM_ID
+	            AND
+	                S.GENRE_ID = G.GENRE_ID
+	            AND
+	                TO_DATE(AL.RELEASE_DATE, 'YYYY-MM-DD') >= SYSDATE - 30
+	            ORDER BY
+	                AL.RELEASE_DATE DESC)
+        ]]>
+    </select>
+    <select id="selectOriginRecentAlbum" resultType="com.melon.dto.album.AlbumDto">
+        SELECT * FROM (
+            SELECT
+                AR.ARTIST_NAME AS artistName,
+                AL.ALBUM_NAME AS albumName,
+                AL.RELEASE_DATE AS releaseDate
+            FROM
+                SONG S, ALBUM AL, ARTIST AR, GENRE G
+            WHERE
+                S.ARTIST_ID = AR.ARTIST_ID
+            AND
+                S.ALBUM_ID = AL.ALBUM_ID
+            AND
+                S.GENRE_ID = G.GENRE_ID
+            <![CDATA[
+            AND
+                TO_DATE(AL.RELEASE_DATE, 'YYYY-MM-DD') >= SYSDATE - 30
+            ]]>
+            <if test="origin=='all'">
+            AND
+            	G.GENRE_ID &gt;= 0
+        	</if>
+        	<if test="origin=='foreign'">
+            AND
+            	G.GENRE_ID = 6
+        	</if>
+        	<if test="origin=='domestic'">
+            AND
+            	G.GENRE_ID &lt; 6
+        	</if>
+            ORDER BY
+                AL.RELEASE_DATE DESC)
+    </select>
+</mapper>

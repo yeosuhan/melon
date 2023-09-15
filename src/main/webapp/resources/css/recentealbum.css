@@ -22,12 +22,14 @@
 	width:130px;
 }
 .wrap ul {
-	display:flex;
 	padding-top:30px;
+	width:1410px;
+	display:flex;
+	flex-wrap:wrap;
 }
 .wrap ul li {
 	width:235px;
-	height:280px;
+	height:300px;
 }
 .wrap ul li img {
 	border-radius:10px;
