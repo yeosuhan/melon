@@ -1,21 +1,20 @@
 package com.melon.controller.member;
 
-import com.melon.dto.album.AdminAlbumDto;
-import com.melon.dto.artist.AdminArtistDto;
-import com.melon.dto.member.AdminMemberDto;
-import com.melon.dto.song.AdminSongDto;
-import com.melon.service.artist.AdminServiceImpl;
-import com.melon.service.artist.IAdminService;
+import com.melon.dto.admin.AdminAlbumDto;
+import com.melon.dto.admin.AdminArtistDto;
+import com.melon.dto.admin.AdminMemberDto;
+import com.melon.dto.admin.AdminSongDto;
+import com.melon.service.adminService.IAdminService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @Log4j2

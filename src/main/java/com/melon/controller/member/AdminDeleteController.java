@@ -1,6 +1,6 @@
 package com.melon.controller.member;
 
-import com.melon.service.artist.IAdminService;
+import com.melon.service.adminService.IAdminService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
