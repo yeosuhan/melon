@@ -1,5 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
@@ -28,13 +29,14 @@
                     <div class="ticket_sale_payment_first_box">
                         <div class="ticket_sale_payment_first_left_box">
                             <div class="ticket_sale_payment_left_text">
-                                <p>MP3 10 플러스 정기결제</p>
-                                <p>월 10곡 다운 (평생소장) + 무제한 듣기</p>
+                                <p>${ticket6.ticketName}</p>
+                                <p>${ticket6.ticketComment}</p>
                             </div>
                         </div>
                         <div class="ticket_sale_payment_first_right_box">
                             <div class="ticket_sale_payment_right_text">
-                                <p>9,900원</p>
+                                <fmt:formatNumber value="${ticket6.ticketPrice}" type="number" pattern="###,###,### 원" var="formattedPrice6" />
+                                <p>${formattedPrice6}</p>
                                 <p>14,000원</p>
                                 <button type="button" name="pay_btn">구매</button>
                             </div>
@@ -43,13 +45,14 @@
                     <div class="ticket_sale_payment_first_box">
                         <div class="ticket_sale_payment_first_left_box">
                             <div class="ticket_sale_payment_left_text">
-                                <p>MP3 10 플러스 정기결제</p>
-                                <p>월 30곡 다운 (평생소장) + 무제한 듣기</p>
+                                <p>${ticket7.ticketName}</p>
+                                <p>${ticket7.ticketComment}</p>
                             </div>
                         </div>
                         <div class="ticket_sale_payment_first_right_box">
                             <div class="ticket_sale_payment_right_text">
-                                <p>17,900원</p>
+                                <fmt:formatNumber value="${ticket7.ticketPrice}" type="number" pattern="###,###,### 원" var="formattedPrice7" />
+                                <p>${formattedPrice7}</p>
                                 <p>25,000원</p>
                                 <button type="button" name="pay_btn">구매</button>
                             </div>
