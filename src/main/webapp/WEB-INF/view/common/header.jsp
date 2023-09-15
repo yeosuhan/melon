@@ -3,9 +3,9 @@
 <header class="header">
     <div class="header_left">
         <a href="/">Melon</a>
-        <form action="/search" method="post">
+        <form action="/search" method="get">
             <div class="header_left_read"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <input type="text" name="result">
+            <input type="text" name="songName">
         </form>
     </div>
     <c:if test="${empty user}">
@@ -23,10 +23,10 @@
     <aside class="aside">
         <div class="playsong_info">
             <img src="<%=request.getContextPath()%>/resources/Img/next_level_img.png">
-            <p class="play_now_song_name">Next Level</p>
-            <p class="play_now_artist_name"><span>aespa</span></p>
+            <p>Next Level</p>
+            <p><span>aespa</span></p>
             <p id="like_btn"><a href="#" class="white"><strong>♥</strong></a></p>
-            <p class="play_now_song_time">00:00 | 04:15</p>
+            <p>00:00 | 04:15</p>
             <div class="playsong_oper">
                 <div class="playsong_oper_wrap">
                     <a href=""><i class="fa-solid fa-play"></i></a>
@@ -43,16 +43,22 @@
         </div>
         <div class="playsong_list"> <!-- 동적으로 생성-->
             <ul>
-	            <c:forEach var="pd" items="${pd}">
-	                <li class="playsong_list_wrap">
-	                    <input type="checkbox">
-	                    <img src="<%=request.getContextPath()%>/resources/Img/next_level_img.png">
-	                    <div class="playsong_list_wrap_div">
-	                        <p>${pd.songName}</p>
-	                        <p>${pd.artistName}</p>
-	                    </div>
-	                </li>
-	            </c:forEach>
+                <li class="playsong_list_wrap">
+                    <input type="checkbox">
+                    <img src="<%=request.getContextPath()%>/resources/Img/next_level_img.png">
+                    <div class="playsong_list_wrap_div">
+                        <p>Next Level</p>
+                        <p>aespa</p>
+                    </div>
+                </li>
+                <li class="playsong_list_wrap">
+                    <input type="checkbox">
+                    <img src="<%=request.getContextPath()%>/resources/Img/album2.png">
+                    <div class="playsong_list_wrap_div">
+                        <p>Hype ascascasc</p>
+                        <p>NewJeansascascasc</p>
+                    </div>
+                </li>
             </ul>
         </div>
     </aside>
