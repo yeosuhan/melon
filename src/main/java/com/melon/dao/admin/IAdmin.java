@@ -1,9 +1,9 @@
 package com.melon.dao.admin;
 
-import com.melon.dto.album.AdminAlbumDto;
-import com.melon.dto.artist.AdminArtistDto;
-import com.melon.dto.member.AdminMemberDto;
-import com.melon.dto.song.AdminSongDto;
+import com.melon.dto.admin.AdminAlbumDto;
+import com.melon.dto.admin.AdminArtistDto;
+import com.melon.dto.admin.AdminMemberDto;
+import com.melon.dto.admin.AdminSongDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

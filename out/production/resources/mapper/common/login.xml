@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.melon.dao.common.ILoginDao">
+    <select id="login" parameterType="com.melon.dto.common.LoginDto" resultType="com.melon.dto.common.LoginDto">
+        SELECT M.MEMBER_ID AS id,
+               M.PASSWORD AS password,
+               M.NICK as nick,
+               M.NAME as name,
+               M.ROLE as role
+        FROM MEMBER M WHERE M.MEMBER_ID = #{m.id} AND M.PASSWORD = #{m.password}
+    </select>
+
+</mapper>

@@ -4,7 +4,7 @@ IMP.init('imp85737750')
 function isLoggedIn() {
     // userCookie가 있는지 확인 (로그인 여부 확인을 위한 쿠키)
     var userCookie = getCookie("userCookie");
-    return userCookie !== null && userCookie === "loggedIn"; // userCookie의 값이 "loggedIn"이면 로그인 상태로 간주
+    return userCookie !== null && userCookie == true; // userCookie의 값이 "loggedIn"이면 로그인 상태로 간주
 }
 
 // 쿠키를 가져오는 함수
