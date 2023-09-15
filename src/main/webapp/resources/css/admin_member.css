@@ -27,18 +27,29 @@
     display: inline-block;
     margin-left: 180px;
 }
+.search_body form input {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #4c4c4c;
+    background: none;
+    border-radius: 10px;
+}
+.search_body form .asd {
+    background: none;
+    color: #ffffff;
+}
 
 .search_body p{color:#fff; font-size: 1.1rem; line-height: 80px; height: 80px;}
 .search_body table {position: relative; width: 100%;}
 .search_body table p {height: 35px; line-height: 35px;}
-.search_body tr{position: relative; max-width: 1000px; display: flex; border-bottom: 1px solid #3c3c3c; padding: 15px 0; height: 35px;}
+.search_body tr{position: relative; max-width: 1230px; display: flex; border-bottom: 1px solid #3c3c3c; padding: 15px 0; height: 35px;}
 
-.search_body td:nth-child(1){width: 40px;}
-.search_body td:nth-child(2){width: 60px;}
-.search_body td:nth-child(3){width: 40%; min-width: 250px;}
-.search_body td:nth-child(4){width: 20%; min-width: 190px;}
+.search_body td:nth-child(1){width: 5%;}
+.search_body td:nth-child(2){width: 10%;}
+.search_body td:nth-child(3){width: 25%; min-width: 250px;}
+.search_body td:nth-child(4){width: 15%; min-width: 190px;}
 .search_body td:nth-child(5){width: 20%; min-width: 100px;}
-.search_body td:nth-child(6){width: 10%; min-width: 100px;}
+.search_body td:nth-child(6){width: 25%; min-width: 100px;}
 .search_body img{width: 36px; border-radius: 4px;}
 .search_body input[type="checkbox"]{width: 13px; height: 13px; appearance: none; border:1px solid #aaa; border-radius: 4px; margin: 11px 11px 0;}
 .search_body input[type="checkbox"]:checked::before{content: '\f00c'; font-family:"Font Awesome 5 free"; font-weight:900; font-size: 0.8rem; vertical-align: super; line-height: -1px;color: #04E632; }
