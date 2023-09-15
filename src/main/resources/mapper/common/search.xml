@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.melon.repository.common.SearchRepository">
+<mapper namespace="com.melon.dao.common.ISearchDao">
     <select id="searchSong" parameterType="com.melon.dto.common.SearchDto">
         SELECT S.SONG_NAME AS songName,
                A.ALBUM_NAME AS albumName,
@@ -13,5 +13,10 @@
                  JOIN ARTIST AR ON S.ARTIST_ID = AR.ARTIST_ID
                  JOIN GENRE G ON S.GENRE_ID = G.GENRE_ID
         WHERE S.SONG_NAME LIKE '%' || #{songName} || '%'
+    </select>
+    <select id="" resultType="byte[]">
+        SELECT A.ALBUM_IMG AS albumImg
+        FROM ALBUM A
+        WHERE A.ALBUM_IMG = #{albumImg}
     </select>
 </mapper>
