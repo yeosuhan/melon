@@ -9,7 +9,9 @@ public class SearchDto {
     private String albumName;
     private String artistName;
     private String genre;
+
     //test
     private byte[] albumImg;
+
     private int albumId;
 }
