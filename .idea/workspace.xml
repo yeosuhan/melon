@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc478a8-e533-4ead-94c8-90cd47bce535" name="Changes" comment="merge">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/dao/admin/IAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/dao/admin/IAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/ticket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/ticket.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +227,7 @@
       <workItem from="1694759331738" duration="198000" />
       <workItem from="1694759858112" duration="731000" />
       <workItem from="1694760696634" duration="501000" />
-      <workItem from="1694761219430" duration="4915000" />
+      <workItem from="1694761219430" duration="6662000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <option name="closed" value="true" />
