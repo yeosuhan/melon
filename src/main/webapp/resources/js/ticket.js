@@ -1,21 +1,7 @@
 IMP.init('imp85737750')
 
-// 로그인 상태를 확인하는 JavaScript 함수
-function isLoggedIn() {
-    // userCookie가 있는지 확인 (로그인 여부 확인을 위한 쿠키)
-    var userCookie = getCookie("userCookie");
-    return userCookie !== null && userCookie == true; // userCookie의 값이 "loggedIn"이면 로그인 상태로 간주
-}
-
-// 쿠키를 가져오는 함수
-function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
-}
-
 function requestPay() {
-    if (isLoggedIn()) {
+
         // 티켓 정보를 추출합니다.
         var ticketName = ''; // 티켓 이름
         var ticketPrice = 0; // 티켓 가격
@@ -31,7 +17,7 @@ function requestPay() {
                 ticketName = ticketNameElement.textContent;
                 ticketPrice = parseInt(ticketPriceElement.textContent.replace(/[^0-9]/g, ''), 10);
             }
-        }
+
 
         IMP.request_pay({
             pg: "kakaopay",
@@ -56,10 +42,6 @@ function requestPay() {
                 alert(msg);
             }
         });
-    } else {
-        // 로그인되지 않은 경우, 로그인페이지로 이동
-        alert("로그인이 필요합니다.")
-        window.location.href = '/login?';
     }
 
 }
