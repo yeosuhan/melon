@@ -5,6 +5,7 @@
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
 <link href="<%=request.getContextPath()%>/resources/css/admin.css" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/resources/js/admin.js"></script>
+
 <body>
 <%@ include file="/WEB-INF/view/common/header.jsp" %>
 <section class="sec1">
@@ -45,7 +46,7 @@
                     <th>앨범명</th>
                 </tr>
                 <tbody>
-                    <c:forEach var="item" items="${allsong}">
+                    <c:forEach var="item" items="${searchSong}">
                         <tr class="second_tr">
                             <td><input type="checkbox" class="check_btn" value="${item.songId}" name="songIds"></td>
                             <td>${item.songName}</td>

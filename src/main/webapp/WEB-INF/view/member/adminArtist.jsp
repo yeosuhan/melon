@@ -5,6 +5,7 @@
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
 <link href="<%=request.getContextPath()%>/resources/css/admin.css" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/resources/js/admin.js"></script>
+
 <body>
 <%@ include file="/WEB-INF/view/common/header.jsp" %>
 <section class="sec1">
@@ -20,17 +21,17 @@
             </div>
             <div class="second_title">
                 <div>
-                    <a href="/admin/artist"><button>가수</button></a>
+                    <button>가수PAGE</button>
                     <a href="/admin/album"><button>앨범</button></a>
-                    <a href="/song/add"><button>노래추가</button></a>
+                    <a href="/artist/add"><button>가수추가</button></a>
 
-                    <form action="/song/search" method="get">
-                        <input type="text" size="30px" name="name" placeholder="검색">
+                    <form action="" method="post">
+                        <input type="text" size="30px" placeholder="검색">
                         <button class="asd">제출</button>
                     </form>
                     <div class="right_button">
                         <button onclick="selectAll()">전체선택</button>
-                        <button onclick="onDeleteClick()">삭제</button>
+                        <button>삭제</button>
                     </div>
                 </div>
             </div>
@@ -39,19 +40,26 @@
             <table>
                 <tr class="first_tr">
                     <th>선택</th>
-                    <th>노래제목</th>
-                    <th>장르</th>
-                    <th>아티스트명</th>
-                    <th>앨범명</th>
+                    <th>가수이름</th>
+                    <th>데뷔날짜</th>
+                    <th>소속사</th>
+                    <th>가수소개</th>
                 </tr>
                 <tbody>
-                    <c:forEach var="item" items="${allsong}">
+                    <tr class="second_tr">
+                        <td><input type="checkbox" class="check_btn"></td>
+                        <td>이브,프시케 그리고 푸른수염의 아내</td>
+                        <td>Dance</td>
+                        <td>LE SSERAFIM(르세라핌)</td>
+                        <td>UNFORGIVEN</td>
+                    </tr>
+                    <c:forEach var="item" items="${allartist}">
                         <tr class="second_tr">
-                            <td><input type="checkbox" class="check_btn" value="${item.songId}" name="songIds"></td>
-                            <td>${item.songName}</td>
-                            <td>${item.genreName}</td>
+                            <td><input type="checkbox" class="check_btn"></td>
                             <td>${item.artistName}</td>
-                            <td>${item.albumName}</td>
+                            <td>${item.debut}</td>
+                            <td>${item.agency}</td>
+                            <td>${item.artistPro}</td>
                         </tr>
                     </c:forEach>
 

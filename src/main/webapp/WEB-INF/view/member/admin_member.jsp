@@ -16,7 +16,7 @@
             <a href="/admin"><button>뒤로가기</button></a>
             <form action="" method="post">
                 <input type="text" size="30px" placeholder="검색">
-                <input type="submit">
+                <button class="asd">제출</button>
             </form>
             <table>
                 <tbody>
@@ -29,14 +29,17 @@
                         <td><p>연락처</p></td>
                         <td><p>이메일</p></td>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td><p>title</p></td>
-                        <td><p>artist</p></td>
-                        <td><p>album</p></td>
-                        <td><p>likes</p></td>
-                        <td><p>email</p></td>
-                    </tr>
+                    <c:forEach var="item" items="${allMember}">
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td><p>${item.name}</p></td>
+                            <td><p>${item.nick}</p></td>
+                            <td><p>${item.birthday}</p></td>
+                            <td><p>${item.tel}</p></td>
+                            <td><p>${item.email}</p></td>
+                        </tr>
+                    </c:forEach>
+
                 </tbody>
             </table>
     </div>
