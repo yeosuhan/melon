@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.melon.dao.admin.IAdmin">
+
+
+    <!--    관리자페이지 노래목록-->
+    <select id="findAllSong"  resultType="com.melon.dto.admin.AdminSongDto">
+        SELECT
+            SONG_ID as songId,
+            SONG_NAME as songName,
+            ARTIST.ARTIST_NAME as artistName,
+            ALBUM.ALBUM_NAME as albumName,
+            GENRE.GENRE_NAME as genreName
+        FROM
+            SONG
+        JOIN
+            ARTIST ON SONG.ARTIST_ID = ARTIST.ARTIST_ID
+        JOIN
+            ALBUM ON SONG.ALBUM_ID = ALBUM.ALBUM_ID
+        JOIN
+            GENRE ON SONG.GENRE_ID = GENRE.GENRE_ID
+        order by
+            SONG_ID DESC
+    </select>
+
+<!--    가수목록-->
+    <select id="findAllArtist" resultType="com.melon.dto.admin.AdminArtistDto">
+        SELECT
+            ARTIST_NAME as artistName,
+            DEBUT as debut,
+            AGENCY as agency,
+            ARTIST_PRO as artistPro
+        FROM
+            ARTIST
+        ORDER BY
+            ARTIST_ID DESC
+
+    </select>
+
+<!--    앨범목록-->
+    <select id="findAllAlbum" resultType="com.melon.dto.admin.AdminAlbumDto">
+        SELECT ALBUM_NAME                                                        as albumName,
+               RELEASE_DATE                                                      as releaseDate,
+               ALBUM_PUBLISHER                                                   as albumPublisher,
+               ALBUM_PRO                                                         as albumPro,
+               (SELECT ARTIST_NAME FROM ARTIST WHERE ARTIST_ID = ALBUM.ALBUM_ID) AS artistName
+        FROM ALBUM
+        ORDER BY
+            ALBUM_ID DESC
+    </select>
+
+
+<!--    가수 추가하기-->
+    <insert id="saveArtist" parameterType="com.melon.dto.admin.AdminArtistDto">
+        INSERT INTO ARTIST (ARTIST_ID, ARTIST_NAME, DEBUT, AGENCY, ACTIVITY_TYPE,
+                            ARTIST_PRO, ARTIST_LIKE, ARTIST_FILE)
+        values (
+                artist_seq.nextval,
+                #{artistName},
+                #{debut},
+                #{agency},
+                #{activityType},
+                #{artistPro},
+                0,
+                null
+                )
+    </insert>
+
+
+<!--    앨범추가쿼리-->
+    <insert id="saveAlbum" parameterType="com.melon.dto.admin.AdminAlbumDto">
+        INSERT INTO ALBUM (
+                           ALBUM_ID,
+                           ALBUM_NAME,
+                           RELEASE_DATE,
+                           ALBUM_TYPE,
+                           ALBUM_PRO,
+                           ALBUM_LIKE
+                           )
+        values (
+                album_seq.nextval,
+                #{albumName},
+                #{releaseDate},
+                #{albumType},
+                #{albumPro},
+                0
+                )
+    </insert>
+
+    <insert id="saveSong" parameterType="com.melon.dto.admin.AdminSongDto">
+        INSERT INTO SONG (
+                          SONG_ID,
+                          SONG_NAME,
+                          PLAYTIME,
+                          LYRICS,
+                          PLAY_COUNT,
+                          SONG_LIKE,
+                          GENRE_ID,
+                          ALBUM_ID,
+                          ARTIST_ID
+        )
+        VALUES (
+                song_seq.nextval,
+                #{songName},
+                #{playTime},
+                #{lyrics},
+                0,
+                0,
+                #{genreId},
+                #{albumId},
+                #{artistId}
+               )
+    </insert>
+
+    <select id="saveSongArtistId" parameterType="String" resultType="int">
+        SELECT
+            ARTIST_ID as artistId
+        FROM
+            ARTIST
+        WHERE
+            ARTIST_NAME = #{artistName}
+    </select>
+
+    <select id="saveSongAlbumId" parameterType="String" resultType="int">
+        SELECT
+            ALBUM_ID as albumId
+        FROM
+            ALBUM
+        WHERE
+            ALBUM_NAME = #{albumName}
+    </select>
+
+    <delete id="deleteSongsById">
+        DELETE FROM SONG
+        WHERE SONG_ID IN
+        <foreach item="songId" collection="songIds" open="(" separator="," close=")">
+            #{songId}
+        </foreach>
+    </delete>
+
+    <select id="findAllMember" resultType="com.melon.dto.admin.AdminMemberDto">
+        SELECT
+            NAME as name,
+            NICK as nick,
+            BIRTHDAY as birthday,
+            TEL as tel,
+            EMAIL as email
+        FROM
+            MEMBER
+        WHERE
+            ROLE = '0'
+    </select>
+
+<!--    노래검색-->
+    <select id="searchSong" parameterType="String" resultType="com.melon.dto.admin.AdminSongDto">
+        SELECT
+            SONG_ID as songId,
+            SONG_NAME as songName,
+            ARTIST.ARTIST_NAME as artistName,
+            ALBUM.ALBUM_NAME as albumName,
+            GENRE.GENRE_NAME as genreName
+        FROM
+            SONG
+                JOIN
+            ARTIST ON SONG.ARTIST_ID = ARTIST.ARTIST_ID
+                JOIN
+            ALBUM ON SONG.ALBUM_ID = ALBUM.ALBUM_ID
+                JOIN
+            GENRE ON SONG.GENRE_ID = GENRE.GENRE_ID
+        WHERE
+            SONG_NAME like '%' || #{name} || '%'
+        OR
+            ARTIST_NAME like '%' || #{name} || '%'
+
+    </select>
+
+
+</mapper>
