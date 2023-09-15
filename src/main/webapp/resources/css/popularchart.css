@@ -1,18 +1,46 @@
+button {
+	cursor: pointer;
+}
+.time {
+	display: flex;
+}
 .wrap {
 	padding-left:22px;
 	color:white;
+}
+.wrap .allplay:hover {
+	color: #b7b7b7;
+	border: solid 1px #b7b7b7;
+}
+.wrap .allplay {
+	background-color:#2a2a2a;
+	height:30px;
+	line-height:28px;
+	border: 1px solid #808080;
+	border-radius:100px;
+	color:#808080;
+	font-size:12px;
+	float:right;
 }
 .wrap .top-100 {
 	font-size:35px;
 	padding-top: 22px;
 }
-.wrap .now {
+.wrap .now, .retate {
 	padding-top: 22px;
 	font-size:15px;
+	color:#838383;
+	padding-right:10px;
+}
+.wrap .retate {
+	cursor:pointer;
+}
+.wrap .retate:hover {
+	color:#c3c3c3;
 }
 .wrap .chart-table {
 	padding-top: 50px;
-	width:1300px;
+	width:1350px;
 }
 .wrap .chart-table .charts {
 	width:100%;
@@ -29,6 +57,7 @@
 }
 .wrap .chart-table .charts td:nth-child(1){
 	width:50px;
+	text-align:center;
 }
 .wrap .chart-table .charts td:nth-child(2){
 	width:70px;
@@ -36,6 +65,34 @@
 .wrap .chart-table .charts td:nth-child(3){
 	width:70px;
 	text-align:center;
+}
+.wrap .chart-table .charts td:nth-child(4){
+	width:40px;
+	text-align:center;
+}
+.wrap .chart-table .charts td:nth-child(5){
+	width:400px;
+	padding-right:30px;
+	padding-left:20px;
+}
+.wrap .chart-table .charts td:nth-child(6){
+	width:250px;
+	padding-right:30px;
+}
+.wrap .chart-table .charts td:nth-child(7){
+	width:250px;
+	padding-right:30px;
+}
+.wrap .chart-table .charts td:nth-child(8){
+	width:110px;
+}
+.wrap .chart-table .charts td:nth-child(8) p{
+	width:20px;
+	display:inline-block;
+}
+.ilike {
+	display:none;
+	font-size: 1.1rem; font-weight: 300; color: #04E632 !important;
 }
 #top_like_btn1 .top_song_like1{font-size: 1.1rem; font-weight: 300; color: #fff;}
 #top_like_btn1 .green{font-size: 1.1rem; font-weight: 300; color: #04E632 !important;}

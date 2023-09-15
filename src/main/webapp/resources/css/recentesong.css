@@ -50,34 +50,45 @@ button {
 	height:50px;
 	vertical-align: middle;
 	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
 }
 .wrap .chart-table .charts tbody td {
 	height:90px;
 	vertical-align: middle;
-	border-top: 1px solid gray;
+	border-bottom: 1px solid #4b4b4b;
 }
 .wrap .chart-table .charts tbody td:nth-child(7) {
 	padding-left:15px
 }
 .wrap .chart-table .charts td:nth-child(1){
-	width:50px;
+	width:70px;
+	text-align:center;
 }
 .wrap .chart-table .charts td:nth-child(2){
 	width:70px;
 }
 .wrap .chart-table .charts td:nth-child(3){
-	width:70px;
-	text-align:center;
+	width:500px;
+	padding-right:30px;
 }
 .wrap .chart-table .charts td:nth-child(4){
-	width:500px;
+	width:250px;
+	padding-right:30px;
 }
 .wrap .chart-table .charts td:nth-child(5){
-	width:250px;
+	width:300px;
+	padding-right:30px;
 }
 .wrap .chart-table .charts td:nth-child(6){
-	width:250px;
-}
-.wrap .chart-table .charts td:nth-child(7){
 	width:160px;
 }
+.wrap .chart-table .charts td:nth-child(6) p{
+	width:20px;
+	display:inline-block;
+}
+.ilike {
+	display:none;
+	font-size: 1.1rem; font-weight: 300; color: #04E632 !important;
+}
+p[id^="top_like_btn"] a[id^="top_song_like"]{font-size: 1.1rem; font-weight: 300; color: #fff;cursor:pointer;}
+p[id^="top_like_btn"] .green{font-size: 1.1rem; font-weight: 300; color: #04E632 !important;}
