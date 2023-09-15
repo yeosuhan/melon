@@ -33,6 +33,7 @@ input:focus,textarea:focus,select:focus{outline:none; border:none;}
 a,a:active,a:visited,a:hover{text-decoration: none;}
 body{background-color: #2a2a2a; font-family: 'SUIT-Regular';}
 input[type="checkbox"]:hover{cursor: pointer;}
+p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 
 .header{position: relative; display: flex; height: 65px; width: calc(100% - 350px);}
 .header>.header_left>a{font-size: 1.2rem; color:#04E632; margin: 20px; font-family: 'KCC-Ganpan'; height: 23px; line-height: 23px;}
@@ -92,10 +93,3 @@ input[type="checkbox"]:hover{cursor: pointer;}
 
 /* 본문 */
 .wrap{ min-height: 935px; width: calc(100% - 467px); word-break: break-all; position: relative; z-index: 1;}
-/* 노래 재생 */
-.play_song {
-	cursor:pointer;
-}
-.play_now_artist_name {
-	color:#04E632;
-}
