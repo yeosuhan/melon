@@ -9,8 +9,9 @@ botton{}
 
 .search_body p{color:#fff; font-size: 0.9rem; line-height: 80px; height: 80px;}
 .search_body table {position: relative; width: 100%;}
-.search_body table p {height: 35px; line-height: 35px;}
-.search_body tr{position: relative; display: flex; border-bottom: 1px solid #3c3c3c; padding: 15px 0; height: 35px;}
+.search_body table p {height: 35px; line-height: 35px; display: inline-block;}
+.search_body tr{position: relative; display: flex; border-bottom: 1px solid #3c3c3c; padding: 15px 0; height: 35px; transition: 0.1s all;}
+.search_body tr:hover{background: #3c3c3c;}
 
 .search_body td:nth-child(1){width: 40px;}
 .search_body td:nth-child(2){width: 60px;}
