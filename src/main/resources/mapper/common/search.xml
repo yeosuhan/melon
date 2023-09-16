@@ -7,7 +7,8 @@
                AR.ARTIST_NAME AS artistName,
                G.GENRE_NAME AS genre,
                A.ALBUM_ID AS albumId,
-               A.ALBUM_IMG AS albumImg
+               A.ALBUM_IMG AS albumImg,
+               AR.ARTIST_ID AS artistId
         FROM SONG S
                  JOIN ALBUM A ON S.ALBUM_ID = A.ALBUM_ID
                  JOIN ARTIST AR ON S.ARTIST_ID = AR.ARTIST_ID
