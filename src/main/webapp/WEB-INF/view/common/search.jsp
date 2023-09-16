@@ -65,7 +65,6 @@
                         <td><a href="/album/${song.albumId}"><img src="<%= request.getContextPath() %>/resources/Img/song/${song.songName}.jpg" alt="앨범 이미지"></a></td>
                         <td><a href="/album/${song.albumId}"><p>${song.albumName}</p></a></td>
                         <td><a href="/artist/${song.artistId}"><p>${song.artistName}</p></a></td>
-                        <td><a href=""><p>${song.songName}</p></a></td>
                     </tr>
                     </c:forEach>
                 </tbody>
