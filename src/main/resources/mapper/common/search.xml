@@ -13,10 +13,9 @@
                  JOIN ARTIST AR ON S.ARTIST_ID = AR.ARTIST_ID
                  JOIN GENRE G ON S.GENRE_ID = G.GENRE_ID
         WHERE S.SONG_NAME LIKE '%' || #{songName} || '%'
-    </select>
-    <select id="" resultType="byte[]">
-        SELECT A.ALBUM_IMG AS albumImg
-        FROM ALBUM A
-        WHERE A.ALBUM_IMG = #{albumImg}
+        OR
+            AR.ARTIST_NAME LIKE '%' || #{songName} || '%'
+        OR
+            A.ALBUM_NAME LIKE '%' || #{songName} || '%'
     </select>
 </mapper>
