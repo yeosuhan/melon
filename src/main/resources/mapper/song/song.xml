@@ -177,5 +177,40 @@
 			    NC.NOW_CHART_ID
      	]]>
      </select>
-     
+	
+     <update id="songLikeAdd">
+		UPDATE
+		    SONG
+		SET
+		    SONG_LIKE = SONG_LIKE + 1
+		WHERE
+		    SONG_ID = #{songId}
+	</update>
+
+
+	<update id="songLikeDel">
+		UPDATE
+			SONG
+		SET
+			SONG_LIKE = SONG_LIKE - 1
+		WHERE
+			SONG_ID = #{songId}
+	</update>
+
+	<select id="songLikeSelect" parameterType="int" resultType="com.melon.dto.song.SongLike">
+		SELECT
+		    SONG_ID AS songId,
+		    SONG_LIKE AS songLike
+		FROM
+		    SONG
+		WHERE
+		    SONG_ID = #{songId}
+	</select>
+
+	<insert id="songLikeToUserLike">
+		insert into
+			USER_LIKE(LIKE_CNT, SONG_ID, MEMBER_ID)
+		values
+			(LIKE_CNT_SEQ.nextval, #{songId}, #{memberId})
+	</insert>
 </mapper>
