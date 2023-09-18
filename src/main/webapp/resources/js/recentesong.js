@@ -89,7 +89,7 @@ $(document).ready(function() {
 			var tr = $("<tr></tr>");
 			var td1 = $("<td><input type='checkbox'></td>");
 			var td2 = $("<td><img src='/resources/Img/album2.png' style='height: 55px;'></td>");
-			var td3 = $("<td></td>").text(ad.songName);
+			var td3 = $("<td class='play_song'></td>").text(ad.songName);
 			var td4 = $("<td></td>").text(ad.artistName);
 			var td5 = $("<td></td>").text(ad.albumName);
 			var td6 = $("<td></td>");
