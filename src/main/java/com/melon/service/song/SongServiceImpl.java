@@ -227,4 +227,45 @@ public class SongServiceImpl implements ISongService {
 			songDao.insertTimeViews(songsId.get(i));
 		}	
 	}
+	/**
+	 * 노래 좋아요 증가
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public void getSongLikeAdd(int songId) {
+		log.info("serviceSongId : {}", songId);
+		songDao.songLikeAdd(songId);
+	}
+
+	/**
+	 * 노래 좋아요 감소
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public void getSongLikeDel(int songId) {
+		log.info("serviceSongIdDel : {}", songId);
+		songDao.songLikeDel(songId);
+	}
+
+	/**
+	 * 노래 좋아요 조회
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public SongLike getSongLikeSelect(int songId) {
+		return songDao.songLikeSelect(songId);
+	}
+
+	/**
+	 * 노래 좋아요를 좋아요 테이블에 저장
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public void SongLikeToUserLike(int songId, String memberId) {
+		songDao.songLikeToUserLike(songId, memberId);
+	}
 }
