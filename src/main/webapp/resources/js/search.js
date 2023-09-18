@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
             content: [document.querySelector('.search_body')],
         },
         {
-            button: document.querySelector('.search_header > ul > li:nth-child(4) > button'), // 앨범 버튼
+            button: document.querySelector('.search_header > ul > li:nth-child(5) > button'), // 앨범 버튼
             content: [document.querySelector('.search_album')],
         },
         {
-            button: document.querySelector('.search_header > ul > li:nth-child(5) > button'), // 가수 버튼
+            button: document.querySelector('.search_header > ul > li:nth-child(4) > button'), // 가수 버튼
             content: [document.querySelector('.search_artist')],
         },
     ];

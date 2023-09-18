@@ -5,8 +5,7 @@ $(document).ready(function() {
 	const changeRanks = document.querySelectorAll(".changeRank");
 	for (let i = 0; i < changeRanks.length; i++) {
 		let rank = changeRanks[i].textContent.charAt(0);
-		console.log(changeRanks[i].textContent.charAt(0))
-		if (rank === "0") {
+		if (rank === "=") {
 			changeRanks[i].textContent = "-";
 		} else if (rank === "+") {
 			changeRanks[i].textContent = "▲ " + changeRanks[i].textContent.slice(1);
@@ -14,6 +13,9 @@ $(document).ready(function() {
 		} else if (rank === "-") {
 			changeRanks[i].textContent = "▼ " + changeRanks[i].textContent.slice(1);
 			changeRanks[i].style.color = '#405fff';
+		} else if (rank === "n") {
+			changeRanks[i].textContent = "NEW";
+			changeRanks[i].style.color = '#04E632';
 		}
 	}
 	// 현재 날짜와 시간을 가져오기

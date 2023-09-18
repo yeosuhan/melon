@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.melon.dto.album.AlbumDetails;
 import com.melon.dto.comment.CommentDto;
+import com.melon.dto.song.SongLike;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ import com.melon.service.playlistnow.IPlaylistnowService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/album")
@@ -39,6 +43,7 @@ public class AlbumController {
 
 		List<AlbumDetails> getAlbumSongList = albumService.getAlbumSongList(albumId);
 		model.addAttribute("getAlbumSongList", getAlbumSongList);
+//		log.info(getAlbumSongList.get(1).getSongLike());
 
 		AlbumDetails albumDetail = albumService.getAlbumDetail(albumId);
 		model.addAttribute("albumDetail", albumDetail);
@@ -79,8 +84,18 @@ public class AlbumController {
 		return "redirect:/album/" + albumId;
 	}
 
+	/**
+	 * 앨범 좋아요 증가
+	 * @author 임휘재
+	 */
 	@PostMapping("/{albumId}/like/update")
-	public ResponseEntity<Integer> albumLikeCntUpdate(@PathVariable("albumId") int albumId) {
+	public ResponseEntity<Integer> albumLikeCntUpdate(@PathVariable("albumId") int albumId,
+													  HttpServletResponse res,
+													  @CookieValue(value = "isLiked", defaultValue = "false") boolean isLiked) {
+
+		Cookie cookie = new Cookie("isLiked", Boolean.toString(isLiked));
+		cookie.setMaxAge(3600); // 쿠키 만료 시간(초) 설정
+		res.addCookie(cookie);
 		try {
 			String memberId = "admin";
 			albumService.albumLikeUpdate(albumId);
@@ -94,8 +109,18 @@ public class AlbumController {
 		}
 	}
 
+	/**
+	 * 앨범 좋아요 감소
+	 * @author 임휘재
+	 */
 	@PostMapping("/{albumId}/like/delete")
-	public ResponseEntity<Integer> albumLikeCntDelete(@PathVariable("albumId") int albumId) {
+	public ResponseEntity<Integer> albumLikeCntDelete(@PathVariable("albumId") int albumId,
+													  HttpServletResponse res,
+													  @CookieValue(value = "isLiked", defaultValue = "false") boolean isLiked) {
+
+		Cookie cookie = new Cookie("isLiked", Boolean.toString(isLiked));
+		cookie.setMaxAge(3600); // 쿠키 만료 시간(초) 설정
+		res.addCookie(cookie);
 		try {
 			String memberId = "admin";
 			albumService.albumLikeDelete(albumId);

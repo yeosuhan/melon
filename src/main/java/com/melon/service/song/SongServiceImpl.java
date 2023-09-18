@@ -1,11 +1,13 @@
 package com.melon.service.song;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.melon.dao.song.ISongDao;
+import com.melon.dto.playlistnow.PlaylistnowDto;
 import com.melon.dto.song.BeforeChartDto;
 import com.melon.dto.song.NowChartDto;
 import com.melon.dto.song.SongDto;
@@ -84,7 +86,7 @@ public class SongServiceImpl implements ISongService {
 	}
 
 	/**
-	 * 노래 조회수 증가
+	 * 시간당 조회수 정보 넣기
 	 * 
 	 * @author 여수한
 	 * @return
@@ -174,5 +176,96 @@ public class SongServiceImpl implements ISongService {
 	public List<String> getRankChange() {
 		List<String> rankChange = songDao.selectRankChange();
 		return rankChange;
+	}
+	/**
+	* 리스트 형태의 노래 아이디 조회
+	* @author 여수한
+	 * @return 
+	*/
+	@Override
+	public List<Integer> getSongIds(List<PlaylistnowDto> pd) {
+		List<Integer> SongId = new ArrayList<>();
+		for(int i=0; i<pd.size(); i++) {
+			List<Integer> result = songDao.selectSongIds(pd.get(i).getSongName());
+			SongId.addAll(result);
+		}
+		return SongId;
+	}
+	/**
+	* SongName타입의 List타입 데이터로 리스트 형태의 노래 아이디 조회
+	* @author 여수한
+	 * @return 
+	*/
+	@Override
+	public List<Integer> getSongsId(List<String> songName) {
+		List<Integer> songsId = new ArrayList<>();
+		for(int i=0; i<songName.size(); i++) {
+			List<Integer> result = songDao.selectSongIds(songName.get(i));
+			songsId.addAll(result);
+		}	
+		return songsId;
+	}
+	/**
+	* 여러 노래 조회수 증가
+	* @author 여수한
+	 * @return 
+	*/
+	@Override
+	public void updatePlayCounts(List<Integer> songsId) {
+		for(int i=0; i<songsId.size(); i++) {
+			songDao.updatePlayCount(songsId.get(i));
+		}	
+	}
+	/**
+	* 노래들은 시간 조회수 증가
+	* @author 여수한
+	 * @return 
+	*/
+	@Override
+	public void insertTimeViewss(List<Integer> songsId) {
+		for(int i=0; i<songsId.size(); i++) {
+			songDao.insertTimeViews(songsId.get(i));
+		}	
+	}
+	/**
+	 * 노래 좋아요 증가
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public void getSongLikeAdd(int songId) {
+		log.info("serviceSongId : {}", songId);
+		songDao.songLikeAdd(songId);
+	}
+
+	/**
+	 * 노래 좋아요 감소
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public void getSongLikeDel(int songId) {
+		log.info("serviceSongIdDel : {}", songId);
+		songDao.songLikeDel(songId);
+	}
+
+	/**
+	 * 노래 좋아요 조회
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public SongLike getSongLikeSelect(int songId) {
+		return songDao.songLikeSelect(songId);
+	}
+
+	/**
+	 * 노래 좋아요를 좋아요 테이블에 저장
+	 * @author 임휘재
+	 * @return
+	 */
+	@Override
+	public void SongLikeToUserLike(int songId, String memberId) {
+		songDao.songLikeToUserLike(songId, memberId);
 	}
 }
