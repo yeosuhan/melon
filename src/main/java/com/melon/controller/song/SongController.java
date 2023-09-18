@@ -46,17 +46,27 @@ public class SongController {
 	public String getPopularChart(Model model, HttpSession session, LoginDto m) {
 		// 세션에 저장된 로그인 정보 가져오기
 		LoginDto loginDto = (LoginDto) session.getAttribute("user");
-		String memberId = loginDto.getId();
-		// 내 재생목록
-		List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(memberId);
-		model.addAttribute("pd", pd);
-		// 인기차트
-		List<SongDto> sd = songService.getPopularSong();
-		model.addAttribute("sd", sd);
-		// 순위변동
-		List<String> rankChange = songService.getRankChange();
-		model.addAttribute("rankChange", rankChange);
-		return "song/popular_charts";
+		if(loginDto==null) {
+			// 인기차트
+			List<SongDto> sd = songService.getPopularSong();
+			model.addAttribute("sd", sd);
+			// 순위변동
+			List<String> rankChange = songService.getRankChange();
+			model.addAttribute("rankChange", rankChange);
+			return "song/popular_charts";
+		} else {
+			// 인기차트
+			List<SongDto> sd = songService.getPopularSong();
+			model.addAttribute("sd", sd);
+			// 순위변동
+			List<String> rankChange = songService.getRankChange();
+			model.addAttribute("rankChange", rankChange);
+			String memberId = loginDto.getId();
+			// 내 재생목록
+			List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(memberId);
+			model.addAttribute("pd", pd);
+			return "song/popular_charts";	
+		}
 	}
 
 	/**
@@ -68,12 +78,19 @@ public class SongController {
 	public String getRecenteSong(Model model, HttpSession session, LoginDto m) {
 		// 세션에 저장된 로그인 정보 가져오기
 		LoginDto loginDto = (LoginDto) session.getAttribute("user");
-		String memberId = loginDto.getId();
-		List<SongDto> rsd = songService.getRecentSong();
-		model.addAttribute("rsd", rsd);
-		List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(memberId);
-		model.addAttribute("pd", pd);
-		return "song/recente_song";
+		if(loginDto==null) {
+			List<SongDto> rsd = songService.getRecentSong();
+			model.addAttribute("rsd", rsd);
+			return "song/recente_song";
+		} else {
+			String memberId = loginDto.getId();
+			List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(memberId);
+			model.addAttribute("pd", pd);
+			List<SongDto> rsd = songService.getRecentSong();
+			model.addAttribute("rsd", rsd);
+			return "song/recente_song";
+			
+		}
 	}
 
 	/**

@@ -42,7 +42,14 @@ public class GenreController {
 	public String getRecenteSong(Model model, HttpSession session, LoginDto m) {
 		// 세션에 저장된 로그인 정보 가져오기
 		LoginDto loginDto = (LoginDto) session.getAttribute("user");
-		String memberId = loginDto.getId();
+		if(loginDto==null) {
+			List<GenreDto> gd = genreService.getMyGenre(); // 매개변수에 유저 ID 받아오고 넘겨야됨
+			List<AlbumDto> ad = albumService.getRecentAlbum();
+			model.addAttribute("gd", gd);
+			model.addAttribute("ad", ad);
+			return "genre/home";
+		} else {
+			String memberId = loginDto.getId();
 		List<GenreDto> gd = genreService.getMyGenre(); // 매개변수에 유저 ID 받아오고 넘겨야됨
 		List<AlbumDto> ad = albumService.getRecentAlbum();
 		List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(memberId);
@@ -50,6 +57,7 @@ public class GenreController {
 		model.addAttribute("gd", gd);
 		model.addAttribute("ad", ad);
 		return "genre/home";
+		}
 	}
 
 	/**

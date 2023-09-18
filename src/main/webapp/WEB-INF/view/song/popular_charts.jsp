@@ -44,7 +44,7 @@
 							<tr>
 								<td><input type="checkbox" class="song_checkbox"></td>
 								<td><img
-									src="<%=request.getContextPath()%>/resources/Img/album2.png"
+									src="<%=request.getContextPath()%>/resources/Img/song/${psd.songName}.jpg"
 									style="height: 55px;"></td>
 								<td>${loop.index+i+1}</td>
 								<td class="changeRank">${rankChange[loop.index]}</td>
