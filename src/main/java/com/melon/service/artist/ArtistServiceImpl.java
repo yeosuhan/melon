@@ -137,22 +137,6 @@ public class ArtistServiceImpl implements IArtistService{
         return artistDao.ArtistLikeCntNow(artistId);
     }
 
-
-    @Override
-    public void ArtistSongLikeUpdate(int artistId) {
-        artistDao.ArtistSongLikeUpdate(artistId);
-    }
-
-    @Override
-    public void ArtistSongLikeDelete(int artistId) {
-        artistDao.ArtistSongLikeDelete(artistId);
-    }
-
-    @Override
-    public ArtistDto ArtistSongLikeCntNow(int artistId) {
-        return artistDao.ArtistSongLikeCntNow(artistId);
-    }
-
     @Override
     public int ArtistLikeCnt(int artistId) {
         return artistDao.ArtistLikeCnt(artistId);
@@ -167,6 +151,5 @@ public class ArtistServiceImpl implements IArtistService{
     public void artistLikeToUserLike(int artistId, String memberId) {
         artistDao.ArtistLikeToUserLike(artistId, memberId);
     }
-
 
 }

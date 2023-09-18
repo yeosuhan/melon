@@ -67,106 +67,88 @@ function selectAll() {
         }
     }
 }
-$(".artist_song_latest_text").click(function () {
-    let artistId = document.querySelector('#artistId').value;
-    console.log("song 최신순 artistId : " + artistId);
-    let sortType = "최신순";
-    console.log("sortType : " + sortType);
-    sendAjaxRequest(artistId, sortType);
-});
 
-$(".artist_song_popularity_text").click(function () {
-    let artistId = document.querySelector('#artistId').value;
-    console.log("song 인기순 artistId : " + artistId);
-    let sortType = "인기순";
-    console.log("sortType : " + sortType);
-    sendAjaxRequest(artistId, sortType);
-});
+// 인기순, 최신순, 가나다순 정렬
+$(document).ready(function() {
+    // 정렬 버튼 클릭 시 이벤트 핸들러
+    $(".artist_song_latest_text, .artist_song_popularity_text, .artist_song_alphabetically_text").click(function () {
+        const likeButtons = document.querySelectorAll('.song_hart');
+        console.log(likeButtons.length);
+        let artistId = $("#artistId").val();
+        let sortType = $(this).text().trim(); // 클릭한 버튼의 텍스트를 정렬 기준으로 사용
+        sendAjaxRequest(artistId, sortType);
 
-$(".artist_song_alphabetically_text").click(function () {
-    let artistId = document.querySelector('#artistId').value;
-    console.log("song 가나다순 artistId : " + artistId);
-    let sortType = "가나다순";
-    console.log("sortType : " + sortType);
-    sendAjaxRequest(artistId, sortType);
-});
-
-// 최신순 클릭 시 색깔 변경
-$(".artist_song_latest_text").click(function (){
-    $(".artist_song_latest_text").addClass("sort");
-    $(".artist_song_popularity_text, .artist_song_alphabetically_text").removeClass("sort");
-})
-// 인기순 클릭 시 색깔 변경
-$(".artist_song_popularity_text").click(function (){
-    $(".artist_song_popularity_text").addClass("sort");
-    $(".artist_song_latest_text , .artist_song_alphabetically_text").removeClass("sort");
-})
-// 가나다순 클릭 시 색깔 변경
-$(".artist_song_alphabetically_text").click(function (){
-    $(".artist_song_alphabetically_text").addClass("sort");
-    $(".artist_song_popularity_text, .artist_song_latest_text").removeClass("sort");
-})
-
-function sendAjaxRequest(artistId, sortType) {
-    $.ajax({
-        method: 'GET',
-        url: `/artist/detail/song/${artistId}?sortType=${sortType}`,
-        success: function (data) {
-            populateTable(data);
-            console.log('성공');
-        },
-        error: function (error) {
-            console.error('Ajax 요청 실패:', error);
-        }
+        // 클릭한 버튼에만 색깔 변경
+        $(this).addClass("sort");
+        $(".artist_song_latest_text, .artist_song_popularity_text, .artist_song_alphabetically_text").not(this).removeClass("sort");
     });
-}
 
-function populateTable(data) {
-    // artistSongsTable 테이블 내용을 초기화
-    $("#artistSongsTable").empty();
-
-    // 데이터를 반복하여 테이블에 추가
-    for (let i = 0; i < data.length; i++) {
-        let song = data[i];
-        console.log(song);
-        let row = $("<tr>");
-
-        // 체크박스 컬럼
-        let checkboxCell = $("<td>").html('<input type="checkbox" class="check_tb">');
-        row.append(checkboxCell);
-
-        // 곡명 컬럼
-        let songNameCell = $("<td>").html('<div class="artist_song_name_box_tb"><div class="artist_album_pic"><img src="/resources/Img/Better_Things.jpg"/></div><div class="artist_song_name_tb">' + data[i].songName + '</div></div>');
-        row.append(songNameCell);
-
-        // 아티스트명 컬럼
-        let artistNameCell = $("<td>").html('<div class="artist_name_tb">' + data[i].artistName + '</div><input type="hidden" name="artistId" value="' + data[i].artistId + '" id="artistId"/>');
-        row.append(artistNameCell);
-
-        // 앨범명 컬럼
-        let albumNameCell = $("<td>").html('<a href="/album/' + data[i].albumId + '" class="artist_album_name_tb">' + data[i].albumName + '</a>');
-        row.append(albumNameCell);
-
-        // 발매일 컬럼
-        let releaseDateCell = $("<td>").html('<p>' + data[i].releaseDate + '</p>');
-        row.append(releaseDateCell);
-
-        // 좋아요 컬럼
-        let albumLikeCell = $("<td>").html('<p><strong>♡ &nbsp</strong>' + data[i].songLike + '</p>');
-        row.append(albumLikeCell);
-
-        // 재생 컬럼
-        let playCell = $("<td>").html('<p><i class="fa-solid fa-play"></i></p>');
-        row.append(playCell);
-
-        // 행을 테이블에 추가
-        $("#artistSongsTable").append(row);
+    function sendAjaxRequest(artistId, sortType) {
+        $.ajax({
+            method: 'GET',
+            url: `/artist/detail/song/${artistId}?sortType=${sortType}`,
+            success: function (data) {
+                populateTable(data);
+                console.log('성공');
+            },
+            error: function (error) {
+                console.error('Ajax 요청 실패:', error);
+            }
+        });
     }
-}
+
+    function populateTable(data) {
+        // artistSongsTable 테이블 내용을 초기화
+        $("#artistSongsTable").empty();
+
+        // 데이터를 반복하여 테이블에 추가
+        for (let i = 0; i < data.length; i++) {
+            let song = data[i];
+            let row = $("<tr>");
+
+            // 체크박스 컬럼
+            let checkboxCell = $("<td>").html('<input type="checkbox" class="check_tb">');
+            row.append(checkboxCell);
+
+            // 곡명 컬럼
+            let songNameCell = $("<td>").html('<div class="artist_song_name_box_tb"><div class="artist_album_pic"><img src="/resources/Img/song/' + song.albumName + '.jpg" alt="노래 이미지"></div><div class="artist_song_name_tb"><p>' + song.songName + '</p></div></div>');
+            row.append(songNameCell);
+
+            // 아티스트명 컬럼
+            let artistNameCell = $("<td>").html('<div class="artist_name_tb">' + song.artistName + '</div><input type="hidden" name="artistId" value="' + song.artistId + '" id="artistId"/>');
+            row.append(artistNameCell);
+
+            // 앨범명 컬럼
+            let albumNameCell = $("<td>").html('<a href="/album/' + song.albumId + '" class="artist_album_name_tb"><p>' + song.albumName + '</p></a>');
+            row.append(albumNameCell);
+
+            // 발매일 컬럼
+            let releaseDateCell = $("<td>").html('<p>' + song.releaseDate + '</p>');
+            row.append(releaseDateCell);
+
+            // 좋아요 컬럼
+            let albumLikeCell = $("<td>").html('<p class="song_hart"><strong>♡ &nbsp;</strong></p><p class="song_hart_count">' + song.songLike + '</p><input type="hidden" name="songId" class="songId" value="' + song.songId + '"/>');
+            row.append(albumLikeCell);
+
+            // 재생 컬럼
+            let playCell = $("<td>").html('<p><i class="fa-solid fa-play"></i></p>');
+            row.append(playCell);
+
+            // 행을 테이블에 추가
+            $("#artistSongsTable").append(row);
+        }
+    }
+});
+
+
 
 $(document).ready(function() {
-    let isLiked = false;
+    // 로컬 스토리지에서 클릭 상태를 가져옴
+    let isLiked = localStorage.getItem('isLiked') === 'true';
     let isArtistEmpty = $('#hartCntAdd').data('isArtistEmpty');
+
+    // 초기 상태 설정
+    setButtonState(isLiked);
 
     if (isArtistEmpty === 'true') {
         $('#hartCntAdd').click(function() {
@@ -180,8 +162,7 @@ $(document).ready(function() {
                     success: function(data) {
                         // 성공한 경우 좋아요 수를 업데이트
                         updateLikeCount(data);
-                        button.html('<strong>♥ &nbsp;</strong>');
-                        isLiked = true;
+                        setButtonState(true); // 클릭 상태 업데이트
                     },
                     error: function() {
                         console.error('에러');
@@ -194,8 +175,7 @@ $(document).ready(function() {
                     success: function(data) {
                         // 성공한 경우 좋아요 수를 업데이트
                         updateLikeCount(data);
-                        button.html('<strong>♡ &nbsp;</strong>');
-                        isLiked = false;
+                        setButtonState(false); // 클릭 상태 업데이트
                     },
                     error: function() {
                         console.error('에러');
@@ -215,8 +195,7 @@ $(document).ready(function() {
                     success: function(data) {
                         // 성공한 경우 좋아요 수를 업데이트
                         updateLikeCount(data);
-                        button.html('<strong>♥ &nbsp;</strong>');
-                        isLiked = true;
+                        setButtonState(true); // 클릭 상태 업데이트
                     },
                     error: function() {
                         console.error('에러');
@@ -229,8 +208,7 @@ $(document).ready(function() {
                     success: function(data) {
                         // 성공한 경우 좋아요 수를 업데이트
                         updateLikeCount(data);
-                        button.html('<strong>♡ &nbsp;</strong>');
-                        isLiked = false;
+                        setButtonState(false); // 클릭 상태 업데이트
                     },
                     error: function() {
                         console.error('에러');
@@ -243,12 +221,18 @@ $(document).ready(function() {
     function updateLikeCount(data) {
         $('.hart_count').text(data);
     }
+
+    // 클릭 상태를 로컬 스토리지에 저장하고 하트 색상을 업데이트하는 함수
+    function setButtonState(state) {
+        isLiked = state;
+        localStorage.setItem('isLiked', state.toString());
+        // 버튼 상태 업데이트
+        if (state) {
+            $('#hartCntAdd').html('<strong style="color: #04E632;">♥ &nbsp;</strong>');
+            $('#hartCntDel').html('<strong style="color: #04E632;">♥ &nbsp;</strong>');
+        } else {
+            $('#hartCntAdd').html('<strong style="color: #04E632;">♡ &nbsp;</strong>');
+            $('#hartCntDel').html('<strong style="color: #04E632;">♡ &nbsp;</strong>');
+        }
+    }
 });
-
-
-
-
-
-
-
-

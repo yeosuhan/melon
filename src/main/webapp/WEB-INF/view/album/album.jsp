@@ -16,12 +16,12 @@
             <div class="album_top">
                 <div class="album_top_img">
                     <div class="album_img">
-                        <img src="/resources/Img/next_level.jpg"/>
+                        <img src="<%= request.getContextPath() %>/resources/Img/song/${albumDetails.albumName}.jpg" alt="노래 이미지">
                     </div>
                 </div>
                 <div class="album_top_text">
                     <div class="album_top_type">[ ${albumDetails.albumType} ]</div>
-                    <div class="album_top_song_name">${albumDetails.albumName}</div>
+                    <div class="album_top_song_name"><p>${albumDetails.albumName}</p></div>
                     <div class = "album_top_comment">
                         <a href="#" class="comment">댓글 &nbsp</a>
                         <a href="#" class="comment_count">${albumComments.size()}개 ></a>
@@ -105,7 +105,7 @@
                             <p>${startNumber}</p>
                         </td>
                         <td>
-                            <div class="song_name_tb">${songs.songName}</div>
+                            <div class="song_name_tb"><p>${songs.songName}</p></div>
                         </td>
                         <td>
                             <a href="/artist/${songs.artistId}" class="artist_name_tb"><p>${songs.artistName}</p></a>
@@ -133,19 +133,19 @@
                 <div class="album_information_body">
                     <div class="album_detail_name_box">
                         <div class="album_name">앨범명</div>
-                        <div class="album_name_value">${albumDetail.albumName}</div>
+                        <div class="album_name_value"><p>${albumDetail.albumName}</p></div>
                     </div>
                     <div class="album_detail_artist_box">
                         <div class="album_artist">아티스트</div>
-                        <div class="album_artist_value">${albumDetail.artistName}</div>
+                        <div class="album_artist_value"><p>${albumDetail.artistName}</p></div>
                     </div>
                     <div class="album_detail_genre_box">
                         <div class="album_genre">장르</div>
-                        <div class="album_genre_value">${albumDetail.genreName}</div>
+                        <div class="album_genre_value"><p>${albumDetail.genreName}</p></div>
                     </div>
                     <div class="album_detail_agency_box">
                         <div class="album_agency">소속사</div>
-                        <div class="album_agency_value">${albumDetail.artistAgency}</div>
+                        <div class="album_agency_value"><p>${albumDetail.artistAgency}</p></div>
                     </div>
                 </div>
                 <div class="album_produce_text_box">

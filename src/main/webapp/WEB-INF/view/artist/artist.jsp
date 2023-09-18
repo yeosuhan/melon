@@ -121,11 +121,11 @@
                                 <div class="artist_album_pic">
                                     <img src="<%= request.getContextPath() %>/resources/Img/song/${song.albumName}.jpg" alt="노래 이미지">
                                 </div>
-                                <div class="artist_song_name_tb">${song.songName}</div>
+                                <div class="artist_song_name_tb"><p>${song.songName}</p></div>
                             </div>
                         </td>
                         <td>
-                            <div class="artist_name_tb">${song.artistName}</div>
+                            <div class="artist_name_tb"><p>${song.artistName}</p></div>
                             <input type="hidden" name="artistId" value="${song.artistId}" id="artistId"/>
                         </td>
                         <td>
@@ -156,7 +156,7 @@
                             <img src="<%= request.getContextPath() %>/resources/Img/song/${albums.albumName}.jpg" alt="노래 이미지">
                         </div>
                         <div class="artist_album_text_box">
-                            <a href="/album/${albums.albumId}">${albums.albumName}</a>
+                            <a href="/album/${albums.albumId}"><p>${albums.albumName}</p></a>
                             <p>${albums.releaseDate}</p>
                         </div>
                     </div>
