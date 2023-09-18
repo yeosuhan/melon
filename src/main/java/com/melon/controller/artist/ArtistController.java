@@ -69,8 +69,6 @@ public class ArtistController {
         model.addAttribute("artistCnt", artistCnt);
         System.out.println(artistCnt);
 
-        //현재 좋아요 조회
-
         return "artist/artist";
     }
 
