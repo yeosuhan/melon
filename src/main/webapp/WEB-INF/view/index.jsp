@@ -4,6 +4,7 @@
 <html lang="kor">
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
 <link href="<%=request.getContextPath()%>/resources/css/index.css" rel="stylesheet">
+<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <body>
 <%@ include file="/WEB-INF/view/common/header.jsp" %>
 <section class="sec1">
