@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
-<head>
-    <link href="/resources/css/album/album.css" rel="stylesheet" type="text/css">
-</head>
+<link href="<%=request.getContextPath()%>/resources/css/album/album.css" rel="stylesheet">
+<script src="<%=request.getContextPath()%>/resources/js/album.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <body>
 <%@ include file="/WEB-INF/view/common/header.jsp" %>
 <section class="sec1">
@@ -21,12 +21,12 @@
                 </div>
                 <div class="album_top_text">
                     <div class="album_top_type">[ ${albumDetails.albumType} ]</div>
-                    <div class="album_top_song_name">${albumDetails.songName}</div>
+                    <div class="album_top_song_name">${albumDetails.albumName}</div>
                     <div class = "album_top_comment">
                         <a href="#" class="comment">댓글 &nbsp</a>
                         <a href="#" class="comment_count">${albumComments.size()}개 ></a>
                     </div>
-                    <a href="/artist/${albumDetails.artistId}" class="album_top_artist">${albumDetails.artistName}</a>
+                    <a href="/artist/${albumDetails.artistId}" class="album_top_artist"><p>${albumDetails.artistName}</p></a>
                     <div class="album_top_release">
                         <div class="release">발매일</div>
                         <div class="date">${albumDetails.releaseDate}</div>
@@ -97,21 +97,24 @@
                     </tr>
                 </thead>
                 <tbody class="body_tb">
+                <c:set var="startNumber" value="1" />
                 <c:forEach items="${getAlbumSongList}" var="songs">
                     <tr>
                         <td><input type="checkbox" class="check_tb"></td>
                         <td>
-                            <c:set var="startNumber" value="1" />
-                                <p>${startNumber}</p>
+                            <p>${startNumber}</p>
                         </td>
                         <td>
                             <div class="song_name_tb">${songs.songName}</div>
                         </td>
                         <td>
-                            <a href="/artist/${songs.artistId}" class="artist_name_tb">${songs.artistName}</a>
+                            <a href="/artist/${songs.artistId}" class="artist_name_tb"><p>${songs.artistName}</p></a>
                         </td>
                         <td>
-                            <strong>♡ &nbsp</strong>${songs.songLike}
+                            <p class="song_hart"><strong>♡ &nbsp</strong></p>
+                            <fmt:formatNumber value="${songs.songLike}" type="number" pattern="###,###,###" var="formattedSongLike" />
+                            <p class="song_hart_count">${formattedSongLike}</p>
+                            <input type="hidden" name="songId" class="songId" value="${songs.songId}"/>
                         </td>
                         <td>
                             <i class="fa-solid fa-play"></i>
@@ -123,6 +126,7 @@
                             <i class="fa-solid fa-download"></i>
                         </td>
                     </tr>
+                    <c:set var="startNumber" value="${startNumber + 1}" />
                 </c:forEach>
                 </tbody>
             </table>
@@ -180,11 +184,6 @@
                         </div>
                         <c:forEach items="${albumComments}" var="albumComments">
                         <div class="member_comment">
-                            <div class="member_comment_pic_box">
-                                <div class="member_comment_pic">
-                                    <img src="/resources/Img/member_comment_pic1.jpg"/>
-                                </div>
-                            </div>
                             <div class="member_comment_mem_id">${albumComments.memberId}</div>
                             <div class="member_comment_mem_content">${albumComments.commentDetail}</div>
                             <fmt:formatDate value="${albumComments.commentDate}" pattern="yyyy-MM-dd" var="formattedCommentDate"/>
@@ -201,6 +200,4 @@
     </div>
 </section>
 </body>
-<script src="/resources/js/album.js">
-</script>
 </html>
