@@ -4,7 +4,7 @@
 .with_playlist tr{position: relative; display: flex; flex-wrap: wrap; width: 240px; margin: 0 18px 18px 0;}
 .with_playlist h3{color:#fff; font-size: 1.1rem; line-height: 80px; height: 80px; }
 .with_playlist p{color:#fff; font-size: 1rem; height: 60px; width: 208px; position: absolute; bottom: 2px; left: 0; opacity: 0.6; background: #222; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px; padding: 16px 16px 0 16px; line-height: 20px;}
-.with_playlist img{width: 100%; border-radius: 10px; position: relative;}
+.with_playlist img{width: 240px; height:240px; border-radius: 10px; position: relative;}
 .with_playlist tbody{position: relative; width: 1050px; display: flex; flex-wrap: wrap; justify-content: flex-start;}
 
 /* 탑100 */
@@ -15,7 +15,7 @@
 .main_topsong img{width: 45px;}
 .main_topsong tr{position: relative; display: flex; justify-content: space-between; line-height: 20px; width: 350px;}
 .main_topsong_wrap{position: relative; display: flex; width: 1000px;}
-.main_topsong .topsong_fst{width: 45px;}
+.main_topsong .topsong_fst{width: 45px; height:45px;}
 .main_topsong .topsong_sec{width: 75px; text-align: center;}
 .main_topsong .topsong_thd{width: 100%;}
 
