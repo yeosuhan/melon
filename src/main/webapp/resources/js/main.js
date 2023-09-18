@@ -4,7 +4,7 @@ $(document).ready(function() {
 	/*셔플*/
 	const shuffle = document.querySelector('.shuffle');
 	/*재생목록 추가*/
-	add_songs.forEach((add_song, index) => {
+	/*add_songs.forEach((add_song, index) => {
 		add_song.addEventListener('click', () => {
 			const songName = document.querySelectorAll('.play_song')[index].textContent;
 			$.ajax({
@@ -23,7 +23,7 @@ $(document).ready(function() {
 				}
 			});
 		});
-	});
+	});*/
 	/*ajax 이후 온클릭*/
 	$(document).on('click', '.play_song', function() {
 		const songName = $(this).text();
