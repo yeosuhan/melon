@@ -128,7 +128,8 @@
             A.RELEASE_DATE AS releaseDate,
             A.ALBUM_ID AS albumId,
             AR.ARTIST_ID AS artistId,
-            S.SONG_ID AS songId
+            S.SONG_ID AS songId,
+            S.SONG_NAME AS songName
         FROM
             ALBUM A, SONG S, ARTIST AR
         WHERE
