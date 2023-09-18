@@ -97,4 +97,31 @@ public interface ISongDao {
 	 * @return 
 	*/
 	public List<Integer> selectSongIds(String SongName);
+	/**
+	 * 노래 좋아요 증가
+	 * @author 임휘재
+	 * @return
+	 */
+	void songLikeAdd(@Param("songId") int songId);
+
+	/**
+	 * 노래 좋아요 감소
+	 * @author 임휘재
+	 * @return
+	 */
+	void songLikeDel(@Param("songId") int songId);
+
+	/**
+	 * 노래 좋아요 조회
+	 * @author 임휘재
+	 * @return
+	 */
+	SongLike songLikeSelect(@Param("songId") int songId);
+
+	/**
+	 * 노래 좋아요를 좋아요 테이블에 저장
+	 * @author 임휘재
+	 * @return
+	 */
+	void songLikeToUserLike(@Param("songId") int songId, @Param("memberId") String memberId);
 }
