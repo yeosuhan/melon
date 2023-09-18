@@ -206,63 +206,59 @@ function showPlayLists(data) {
 	$(".playsong_list").append(ul);
 	// 기존의 ul 엘리먼트를 대체
 }
-/* 노래 좋아요 */
-$(document).ready(function() {
-	const likeButtons = document.querySelectorAll('.song_hart');
+/* 가수 - 곡 최신순, 인기순, 가나다순 좋아요*/
+// 쿠키 저장
+function setCookie(name, value, days) {
+	const date = new Date();
+	date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+	const expires = "expires=" + date.toUTCString();
+	document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
 
-	likeButtons.forEach((likeButton, index) => {
-		likeButton.addEventListener('click', () => {
-			const songIdInput = document.querySelectorAll('.songId')[index];
-			const songId = songIdInput.value;
-			const isLiked = getCookie(`song_${songId}_liked`) === 'true';
-			const url = isLiked ? `/song/${songId}/like/delete` : `/song/${songId}/like/update`;
-			const method = 'POST';
-
-			$.ajax({
-				url: url,
-				method: method,
-				dataType: 'json',
-				success: function(data) {
-					// Ajax 요청 성공 시 수행할 작업
-					const song_hart_counts = document.querySelectorAll('.song_hart_count');
-					const song_hart_count = song_hart_counts[index];
-					song_hart_count.textContent = data;
-
-					// 아이콘 토글
-					const likeIcon = likeButton.querySelector('strong');
-					if (isLiked) {
-						likeIcon.innerHTML = '♡ &nbsp;';
-						setCookie(`song_${songId}_liked`, 'false', 30); // 30일 동안 유지
-					} else {
-						likeIcon.innerHTML = '♥ &nbsp;';
-						setCookie(`song_${songId}_liked`, 'true', 30); // 30일 동안 유지
-					}
-				},
-				error: function(error) {
-					console.error('Ajax 호출 실패: ', error);
-				}
-			});
-		});
-	});
-
-	// 쿠키 설정 함수
-	function setCookie(name, value, days) {
-		const date = new Date();
-		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-		const expires = "expires=" + date.toUTCString();
-		document.cookie = name + "=" + value + ";" + expires + ";path=/";
-	}
-
-	// 쿠키 가져오기 함수
-	function getCookie(name) {
-		const cookieName = name + "=";
-		const cookieArray = document.cookie.split(';');
-		for (let i = 0; i < cookieArray.length; i++) {
-			let cookie = cookieArray[i].trim();
-			if (cookie.indexOf(cookieName) === 0) {
-				return cookie.substring(cookieName.length, cookie.length);
-			}
+// 쿠키 가져오기 함수
+function getCookie(name) {
+	const cookieName = name + "=";
+	const cookieArray = document.cookie.split(';');
+	for (let i = 0; i < cookieArray.length; i++) {
+		let cookie = cookieArray[i].trim();
+		if (cookie.indexOf(cookieName) === 0) {
+			return cookie.substring(cookieName.length, cookie.length);
 		}
-		return "";
 	}
+	return "";
+}
+
+$(document).on('click', '.song_hart', function() {
+	const clickedHart = $(this); // 클릭된 .song_hart 엘리먼트를 변수에 저장
+	const songIdInput = clickedHart.siblings('.songId');
+	const songId = songIdInput.val();
+	console.log(songId);
+	const isLiked = getCookie(`song_${songId}_liked`) === 'true';
+	const url = isLiked ? `/song/${songId}/like/delete` : `/song/${songId}/like/update`;
+	const method = 'POST';
+
+	$.ajax({
+		url: url,
+		method: method,
+		dataType: 'json',
+		success: function(data) {
+			// Ajax 요청 성공 시 수행할 작업
+			const song_hart_counts = $('.song_hart_count');
+			const song_hart_count = song_hart_counts.eq(songIdInput.index('.songId'));
+			song_hart_count.text(data);
+
+			// 아이콘 토글
+			const likeIcon = clickedHart.find('strong'); // 클릭된 엘리먼트에서 아이콘을 찾습니다.
+			if (isLiked) {
+				likeIcon.html('♡ &nbsp;');
+				setCookie(`song_${songId}_liked`, 'false', 30); // 30일 동안 유지
+			} else {
+				likeIcon.html('♥ &nbsp;');
+				setCookie(`song_${songId}_liked`, 'true', 30); // 30일 동안 유지
+			}
+		},
+		error: function(error) {
+			console.error('Ajax 호출 실패: ', error);
+		}
+	});
 });
