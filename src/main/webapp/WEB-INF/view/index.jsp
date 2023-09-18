@@ -23,22 +23,13 @@
         </c:if>
             <table>
                 <tbody>
-                    <tr>
-                        <td><img src="<%=request.getContextPath()%>/resources/Img/album.png"></td>
-                        <td><p>K-DANCE PARTY: 내적댄스 케이팝</p></td>
-                    </tr>
-                    <tr>
-                        <td><img src="<%=request.getContextPath()%>/resources/Img/album.png"></td>
-                        <td><p>K-DANCE PARTY: 내적댄스 케이팝</p></td>
-                    </tr>
-                    <tr>
-                        <td><img src="<%=request.getContextPath()%>/resources/Img/album.png"></td>
-                        <td><p>K-DANCE PARTY: 내적댄스 케이팝</p></td>
-                    </tr>
-                    <tr>
-                        <td><img src="<%=request.getContextPath()%>/resources/Img/album.png"></td>
-                        <td><p>K-DANCE PARTY: 내적댄스 케이팝</p></td>
-                    </tr>
+                    <c:forEach var="item" items="${fourAlbum}">
+                        <tr>
+                            <td><img src="<%=request.getContextPath()%>/resources/Img/${item.albumName}.png"></td>
+                            <td><p>${item.albumName}</p></td>
+                        </tr>
+                    </c:forEach>
+
                 </tbody>
             </table>
         </div>
