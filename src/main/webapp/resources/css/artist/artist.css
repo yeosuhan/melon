@@ -266,7 +266,7 @@ table.song_tb {
     border: 0px solid white; width: 5%; text-align: left; min-width: 150px;
 }
 .body_tb td:nth-child(6){
-    border: 0px solid white; width: 6%; text-align: left; min-width: 100px;
+    border: 0px solid white; width: 6%; text-align: left; min-width: 100px; display: flex; align-items: center;
 }
 .body_tb td:nth-child(6) p strong:hover{
     color: #04E632; transition: 0.2s all; cursor: pointer;
