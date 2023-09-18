@@ -88,6 +88,8 @@ input[type="checkbox"]:hover{cursor: pointer;}
 .nav img{ width: 40px; margin: 20px;}
 .nav li a{font-size: 0.9rem; line-height: 3rem; color:#999; font-weight: 600; margin: 0 0 0 20px; transition: all 0.2s;}
 .nav li a:hover{color: #04E632;}
+.playsong_oper_wrap .shuffle {font-size:1.4rem;}
+.playsong_oper_wrap .shuffle:hover {color: #04E632; cursor:pointer;}
 .nav>ul>li>ul>li>a{font-size: 0.8rem; line-height: 1.7rem; margin: 0 0 0 32px;}
 
 /* 본문 */

@@ -30,8 +30,44 @@
      	WHERE
      		MEMBER_ID = #{memberId}
      </select>
-     <insert id="insertMyPlaylist" parameterType="int">
+     <insert id="insertMyPlaylistSong" parameterType="int">
      	INSERT INTO PLAYLIST_NOW_SONG( PLAYLIST_CD, SONG_ID, ADD_TIME )
      	VALUES (#{playlistCd},#{songId}, sysdate)
      </insert>
+     <select id="getMyPlaylistShuffle" resultType="com.melon.dto.playlistnow.PlaylistnowDto">
+		    SELECT
+		        S.SONG_NAME AS songName,
+		        AR.ARTIST_NAME AS artistName,
+		        S.PLAYTIME AS playTime
+		    FROM
+		        SONG S, ARTIST AR, MEMBER M, PLAYLIST_NOW PN, PLAYLIST_NOW_SONG PNS
+		    WHERE
+		        S.ARTIST_ID = AR.ARTIST_ID
+		    AND
+		    	M.MEMBER_ID = PN.MEMBER_ID
+		    AND
+		    	PN.PLAYLIST_CD = PNS.PLAYLIST_CD
+		    AND
+		    	PNS.SONG_ID = S.SONG_ID
+		    AND
+		    	M.MEMBER_ID = #{memberId}
+		    ORDER BY
+     			DBMS_RANDOM.value
+    </select>
+    
+    <delete id="deleteMyPlaylist" parameterType="int">
+    	DELETE FROM PLAYLIST_NOW_SONG
+    	WHERE PLAYLIST_CD = #{playlistCd}
+    </delete>
+    
+    <insert id="insertMyPlaylist" parameterType="int">
+    	INSERT INTO PLAYLIST_NOW_SONG( PLAYLIST_CD, SONG_ID, ADD_TIME )
+     	VALUES (#{playlistCd},#{songId}, sysdate)
+    </insert>
+    
+    <delete id="deleteMyPlaylistSong" parameterType="int">
+    	DELETE FROM PLAYLIST_NOW_SONG
+    	WHERE PLAYLIST_CD = #{playlistCd}
+    	AND SONG_ID = #{songId}
+    </delete>
 </mapper>

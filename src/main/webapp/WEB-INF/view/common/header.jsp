@@ -3,7 +3,7 @@
 <header class="header">
     <div class="header_left">
         <a href="/">Melon</a>
-        <form action="/search" method="post">
+        <form action="/search" method="get">
             <div class="header_left_read"><i class="fa-solid fa-magnifying-glass"></i></div>
             <input type="text" name="result">
         </form>
@@ -31,7 +31,7 @@
                 <div class="playsong_oper_wrap">
                     <a href=""><i class="fa-solid fa-play"></i></a>
                     <a href=""><i class="fa-solid fa-pause"></i></a>
-                    <a href=""><i class="fa-solid fa-shuffle"></i></a>
+                    <i class="fa-solid fa-shuffle shuffle"></i>
                     <a href=""><i class="fa-solid fa-volume-off"></i></a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
         <div class="playsong_info_ck">
             <input type="checkbox">
             <p>3곡</p>
-            <p><a href="">삭제</a></p>
+            <p class="playlist_delete" style="border:1px solid red;cursor:pointer;">삭제</p>
         </div>
         <div class="playsong_list"> <!-- 동적으로 생성-->
             <ul>
@@ -48,7 +48,7 @@
 	                    <input type="checkbox">
 	                    <img src="<%=request.getContextPath()%>/resources/Img/next_level_img.png">
 	                    <div class="playsong_list_wrap_div">
-	                        <p>${pd.songName}</p>
+	                        <p class="play_song">${pd.songName}</p>
 	                        <p>${pd.artistName}</p>
 	                    </div>
 	                </li>
