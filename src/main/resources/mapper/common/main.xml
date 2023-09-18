@@ -7,13 +7,15 @@
     <select id="fourAlbum" resultType="com.melon.dto.common.MainAlbumDto">
         <![CDATA[
         SELECT
-            ALBUM_ID as albumId,
-            SONG_NAME as songName
+            SONG.ALBUM_ID as albumId,
+            SONG_NAME as songName,
+            ALBUM.ALBUM_NAME as albumName
         FROM (
             SELECT *
             FROM SONG
             ORDER BY DBMS_RANDOM.RANDOM
-             )
+             ) SONG
+        JOIN ALBUM ON SONG.ALBUM_ID = ALBUM.ALBUM_ID
         WHERE
             ROWNUM <= 4
         ]]>
