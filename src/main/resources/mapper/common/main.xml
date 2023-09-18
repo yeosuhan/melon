@@ -3,19 +3,88 @@
 
 <mapper namespace="com.melon.dao.common.IMainDao">
 
+<!--    함께들어요-->
     <select id="fourAlbum" resultType="com.melon.dto.common.MainAlbumDto">
         <![CDATA[
         SELECT
-            ALBUM_ID as albumId,
-            ALBUM_NAME as albumName
+            SONG.ALBUM_ID as albumId,
+            ALBUM.ALBUM_NAME as albumName
         FROM (
-            SELECT ALBUM_ID, ALBUM_NAME
-            FROM ALBUM
+            SELECT ALBUM_ID
+            FROM SONG
             ORDER BY DBMS_RANDOM.RANDOM
-             )
+             ) SONG
+        JOIN
+            ALBUM ON SONG.ALBUM_ID = ALBUM.ALBUM_ID
         WHERE
             ROWNUM <= 4
         ]]>
     </select>
+
+<!--    추천음악-->
+    <select id="recommendSong" resultType="com.melon.dto.common.MainSongDto">
+        <![CDATA[
+        SELECT
+            SONG_NAME as songName,
+            SONG_ID as songId,
+            ARTIST.ARTIST_NAME as artistName,
+            ALBUM.ALBUM_NAME as albumName
+        FROM (
+            SELECT SONG_ID, SONG_NAME, ARTIST_ID, ALBUM_ID
+            FROM SONG
+            ORDER BY DBMS_RANDOM.RANDOM
+             ) SONG
+        JOIN
+            ARTIST ON SONG.ARTIST_ID = ARTIST.ARTIST_ID
+        JOIN
+            ALBUM ON SONG.ALBUM_ID = ALBUM.ALBUM_ID
+        WHERE
+            ROWNUM <= 6
+        ]]>
+    </select>
+
+<!--    마이뮤직-->
+    <select id="myMusic" resultType="com.melon.dto.common.MainAlbumDto">
+        <![CDATA[
+        SELECT
+            USER_LIKE.ALBUM_ID as albumId,
+            ALBUM.ALBUM_NAME as albumName,
+            SONG.SONG_NAME as songName
+        FROM (
+            SELECT ALBUM_ID, SONG_ID
+            FROM USER_LIKE
+            ORDER BY DBMS_RANDOM.RANDOM
+             ) USER_LIKE
+        JOIN
+            ALBUM ON USER_LIKE.ALBUM_ID = ALBUM.ALBUM_ID
+        JOIN
+            SONG ON USER_LIKE.SONG_ID = SONG.SONG_ID
+        WHERE
+            ROWNUM <= 4
+        ]]>
+
+    </select>
+
+<!--    top100-->
+    <select id="topMusic" resultType="com.melon.dto.common.MainSongDto">
+        <![CDATA[
+        SELECT S.SONG_NAME    AS songName,
+                     AR.ARTIST_NAME AS artistName,
+                     AL.ALBUM_NAME  AS albumName,
+                     S.SONG_ID    AS songId,
+                     S.ALBUM_ID AS albumId,
+                     S.ARTIST_ID AS artistId
+              FROM SONG S,
+                   ALBUM AL,
+                   ARTIST AR,
+                   NOW_CHART NC
+              WHERE S.ARTIST_ID = AR.ARTIST_ID
+                AND S.ALBUM_ID = AL.ALBUM_ID
+                AND NC.SONG_ID = S.SONG_ID
+                AND ROWNUM <= 8
+              ORDER BY NC.COUNT_CHART DESC
+        ]]>
+    </select>
+
 
 </mapper>

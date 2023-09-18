@@ -7,4 +7,5 @@ public class MainAlbumDto {
 
     private int albumId;
     private String albumName;
+    private String songName;
 }

@@ -2,6 +2,7 @@ package com.melon.dao.song;
 
 import java.util.List;
 
+import com.melon.dto.song.SongLike;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

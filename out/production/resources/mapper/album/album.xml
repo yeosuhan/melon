@@ -23,6 +23,7 @@
 	                AL.RELEASE_DATE DESC)
         ]]>
     </select>
+    
     <select id="selectOriginRecentAlbum" resultType="com.melon.dto.album.AlbumDto">
         SELECT * FROM (
             SELECT
@@ -56,8 +57,6 @@
             ORDER BY
                 AL.RELEASE_DATE DESC)
     </select>
-
-    <!-- 앨범 상세 조회  -->
 
     <select id="selectAlbumDetails" parameterType="int" resultType="com.melon.dto.album.AlbumDetails">
         SELECT
@@ -127,7 +126,6 @@
             ROWNUM = 1
     </select>
 
-    <!-- 댓글 작성-->
     <insert id="saveComment" parameterType="com.melon.dto.comment.CommentDto">
         INSERT INTO ALBUM_COMMENT
             (ALBUM_ID, COMMENT_ID, MEMBER_ID, COMMENT_DETAIL, COMMENT_DATE)
@@ -196,5 +194,4 @@
         values
             (LIKE_CNT_SEQ.nextval, #{albumId}, #{memberId})
     </insert>
-
 </mapper>
