@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -88,7 +90,13 @@ public class ArtistController {
      * @author 임휘재
      */
     @PostMapping("/{artistId}/like/update")
-    public ResponseEntity<Integer> artistLikeCntUpdate(@PathVariable("artistId") int artistId) {
+    public ResponseEntity<Integer> artistLikeCntUpdate(@PathVariable("artistId") int artistId,
+                                                       HttpServletResponse res,
+                                                       @CookieValue(value = "isLiked", defaultValue = "false") boolean isLiked) {
+
+        Cookie cookie = new Cookie("isLiked", Boolean.toString(isLiked));
+        cookie.setMaxAge(3600); // 쿠키 만료 시간(초) 설정
+        res.addCookie(cookie);
         try {
             String memberId = "admin";
             artistService.ArtistLikeUpdate(artistId);
@@ -108,7 +116,14 @@ public class ArtistController {
      * @author 임휘재
      */
     @PostMapping("/{artistId}/like/delete")
-    public ResponseEntity<Integer> artistLikeCntDelete(@PathVariable("artistId") int artistId) {
+    public ResponseEntity<Integer> artistLikeCntDelete(@PathVariable("artistId") int artistId,
+                                                       HttpServletResponse res,
+                                                       @CookieValue(value = "isLiked", defaultValue = "false") boolean isLiked) {
+
+
+        Cookie cookie = new Cookie("isLiked", Boolean.toString(isLiked));
+        cookie.setMaxAge(3600); // 쿠키 만료 시간(초) 설정
+        res.addCookie(cookie);
         try {
             String memberId = "admin";
             artistService.ArtistLikeDelete(artistId);
@@ -118,38 +133,6 @@ public class ArtistController {
             artistService.artistLikeToUserLike(artistId, memberId);
             log.info("가수 좋아요 감소를 user_like 테이블에 저장. memberId: {}", memberId);
             return ResponseEntity.ok(likeCnt);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(1);
-        }
-    }
-
-    /**
-     * 가수 노래 좋아요 증가
-     * @author 임휘재
-     */
-    @PostMapping("/{artistId}/like/song/update")
-    public ResponseEntity<Integer> artistSongLikeCntUpdate(@PathVariable("artistId") int artistId) {
-        try {
-            artistService.ArtistSongLikeUpdate(artistId);
-            ArtistDto dto = artistService.ArtistSongLikeCntNow(artistId);
-            log.info("ArtistLikeSongUpdateCnt : {}", dto.getSongLike());
-            return ResponseEntity.ok(dto.getSongLike());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(-1);
-        }
-    }
-
-    /**
-     * 가수 노래 좋아요 삭제
-     * @author 임휘재
-     */
-    @PostMapping("/{artistId}/like/song/delete")
-    public ResponseEntity<Integer> artistSongLikeCntDelete(@PathVariable("artistId") int artistId) {
-        try {
-            artistService.ArtistSongLikeDelete(artistId);
-            ArtistDto dto = artistService.ArtistSongLikeCntNow(artistId);
-            log.info("ArtistLikeSongUpdateCnt : {}", dto.getSongLike());
-            return ResponseEntity.ok(dto.getSongLike());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(1);
         }
