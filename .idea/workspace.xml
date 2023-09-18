@@ -5,48 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc478a8-e533-4ead-94c8-90cd47bce535" name="Changes" comment="merge">
+      <change afterPath="$PROJECT_DIR$/bin/main/com/melon/dto/song/SongLike.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/Img/artist/송푸름.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/Img/song/asd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/Img/song/택배.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/Img/song/파란.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/Img/song/호날두.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/46b7ef5e-a320-4557-810d-ca49b64a8fb8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/46b7ef5e-a320-4557-810d-ca49b64a8fb8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/album/AlbumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/album/AlbumController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/artist/ArtistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/artist/ArtistController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/controller/album/AlbumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/controller/album/AlbumController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/controller/artist/ArtistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/controller/artist/ArtistController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/controller/common/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/controller/common/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/controller/genre/GenreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/controller/genre/GenreController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/controller/playlistnow/PlaylistnowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/controller/playlistnow/PlaylistnowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/controller/song/SongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/controller/song/SongController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/dao/song/ISongDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/dao/song/ISongDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/service/song/ISongService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/service/song/ISongService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/service/song/SongService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/melon/service/song/SongServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/melon/service/song/SongServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/mapper/admin/IAdmin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/mapper/admin/IAdmin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/mapper/album/album.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/mapper/album/album.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/mapper/song/song.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/mapper/song/song.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/common/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/common/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/genre/GenreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/genre/GenreController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/playlistnow/PlaylistnowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/playlistnow/PlaylistnowController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/song/SongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/song/SongController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dao/album/IAlbumDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/dao/album/IAlbumDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dao/common/IMainDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/dao/common/IMainDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dao/playlistnow/IPlaylistnowDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/dao/playlistnow/IPlaylistnowDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dao/playlistnow/PlaylistnowDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dao/song/ISongDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/dao/song/ISongDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dto/album/AlbumDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/dto/album/AlbumDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dto/common/MainAlbumDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/dto/common/MainAlbumDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dto/common/SearchDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/dto/common/SearchDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/album/AlbumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/album/AlbumServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/album/IAlbumService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/album/IAlbumService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/common/IMainService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/common/IMainService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/common/MainServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/common/MainServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/playlistnow/IPlaylistnowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/playlistnow/IPlaylistnowService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/playlistnow/PlaylistnowServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/playlistnow/PlaylistnowServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/song/ISongService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/song/ISongService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/song/SongService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/song/SongServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/song/SongServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/util/ChartScheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/util/ChartScheduler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/admin/IAdmin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/admin/IAdmin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/album/album.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/album/album.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/common/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/common/main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/common/search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/common/search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/playlistnow/playlistnow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/playlistnow/playlistnow.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/song/song.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/song/song.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/controller/common/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/controller/common/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/dao/common/IMainDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/dao/common/IMainDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/controller/genre/GenreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/controller/genre/GenreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/controller/playlistnow/PlaylistnowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/controller/playlistnow/PlaylistnowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/controller/song/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/controller/song/SongController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/dao/song/ISongDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/dao/song/ISongDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/dto/common/MainAlbumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/dto/common/MainAlbumDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/service/common/IMainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/service/common/IMainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/service/common/MainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/service/common/MainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/service/song/ISongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/service/song/ISongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/service/common/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/service/common/LoginServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/service/song/SongServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/service/song/SongServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/album/album.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/album/album.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/common/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/common/main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/album/album.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/album/album.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/artist/artist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/artist/artist.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/common/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/recentesong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/recentesong.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,12 +71,7 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="melon" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="melon" type="f1a62948:ProjectNode" />
-                <item name="실행 구성" type="7b0102dc:RunConfigurationsNode" />
+                <item name="Melon_service" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -111,41 +108,41 @@
     <option name="showScratchesAndConsoles" value="false" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;46b7ef5e-a320-4557-810d-ca49b64a8fb8&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/dev/intelliProject/melon/src/test/java/com/melon&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/intelliProject/melon/src/main/resources&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;7f1a6198a7664a1d4262cbaca2bf5da9&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JPA.DatabaseSchemaImportDialog": "46b7ef5e-a320-4557-810d-ca49b64a8fb8",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main 병합 중",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_directory_selection": "C:/dev/intelliProject/melon/src/test/java/com/melon",
+    "last_opened_file_path": "C:/dev/intelliProject/melon/src/main/resources",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "spring.configuration.checksum": "7f1a6198a7664a1d4262cbaca2bf5da9",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\dev\intelliProject\melon\src\main\resources" />
@@ -270,7 +267,7 @@
       <workItem from="1694761219430" duration="8849000" />
       <workItem from="1694848805666" duration="172000" />
       <workItem from="1694996485574" duration="19696000" />
-      <workItem from="1695020623205" duration="4174000" />
+      <workItem from="1695020623205" duration="7838000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <option name="closed" value="true" />

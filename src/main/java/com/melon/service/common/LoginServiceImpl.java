@@ -26,7 +26,7 @@ public class LoginServiceImpl implements ILoginService {
 
 			session.setAttribute("user", loginDto);
 			session.setMaxInactiveInterval(60*100);
-
+			
 			Cookie cookie = new Cookie("usercookie", loginDto.getId());
 			cookie.setMaxAge(60*60*24);
 			response.addCookie(cookie);

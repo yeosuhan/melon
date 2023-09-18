@@ -69,7 +69,8 @@
             S.song_id as songId,
             AR.artist_name as artistName,
             G.genre_name as genreName,
-            AR.artist_id as artistId
+            AR.artist_id as artistId,
+            A.album_name as albumName
         FROM
             ALBUM A, SONG S, ARTIST AR, GENRE G
         WHERE
@@ -92,7 +93,8 @@
             S.SONG_NAME AS songName,
             AR.ARTIST_NAME AS artistName,
             AR.ARTIST_ID AS artistId,
-            A.ALBUM_LIKE AS albumLike
+            A.ALBUM_LIKE AS albumLike,
+            S.SONG_LIKE AS songLike
         FROM
             ALBUM A, SONG S, ARTIST AR
         WHERE

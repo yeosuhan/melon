@@ -4,6 +4,7 @@
 <html lang="kor">
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
 <link href="<%=request.getContextPath()%>/resources/css/index.css" rel="stylesheet">
+<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <body>
 <%@ include file="/WEB-INF/view/common/header.jsp" %>
 <section class="sec1">
@@ -25,7 +26,7 @@
                 <tbody>
                     <c:forEach var="item" items="${fourAlbum}">
                         <tr>
-                            <td><a href="/album/${item.albumId}"><img src="<%=request.getContextPath()%>/resources/Img/song/${item.albumName}.jpg" alt="앨범 이미지"></a></td>
+                            <td><a href="/album/${item.albumId}"><img src="<%=request.getContextPath()%>/resources/Img/song/${item.songName}.jpg" alt="앨범 이미지"></a></td>
                             <td><a href="/album/${item.albumId}"><p>${item.albumName}</p></a></td>
                         </tr>
                     </c:forEach>
@@ -41,7 +42,7 @@
                     <c:forEach var="item" items="${topMusic}">
                         <tr>
                             <td class="topsong_fst">
-                                <a href="/album/${item.albumId}"><img src="<%=request.getContextPath()%>/resources/Img/${item.albumName}.jpg"></a>
+                                <a href="/album/${item.albumId}"><img src="<%=request.getContextPath()%>/resources/Img/${item.songName}.jpg"></a>
                             </td>
                             <td class="topsong_sec">
                                 <p>2</p>
@@ -49,7 +50,7 @@
                             </td>
                             <td class="topsong_thd">
                                 <div>
-                                    <a href="/song/${item.songId}"><p>${item.songName}</p></a>
+                                    <a href="/album/${item.songId}" class="play_song"><p>${item.songName}</p></a>
                                     <a href="/artist/${item.artistId}"><p>${item.artistName}</p></a>
                                 </div>
                             </td>
@@ -67,11 +68,11 @@
                     <tr>
                         <c:forEach var="item" items="${recommendSong}">
                             <td>
-                                <img src="<%=request.getContextPath()%>/resources/Img/${item.albumName}.jpg">
-                                <a href="/song/${item.songId}"><div>
-                                    <p>${item.songName}</p>
-                                    <p>${item.artistName}</p>
-                                </div></a>
+                                <img src="<%=request.getContextPath()%>/resources/Img/song/${item.songName}.jpg">
+                                <div>
+                                    <p class="play_song">${item.songName}</p>
+                                    <a href="/artist/${item.artistId}"><p>${item.artistName}</p></a>
+                                </div>
                             </td>
                         </c:forEach>
                     </tr>
@@ -85,8 +86,8 @@
                 <c:if test="${not empty myMusic}">
                     <c:forEach var="item" items="${myMusic}">
                         <tr>
-                            <td><img src="<%=request.getContextPath()%>/resources/Img/${item.albumName}"></td>
-                            <td><p>${item.songName}</p></td>
+                            <td><img src="<%=request.getContextPath()%>/resources/Img/${item.songName}"></td>
+                            <td><p class="play_song">${item.songName}</p></td>
                         </tr>
                     </c:forEach>
                 </c:if>

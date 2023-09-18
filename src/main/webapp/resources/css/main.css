@@ -105,3 +105,5 @@ h2,h3,p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 
 /* 본문 */
 .wrap{ min-height: 935px; width: calc(100% - 467px); word-break: break-all; position: relative; z-index: 1;}
+.play_song {cursor:pointer;}
+.play_now_artist_name {	color:#04E632;}

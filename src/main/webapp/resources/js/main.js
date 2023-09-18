@@ -6,11 +6,11 @@ $(document).ready(function() {
 	/*재생목록 추가*/
 	add_songs.forEach((add_song, index) => {
 		add_song.addEventListener('click', () => {
-			const add_song = document.querySelectorAll('.play_song')[index].textContent;
+			const songName = document.querySelectorAll('.play_song')[index].textContent;
 			$.ajax({
 				url: "/playlist/add", // 국내 데이터를 불러올 서버 엔드포인트 지정
 				method: "POST", // HTTP 메서드 (GET, POST 등)
-				data: { add_song: add_song },
+				data: { add_song: songName },
 				dataType: "json",
 				success: function(data) {
 					// Ajax 호출 성공 시 실행할 코드
@@ -23,6 +23,27 @@ $(document).ready(function() {
 				}
 			});
 		});
+	});
+	/*ajax 이후 온클릭*/
+	$(document).on('click', '.play_song', function() {
+		const songName = $(this).text();
+		console.log(songName);
+		$.ajax({
+			url: "/playlist/add", // 국내 데이터를 불러올 서버 엔드포인트 지정
+			method: "POST", // HTTP 메서드 (GET, POST 등)
+			data: { add_song: songName },
+			dataType: "json",
+			success: function(data) {
+				// Ajax 호출 성공 시 실행할 코드
+				showPlayLists(data);
+				// 여기에서 데이터를 화면에 표시하거나 다른 작업을 수행할 수 있습니다.
+			},
+			error: function(error) {
+				// Ajax 호출 실패 시 실행할 코드
+				console.error("Ajax 호출 실패:", error);
+			}
+		});
+		// 나머지 Ajax 요청 및 처리 로직은 동일합니다.
 	});
 	/*셔플된 재생목록 출력*/
 	shuffle.addEventListener('click', () => {
