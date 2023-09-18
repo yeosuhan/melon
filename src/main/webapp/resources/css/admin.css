@@ -66,6 +66,7 @@
     height: 30px;
     border: 1px solid #4c4c4c;
     background: none;
+    border-radius: 10px;
 }
 .asd{
     margin: 0 !important;
@@ -96,9 +97,13 @@
     line-height: 50px;
 }
 .second_section table .second_tr td {
-    vertical-align: middle;
+    /*vertical-align: middle;*/
     text-align: center;
 }
+
+
+.second_section table .second_tr td input[type="checkbox"]{width: 13px; height: 13px; appearance: none; border:1px solid #aaa; border-radius: 4px; margin: 11px 11px 0;}
+.second_section table .second_tr td input[type="checkbox"]:checked::before{content: '\f00c'; font-family:"Font Awesome 5 free"; font-weight:900; font-size: 0.8rem; color: #04E632; }
 
 .second_section table .second_tr td:nth-child(1) {
     width: 50px;

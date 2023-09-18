@@ -28,7 +28,7 @@
                     <input type="text" placeholder="닉네임 입력" name="nick" value="" maxlength="20">
                     <input type="text" placeholder="생년월일 8자리 입력" name="birthday" value="" id="birth" pattern="\d*" maxlength="8" oninput="checkBirthday()">
                     <p id="birthCheck">*필수</p>
-                    <input type="text" placeholder="핸드폰 번호 입력" name="tel" value="" id="tel" maxlength="13" pattern="\d*" oninput="checkPhone()">
+                    <input type="text" placeholder="핸드폰 번호 입력" name="tel" value="" id="tel" maxlength="11" pattern="\d*" oninput="checkPhone()">
                     <p id="phoneCheck">*필수</p>
                     <button type="submit" id="join_btn">회원가입</button>
                     <button formaction="/" formmethod="get"><p>취소</p></button>

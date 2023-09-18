@@ -22,8 +22,9 @@ public class SearchController {
     public String searchSongByName(@RequestParam String songName, Model model) {
         List<SearchDto> songs = ISearchService.findSongByName(songName);
 
+
+
         model.addAttribute("songs", songs);
-        log.info(songs);
         return "common/search";
     }
 

@@ -23,6 +23,7 @@
 	                AL.RELEASE_DATE DESC)
         ]]>
     </select>
+    
     <select id="selectOriginRecentAlbum" resultType="com.melon.dto.album.AlbumDto">
         SELECT * FROM (
             SELECT
@@ -57,8 +58,6 @@
                 AL.RELEASE_DATE DESC)
     </select>
 
-
-
     <select id="selectAlbumDetails" parameterType="int" resultType="com.melon.dto.album.AlbumDetails">
         SELECT
             A.album_id as albumId,
@@ -84,8 +83,6 @@
           AND
             ROWNUM = 1
     </select>
-
-
 
     <select id="selectAlbumSongList" parameterType="int" resultType="com.melon.dto.album.AlbumDetails">
         SELECT
@@ -128,10 +125,7 @@
           AND
             ROWNUM = 1
     </select>
-    
-    
-    
-    
+
     <insert id="saveComment" parameterType="com.melon.dto.comment.CommentDto">
         INSERT INTO ALBUM_COMMENT
             (ALBUM_ID, COMMENT_ID, MEMBER_ID, COMMENT_DETAIL, COMMENT_DATE)

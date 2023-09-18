@@ -10,15 +10,13 @@
 <section class="sec1">
     <%@ include file="/WEB-INF/view/common/aside.jsp" %>
     <div class="wrap">
-    <!-- type=button : URI를 연결하지 않고 단순하게 사용자 인터페이스만를 ‘조작‘하기 위한 버튼 -->
-    <!-- onsubmit="return false" 위와 같음 -->
         <div class="search_header">
             <ul>
                 <li><h2>검색</h2></li>
                 <li><button><p>통합검색</p></button></li>
                 <li><button><p>곡</p></button></li>
-                <li><button><p>앨범</p></button></li>
                 <li><button><p>아티스트</p></button></li>
+                <li><button><p>앨범</p></button></li>
             </ul>
         </div>
         <div class="search_body">
@@ -31,28 +29,11 @@
                     <c:forEach var="song" items="${songs}">
                         <tr>
                             <td><input type="checkbox"></td>
-                            <td><img src="<%=request.getContextPath()%>/resources/Img/album.png"></td>
-                            <td><p>${song.songName}</p></td>
-                            <td><p>${song.artistName}</p></td>
-                            <td><p>${song.albumName}</p></td>
+                            <td><a href="/album/${song.albumId}"><img src="<%= request.getContextPath() %>/resources/Img/song/${song.songName}.jpg" alt="노래 이미지"></a></td>
+                            <td><a href=""><p>${song.songName}</p></a></td>
+                            <td><a href="/artist/${song.artistId}"><p>${song.artistName}</p></a></td>
+                            <td><a href="/album/${song.albumId}"><p>${song.albumName}</p></a></td>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
-        <div class="search_album">
-            <c:if test="${!empty songs.size()}">
-                <h3>앨범 (${songs.size()}) → </h3>
-            </c:if>
-            <table>
-                <tbody>
-                    <c:forEach var="song" items="${songs}">
-                    <tr>
-                        <td><img src="<%=request.getContextPath()%>/resources/Img/album.png"></td>
-                        <td><p>${song.albumName}</p></td>
-                        <td><p>${song.artistName}</p></td>
-                        <td><p>${song.songName}</p></td>
-                    </tr>
                     </c:forEach>
                 </tbody>
             </table>
@@ -65,11 +46,27 @@
                 <tbody>
                 <c:forEach var="song" items="${songs}">
                     <tr>
-                        <td><img src="<%=request.getContextPath()%>/resources/Img/album.png"></td>
-                        <td><p>${song.artistName}</p></td>
-                        <td><p>${song.genre}</p></td>
+                        <td><a href="/album/${song.albumId}"><img src="<%= request.getContextPath() %>/resources/Img/artist/${song.artistName}.jpg" alt="가수 이미지"></a></td>
+                        <td><a href="/artist/${song.artistId}"><p>${song.artistName}</p></a></td>
+                        <td><a href="/genre/home"><p>${song.genre}</p></a></td>
                     </tr>
                 </c:forEach>
+                </tbody>
+            </table>
+        </div>
+        <div class="search_album">
+            <c:if test="${!empty songs.size()}">
+                <h3>앨범 (${songs.size()}) → </h3>
+            </c:if>
+            <table>
+                <tbody>
+                    <c:forEach var="song" items="${songs}">
+                    <tr>
+                        <td><a href="/album/${song.albumId}"><img src="<%= request.getContextPath() %>/resources/Img/song/${song.songName}.jpg" alt="앨범 이미지"></a></td>
+                        <td><a href="/album/${song.albumId}"><p>${song.albumName}</p></a></td>
+                        <td><a href="/artist/${song.artistId}"><p>${song.artistName}</p></a></td>
+                    </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

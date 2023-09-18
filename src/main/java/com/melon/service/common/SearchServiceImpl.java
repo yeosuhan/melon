@@ -1,7 +1,7 @@
 package com.melon.service.common;
 
 import com.melon.dto.common.SearchDto;
-import com.melon.repository.common.SearchRepository;
+import com.melon.dao.common.ISearchDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SearchServiceImpl implements ISearchService {
 
-    private final SearchRepository searchRepository;
+    private final ISearchDao ISearchDao;
     @Override
     public List<SearchDto> findSongByName(String songName){
-        return searchRepository.searchSong(songName);
+        return ISearchDao.searchSong(songName);
     }
 }

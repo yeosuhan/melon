@@ -33,7 +33,7 @@
             <li>
                 <a href="/playlist/recente" id="music">마이뮤직</a>
                 <ul>
-                    <li><a href="/playlist/recente" id="recente">재생목록</a></li>
+                    <li><a href="/playlist/now/{id}" id="recente">재생목록</a></li>
                     <li><a href="/like/artist" id="artist">팬맺음</a></li>
                 </ul>
             </li>

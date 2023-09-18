@@ -33,6 +33,7 @@ input:focus,textarea:focus,select:focus{outline:none; border:none;}
 a,a:active,a:visited,a:hover{text-decoration: none;}
 body{background-color: #2a2a2a; font-family: 'SUIT-Regular';}
 input[type="checkbox"]:hover{cursor: pointer;}
+h2,h3,p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 
 .header{position: relative; display: flex; height: 65px; width: calc(100% - 350px);}
 .header>.header_left>a{font-size: 1.2rem; color:#04E632; margin: 20px; font-family: 'KCC-Ganpan'; height: 23px; line-height: 23px;}
@@ -51,12 +52,20 @@ input[type="checkbox"]:hover{cursor: pointer;}
 
 .aside{position: fixed; right: 0; width: 350px; min-width: 350px; height: 940px; display: flex; flex-wrap: wrap; align-items: flex-start; text-align: center; background: #333; color: #fff; z-index: 2;}
 .playsong_info{display: flex; flex-wrap: wrap; justify-content: center; margin: 0 auto; align-items: flex-start; height: 350px;}
-.playsong_info img{width: 150px; height: 150px; margin: 50px 0 20px 0; border-radius: 6px;}
+.playsong_info img{width: 150px; height: 150px; margin: 50px 0 20px 0; border-radius: 6px; border: 1px solid #aaa;}
 .playsong_info p{width: 100%; height: 20px; line-height: 20px; font-size: 0.8rem; font-weight: 600;}
 .playsong_info span{color:#04E632}
 #like_btn{height: 30px; line-height: 30px;}
 #like_btn .white{font-size: 1.1rem; font-weight: 300; color: #fff;}
 #like_btn .green{font-size: 1.1rem; font-weight: 300; color: #04E632 !important;}
+
+.playsong_info .noneuser{height: 30px; line-height: 30px;}
+.playsong_info .noneuser .white{font-size: 1.1rem; font-weight: 300; color: #fff;}
+.playsong_info .noneuser .green{font-size: 1.1rem; font-weight: 300; color: #04E632 !important;}
+.noneuser_chart {position: relative;}
+.noneuser_chart p{position: absolute; top: 150px; left: 120px;}
+.noneuser_chart p:last-child{position: absolute; top: 170px;left: 46px;}
+
 
 .playsong_info_ck{position: relative; height: 35px; display: flex;}
 .playsong_info_ck input[type="checkbox"]{width: 13px; height: 13px; appearance: none; border:1px solid #aaa; border-radius: 4px; margin: 11px 11px 0;}
@@ -80,6 +89,8 @@ input[type="checkbox"]:hover{cursor: pointer;}
 .playsong_list_wrap_div{display: flex; flex-wrap: wrap; align-content: space-between; margin: 0 0 0 13px;}
 .playsong_list_wrap_div p { font-size: 0.8rem; width: 100%;}
 .playsong_list_wrap_box{width: 4px; height: 4px;}
+.playsong_oper_wrap .shuffle {font-size:1.4rem;}
+.playsong_oper_wrap .shuffle:hover {color: #04E632; cursor:pointer;}
 
 .sec1{position: relative; display: flex;}
 
@@ -94,10 +105,3 @@ input[type="checkbox"]:hover{cursor: pointer;}
 
 /* 본문 */
 .wrap{ min-height: 935px; width: calc(100% - 467px); word-break: break-all; position: relative; z-index: 1;}
-/* 노래 재생 */
-.play_song {
-	cursor:pointer;
-}
-.play_now_artist_name {
-	color:#04E632;
-}

@@ -80,6 +80,9 @@ a {
 .ticket_sale_payment_body > .ticket_sale_payment_box > .ticket_sale_payment_first_box > .ticket_sale_payment_first_right_box > .ticket_sale_payment_right_text p:nth-child(1){
     font-size: 1.1rem;
 }
+.ticket_sale_payment_body > .ticket_sale_payment_box > .ticket_sale_payment_first_box > .ticket_sale_payment_first_right_box > .ticket_sale_payment_right_text p:nth-child(2){
+    text-decoration: line-through;
+}
 .ticket_sale_payment_body > .ticket_sale_payment_box > .ticket_sale_payment_first_box > .ticket_sale_payment_first_right_box > .ticket_sale_payment_right_text button{
     color: white; font-size: 0.9rem; line-height: 30px; width: 55px; border-radius: 20px;
     outline: none; opacity: 0.9; background: #2a2a2a; cursor: pointer;
