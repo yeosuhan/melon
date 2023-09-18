@@ -226,11 +226,14 @@ table.song_tb {
 .body_tb {
     border: 0px solid white; height: 70px;
 }
+.body_tb tr {
+    border-bottom: 1px solid #999999;
+}
 .body_tb tr:hover {
     background: #4c4c4c;
 }
 .body_tb tr td {
-    border-bottom: 1px solid #999999; height: 60px; vertical-align: middle;
+    height: 60px; vertical-align: middle;
 }
 .body_tb tr td a:hover{
     color: #04E632; transition: 0.2s all;
@@ -251,7 +254,7 @@ table.song_tb {
     width: 20%; min-width: 80px;
 }
 .body_tb tr td:nth-child(5){
-    width: 10%; min-width: 150px; text-align: left;
+    width: 10%; min-width: 150px; display: flex; align-items: center;
 }
 .body_tb tr td:nth-child(6){
     width: 5%; min-width: 50px; text-align: center;
