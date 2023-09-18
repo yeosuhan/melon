@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="kor">
 <%@ include file="/WEB-INF/view/common/front_header.jsp" %>
-<head>
-    <link href="/resources/css/artist/artist.css" rel="stylesheet" type="text/css">
-</head>
+<link href="<%=request.getContextPath()%>/resources/css/artist/artist.css" rel="stylesheet">
+
 <body>
 <%@ include file="/WEB-INF/view/common/header.jsp" %>
 <section class="sec1">
@@ -17,7 +16,7 @@
             <div class="artist_top">
                 <div class="artist_top_img">
                     <div class="artist_img">
-                        <img src="/resources/Img/karina.png"/>
+                        <img src="<%= request.getContextPath() %>/resources/Img/artist/${artistInfo.artistName}.jpg" alt="노래 이미지">
                     </div>
                 </div>
                 <div class="artist_top_text">
@@ -78,10 +77,10 @@
                         <span class="artist_song_latest_text sort">최신순</span>
                     </div>
                     <div class="artist_song_popularity_box">
-                        <span class="artist_song_popularity_text" onclick="showTable()">인기순</span>
+                        <span class="artist_song_popularity_text">인기순</span>
                     </div>
                     <div class="artist_song_alphabetically_box">
-                        <span class="artist_song_alphabetically_text" onclick="showTable()">가나다순</span>
+                        <span class="artist_song_alphabetically_text">가나다순</span>
                     </div>
                 </div>
                 <div class="artist_select_and_play">
@@ -120,7 +119,7 @@
                         <td>
                             <div class="artist_song_name_box_tb">
                                 <div class="artist_album_pic">
-                                    <img src="/resources/Img/Better_Things.jpg"/>
+                                    <img src="<%= request.getContextPath() %>/resources/Img/song/${song.albumName}.jpg" alt="노래 이미지">
                                 </div>
                                 <div class="artist_song_name_tb">${song.songName}</div>
                             </div>
@@ -130,15 +129,16 @@
                             <input type="hidden" name="artistId" value="${song.artistId}" id="artistId"/>
                         </td>
                         <td>
-                            <a href="/album/${song.albumId}" class="artist_album_name_tb">${song.albumName}</a>
+                            <a href="/album/${song.albumId}" class="artist_album_name_tb"><p>${song.albumName}</p></a>
                             <input type="hidden" name="albumId" value="${song.albumId}" id="albumId">
                         </td>
                         <td>
                             <p id="song_releaseDate">${song.releaseDate}</p>
                         </td>
                         <td>
-                            <fmt:formatNumber value="${song.songLike}" type="number" pattern="###,###,###" var="formattedSongLike" />
-                            <p id="song_albumLike"><strong>♡ &nbsp</strong>${formattedSongLike}</p>
+                            <p class="song_hart"><strong>♡ &nbsp</strong></p>
+                            <p class="song_hart_count">${song.songLike}</p>
+                            <input type="hidden" name="songId" class="songId" value="${song.songId}"/>
                         </td>
                         <td>
                             <p><i class="fa-solid fa-play"></i></p>
@@ -153,7 +153,7 @@
                         <input type="hidden" name="albumArtistId" value="${albums.artistId}" id="albumArtistId"/>
                     <div class="artist_album_list_box">
                         <div class="artist_album_list_img">
-                            <a href="/album/${albums.albumId}"><img src="/resources/Img/OMG.jpg"></a>
+                            <img src="<%= request.getContextPath() %>/resources/Img/song/${albums.albumName}.jpg" alt="노래 이미지">
                         </div>
                         <div class="artist_album_text_box">
                             <a href="/album/${albums.albumId}">${albums.albumName}</a>
@@ -184,7 +184,7 @@
                             </div>
                             <div class="artist_recent_album">
                                 <p><i class="fa-solid fa-play"></i></p>
-                                <img src="/resources/Img/Love_Lee.jpg"/>
+                                <img src="<%= request.getContextPath() %>/resources/Img/song/${artistActivity.songName}.jpg" alt="노래 이미지">
                             </div>
                             <div class="artist_song_name">
                                 <p>${artistActivity.songName}</p>
@@ -216,6 +216,6 @@
     </div>
 </section>
 </body>
-<script src="/resources/js/artist.js"></script>
-<script src="/resources/js/main.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/artist.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 </html>
