@@ -16,7 +16,7 @@
             <div class="album_top">
                 <div class="album_top_img">
                     <div class="album_img">
-                        <img src="<%= request.getContextPath() %>/resources/Img/song/${albumDetails.albumName}.jpg" alt="노래 이미지">
+                        <img src="<%= request.getContextPath() %>/resources/Img/artist/${albumDetails.artistName}.jpg" alt="노래 이미지">
                     </div>
                 </div>
                 <div class="album_top_text">

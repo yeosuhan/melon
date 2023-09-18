@@ -3,6 +3,7 @@ package com.melon.service.song;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.melon.dto.song.SongLike;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

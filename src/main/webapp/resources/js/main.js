@@ -27,6 +27,7 @@ $(document).ready(function() {
 	/*ajax 이후 온클릭*/
 	$(document).on('click', '.play_song', function() {
 		const songName = $(this).text();
+		console.log(songName);
 		$.ajax({
 			url: "/playlist/add", // 국내 데이터를 불러올 서버 엔드포인트 지정
 			method: "POST", // HTTP 메서드 (GET, POST 등)

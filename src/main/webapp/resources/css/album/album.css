@@ -283,7 +283,7 @@ table.song_tb {
 /*앨범상세 - 앨범명*/
 .album_detail_body > .album_information_body > .album_detail_name_box {
     border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
-    margin-left: 47px;
+    margin-left: 47px; display: flex;
 }
 .album_detail_body > .album_information_body > .album_detail_name_box  > .album_name{
     border: 0px solid white; display: inline-block; width: 85px;
@@ -295,7 +295,7 @@ table.song_tb {
 /*앨범상세 - 아티스트*/
 .album_detail_body > .album_information_body > .album_detail_artist_box {
     border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
-    margin-left: 47px;
+    margin-left: 47px; display: flex;
 }
 .album_detail_body > .album_information_body > .album_detail_artist_box > .album_artist {
     border: 0px solid white; display: inline-block; width: 85px;
@@ -307,7 +307,7 @@ table.song_tb {
 /*앨범상세 - 장르*/
 .album_detail_body > .album_information_body > .album_detail_genre_box {
     border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
-    display: inline-block; margin-left: 47px;
+    margin-left: 47px; display: flex;
 }
 .album_detail_body > .album_information_body > .album_detail_genre_box > .album_genre {
     border: 0px solid white; display: inline-block; width: 85px;
@@ -319,7 +319,7 @@ table.song_tb {
 /*앨범상세 - 소속사*/
 .album_detail_body > .album_information_body > .album_detail_agency_box {
     border: 0px solid white; width: 350px; height: 50px; line-height: 50px;
-    margin-left: 47px;
+    margin-left: 47px; display: flex;
 }
 .album_detail_body > .album_information_body > .album_detail_agency_box > .album_agency {
     border: 0px solid white; display: inline-block; width: 85px;
@@ -459,5 +459,3 @@ table.song_tb {
 .delete_btn_box > .comment_delete_btn:hover {
     color: #04E632; transition: 0.2s all;
 }
-
-

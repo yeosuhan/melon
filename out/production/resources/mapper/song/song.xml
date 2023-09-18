@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.melon.dao.song.ISongDao">
+
+    <select id="selectRecentSong" resultType="com.melon.dto.song.SongDto">
+        SELECT * FROM (
+		    SELECT
+		        S.SONG_NAME AS songName,
+		        AR.ARTIST_NAME AS artistName,
+		        AL.ALBUM_NAME AS albumName,
+		        S.SONG_LIKE AS songLike
+		    FROM
+		        SONG S, ALBUM AL, ARTIST AR
+		    WHERE
+		        S.ARTIST_ID = AR.ARTIST_ID
+		    AND
+		        S.ALBUM_ID = AL.ALBUM_ID
+        	<![CDATA[
+            AND
+                TO_DATE(AL.RELEASE_DATE, 'YYYY-MM-DD') >= SYSDATE - 30
+            ]]>
+		    ORDER BY
+		        AL.RELEASE_DATE DESC
+		) 
+    </select>
+    <select id="selectPopularSong" resultType="com.melon.dto.song.SongDto">
+        SELECT * FROM (
+		    SELECT
+		        S.SONG_NAME AS songName,
+		        AR.ARTIST_NAME AS artistName,
+		        AL.ALBUM_NAME AS albumName,
+		        S.SONG_LIKE AS songLike
+		    FROM
+		        SONG S, ALBUM AL, ARTIST AR, NOW_CHART NC
+		    WHERE
+		        S.ARTIST_ID = AR.ARTIST_ID
+		    AND
+		        S.ALBUM_ID = AL.ALBUM_ID
+		    AND
+		    	NC.SONG_ID = S.SONG_ID
+		    ORDER BY
+		        NC.COUNT_CHART DESC
+		) 
+    </select>
+    <select id="selectOriginRecenSong" resultType="com.melon.dto.song.SongDto">
+        SELECT * FROM (
+		    SELECT
+		        S.SONG_NAME AS songName,
+		        AR.ARTIST_NAME AS artistName,
+		        AL.ALBUM_NAME AS albumName,
+		        S.SONG_LIKE AS songLike
+		    FROM
+		        SONG S, ALBUM AL, ARTIST AR, GENRE G
+		    WHERE
+		        S.ARTIST_ID = AR.ARTIST_ID
+		    AND
+		        S.ALBUM_ID = AL.ALBUM_ID
+		    AND
+		    	S.GENRE_ID = G.GENRE_ID
+        	<![CDATA[
+            AND
+                TO_DATE(AL.RELEASE_DATE, 'YYYY-MM-DD') >= SYSDATE - 30
+            ]]>
+        	<if test="origin=='foreign'">
+            AND
+            	G.GENRE_ID = 6
+        	</if>
+        	<if test="origin=='domestic'">
+            AND
+            	G.GENRE_ID &lt; 6
+        	</if>
+		    ORDER BY
+		        AL.RELEASE_DATE DESC
+		) 
+    </select>
+     <select id="selectSongId" resultType="int" parameterType="string">
+     	SELECT
+     		SONG_ID AS songId
+     	FROM
+     		SONG
+     	WHERE
+     		SONG_NAME = #{songName}
+     </select>
+      <select id="selectSongIds" resultType="int" parameterType="String">
+     	SELECT
+     		SONG_ID AS songId
+     	FROM
+     		SONG
+     	WHERE
+     		SONG_NAME = #{songName}
+     </select>
+     <update id="updatePlayCount" parameterType="int">
+     	UPDATE
+     		SONG
+     	SET
+     		PLAY_COUNT = PLAY_COUNT + 1
+     	WHERE
+     		SONG_ID = #{songId}
+     </update>
+     <insert id="insertTimeViews" parameterType="int">
+     	INSERT INTO
+     		TIME_VIEWS(TIME_VIEW_ID, ADD_TIME, SONG_ID)
+     	VALUES
+     		(ID_SEQ.NEXTVAL, SYSDATE, #{sondId})
+     </insert>
+     
+     <select id="selectNowChart" resultType="com.melon.dto.song.BeforeChartDto">
+     	SELECT
+     		NOW_CHART_ID AS BeforeChartId,
+     		COUNT_CHART AS countChart,
+     		SONG_ID AS songId
+     	FROM
+     		NOW_CHART
+     </select>
+     <select id="selectTimeViews" resultType="com.melon.dto.song.NowChartDto">
+     <![CDATA[
+     	WITH RankedDuplicates AS (
+	   			SELECT 
+	   				SONG_ID, COUNT(*) AS DUPLICATE_COUNT,
+	           		ROW_NUMBER() OVER (ORDER BY COUNT(*) DESC) AS ROW_NUM
+	    		FROM 
+	    			TIME_VIEWS
+	    		GROUP BY 
+	    			SONG_ID
+	    		HAVING COUNT(*) > 1
+				)
+		SELECT 
+			ROW_NUM AS nowChartId,SONG_ID AS songId, DUPLICATE_COUNT AS countChart
+		FROM 
+			RankedDuplicates
+		WHERE 
+			ROW_NUM <= 100
+		]]>
+     </select>
+     
+     <insert id="insertBeforeChart" parameterType="com.melon.dto.song.BeforeChartDto">
+     	INSERT INTO
+     		BEFORE_CHART(BEFORE_CHART_ID, COUNT_CHART, SONG_ID)
+     	VALUES
+     		(#{bcd.beforeChartId}, #{bcd.countChart}, #{bcd.songId})
+     </insert>
+     
+     <insert id="insertNowChart" parameterType="com.melon.dto.song.NowChartDto">
+     	INSERT INTO
+     		NOW_CHART(NOW_CHART_ID, COUNT_CHART, SONG_ID)
+     	VALUES
+     		(#{ncd.nowChartId}, #{ncd.countChart}, #{ncd.songId})
+     </insert>
+     
+     <delete id="deleteBeforeChart">
+     	DELETE FROM BEFORE_CHART
+     </delete>
+     
+     <delete id="deleteNowChart">
+     	DELETE FROM NOW_CHART
+     </delete>
+     <select id="selectRankChange" resultType="String">
+     	<![CDATA[
+     		SELECT
+			    CASE
+			        WHEN NC.NOW_CHART_ID = BC.BEFORE_CHART_ID THEN '='
+			        WHEN BC.BEFORE_CHART_ID IS NULL THEN 'new'
+			        ELSE
+			            CASE
+			                WHEN NC.NOW_CHART_ID > BC.BEFORE_CHART_ID THEN '-' || (NC.NOW_CHART_ID - BC.BEFORE_CHART_ID)
+			                WHEN NC.NOW_CHART_ID < BC.BEFORE_CHART_ID THEN '+' || (BC.BEFORE_CHART_ID - NC.NOW_CHART_ID)
+			                ELSE '0'
+			            END
+			    END AS CHANGE_DESCRIPTION
+			FROM
+			    NOW_CHART NC
+			LEFT JOIN
+			    BEFORE_CHART BC
+			ON
+			    NC.SONG_ID = BC.SONG_ID
+			ORDER BY
+			    NC.NOW_CHART_ID
+     	]]>
+     </select>
+	
+     <update id="songLikeAdd">
+		UPDATE
+		    SONG
+		SET
+		    SONG_LIKE = SONG_LIKE + 1
+		WHERE
+		    SONG_ID = #{songId}
+	</update>
+
+
+	<update id="songLikeDel">
+		UPDATE
+			SONG
+		SET
+			SONG_LIKE = SONG_LIKE - 1
+		WHERE
+			SONG_ID = #{songId}
+	</update>
+
+	<select id="songLikeSelect" parameterType="int" resultType="com.melon.dto.song.SongLike">
+		SELECT
+		    SONG_ID AS songId,
+		    SONG_LIKE AS songLike
+		FROM
+		    SONG
+		WHERE
+		    SONG_ID = #{songId}
+	</select>
+
+	<insert id="songLikeToUserLike">
+		insert into
+			USER_LIKE(LIKE_CNT, SONG_ID, MEMBER_ID)
+		values
+			(LIKE_CNT_SEQ.nextval, #{songId}, #{memberId})
+	</insert>
+</mapper>

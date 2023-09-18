@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.melon.dto.album.AlbumDetails;
 import com.melon.dto.comment.CommentDto;
+import com.melon.dto.common.LoginDto;
 import com.melon.dto.song.SongLike;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/album")
@@ -139,12 +141,22 @@ public class AlbumController {
 	* @author 여수한
 	*/
 	@GetMapping("/recente")
-	public String getRecentAlbum(Model model) {
-		List<AlbumDto> ad = albumService.getRecentAlbum();
-		model.addAttribute("ad", ad);
-		List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist("tkdldjs985");
-		model.addAttribute("pd",pd);
-		return "album/recente_album";
+	public String getRecentAlbum(Model model,HttpSession session,
+			LoginDto m) {
+		LoginDto loginDto = (LoginDto) session.getAttribute("user");
+		if(loginDto==null) {
+			List<AlbumDto> ad = albumService.getRecentAlbum();
+			model.addAttribute("ad", ad);
+			return "album/recente_album";
+		} else {
+			String memberId = loginDto.getId();
+			List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(memberId);
+			model.addAttribute("pd",pd);
+			List<AlbumDto> ad = albumService.getRecentAlbum();
+			model.addAttribute("ad", ad);
+			return "album/recente_album";
+		}
+		
 	}
 	/**
 	* 최신앨범 조회(버튼별)

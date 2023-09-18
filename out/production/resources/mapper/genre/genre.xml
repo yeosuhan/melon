@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.melon.dao.genre.IGenreDao">
+	<select id="selectMyGenre" resultType="com.melon.dto.genre.GenreDto">
+		SELECT
+			UL.GENRE_ID AS genreId,
+			G.GENRE_NAME AS genreName
+		FROM
+			USER_LIKE UL, GENRE G
+		WHERE
+			UL.GENRE_ID = G.GENRE_ID
+		AND
+			UL.MEMBER_ID = 'USER'
+		ORDER BY
+			UL.GENRE_ID ASC
+	</select>
+    <insert id="insertGenreLike" parameterType="int">
+        INSERT INTO 
+        	USER_LIKE (LIKE_CNT, MEMBER_ID, GENRE_ID)
+        VALUES
+        	(id_seq.nextval, 'USER', #{genreCategory})
+    </insert>
+
+	<delete id="deleteGenreLike" parameterType="int">
+        DELETE FROM
+        	USER_LIKE
+        WHERE
+        	MEMBER_ID = 'USER'
+        AND
+        	GENRE_ID = #{genreCategory}
+    </delete>
+	<select id="selectByGenreAlbum" resultType="com.melon.dto.album.AlbumDto">
+        SELECT * FROM (
+            SELECT
+                AR.ARTIST_NAME AS artistName,
+                AL.ALBUM_NAME AS albumName,
+                AL.RELEASE_DATE AS releaseDate
+            FROM
+                SONG S, ALBUM AL, ARTIST AR, GENRE G
+            WHERE
+                S.ARTIST_ID = AR.ARTIST_ID
+            AND
+                S.ALBUM_ID = AL.ALBUM_ID
+            AND
+                S.GENRE_ID = G.GENRE_ID
+            AND
+            	G.GENRE_ID = #{genreId}
+            ORDER BY
+                AL.RELEASE_DATE DESC)
+    </select>
+    <select id="selectByGenreByEraAlbum" resultType="com.melon.dto.album.AlbumDto">
+        SELECT * FROM (
+            SELECT
+                AR.ARTIST_NAME AS artistName,
+                AL.ALBUM_NAME AS albumName,
+                AL.RELEASE_DATE AS releaseDate
+            FROM
+                SONG S, ALBUM AL, ARTIST AR, GENRE G
+            WHERE
+                S.ARTIST_ID = AR.ARTIST_ID
+            AND
+                S.ALBUM_ID = AL.ALBUM_ID
+            AND
+                S.GENRE_ID = G.GENRE_ID
+            AND
+            	G.GENRE_ID = #{genreId}
+            <if test="era==1980">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('1980.01.01', 'YYYY.MM.DD') AND TO_DATE('1989.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==1990">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('1990.01.01', 'YYYY.MM.DD') AND TO_DATE('1999.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==2000">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('2000.01.01', 'YYYY.MM.DD') AND TO_DATE('2009.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==2010">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('2010.01.01', 'YYYY.MM.DD') AND TO_DATE('2019.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==2020">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('2020.01.01', 'YYYY.MM.DD') AND TO_DATE('2029.12.31', 'YYYY.MM.DD')
+        	</if>
+             ORDER BY
+                AL.RELEASE_DATE DESC)
+    </select>
+    <select id="selectByGenreSong" resultType="com.melon.dto.song.SongDto">
+        SELECT * FROM (
+		    SELECT
+		        S.SONG_NAME AS songName,
+		        AR.ARTIST_NAME AS artistName,
+		        AL.ALBUM_NAME AS albumName,
+		        S.SONG_LIKE AS songLike
+		    FROM
+		        SONG S, ALBUM AL, ARTIST AR, GENRE G
+		    WHERE
+		        S.ARTIST_ID = AR.ARTIST_ID
+		    AND
+		        S.ALBUM_ID = AL.ALBUM_ID
+		    AND
+		    	G.GENRE_ID = S.GENRE_ID
+		    AND
+		    	S.GENRE_ID = #{genreId}
+		    ORDER BY
+		        AL.RELEASE_DATE DESC
+		) 
+    </select>
+    <select id="selectByGenreByEraSong" resultType="com.melon.dto.song.SongDto">
+        SELECT * FROM (
+		    SELECT
+		        S.SONG_NAME AS songName,
+		        AR.ARTIST_NAME AS artistName,
+		        AL.ALBUM_NAME AS albumName,
+		        S.SONG_LIKE AS songLike
+		    FROM
+		        SONG S, ALBUM AL, ARTIST AR, GENRE G
+		    WHERE
+		        S.ARTIST_ID = AR.ARTIST_ID
+		    AND
+		        S.ALBUM_ID = AL.ALBUM_ID
+		    AND
+		    	G.GENRE_ID = S.GENRE_ID
+		    AND
+		    	S.GENRE_ID = #{genreId}
+		    <if test="era==1980">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('1980.01.01', 'YYYY.MM.DD') AND TO_DATE('1989.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==1990">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('1990.01.01', 'YYYY.MM.DD') AND TO_DATE('1999.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==2000">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('2000.01.01', 'YYYY.MM.DD') AND TO_DATE('2009.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==2010">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('2010.01.01', 'YYYY.MM.DD') AND TO_DATE('2019.12.31', 'YYYY.MM.DD')
+        	</if>
+        	<if test="era==2020">
+          	AND
+            	TO_DATE(AL.RELEASE_DATE, 'YYYY.MM.DD') BETWEEN TO_DATE('2020.01.01', 'YYYY.MM.DD') AND TO_DATE('2029.12.31', 'YYYY.MM.DD')
+        	</if>
+		    ORDER BY
+		        AL.RELEASE_DATE DESC
+		) 
+    </select>
+</mapper>

@@ -119,7 +119,7 @@
                         <td>
                             <div class="artist_song_name_box_tb">
                                 <div class="artist_album_pic">
-                                    <img src="<%= request.getContextPath() %>/resources/Img/song/${song.albumName}.jpg" alt="노래 이미지">
+                                    <img src="<%= request.getContextPath() %>/resources/Img/song/${song.songName}.jpg" alt="노래 이미지">
                                 </div>
                                 <div class="artist_song_name_tb"><p>${song.songName}</p></div>
                             </div>
@@ -153,7 +153,7 @@
                         <input type="hidden" name="albumArtistId" value="${albums.artistId}" id="albumArtistId"/>
                     <div class="artist_album_list_box">
                         <div class="artist_album_list_img">
-                            <img src="<%= request.getContextPath() %>/resources/Img/song/${albums.albumName}.jpg" alt="노래 이미지">
+                            <img src="<%= request.getContextPath() %>/resources/Img/song/${albums.songName}.jpg" alt="노래 이미지">
                         </div>
                         <div class="artist_album_text_box">
                             <a href="/album/${albums.albumId}"><p>${albums.albumName}</p></a>
