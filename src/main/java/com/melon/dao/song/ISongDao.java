@@ -9,6 +9,7 @@ import com.melon.dto.playlistnow.PlaylistnowDto;
 import com.melon.dto.song.BeforeChartDto;
 import com.melon.dto.song.NowChartDto;
 import com.melon.dto.song.SongDto;
+import com.melon.dto.song.SongLike;
 
 @Mapper
 public interface ISongDao {
