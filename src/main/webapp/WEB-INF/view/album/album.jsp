@@ -112,8 +112,7 @@
                         </td>
                         <td>
                             <p class="song_hart"><strong>♡ &nbsp</strong></p>
-                            <fmt:formatNumber value="${songs.songLike}" type="number" pattern="###,###,###" var="formattedSongLike" />
-                            <p class="song_hart_count">${formattedSongLike}</p>
+                            <p class="song_hart_count">${songs.songLike}</p>
                             <input type="hidden" name="songId" class="songId" value="${songs.songId}"/>
                         </td>
                         <td>
