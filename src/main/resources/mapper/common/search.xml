@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.melon.dao.common.ISearchDao">
-    <select id="searchSong" parameterType="com.melon.dto.common.SearchDto">
+    <select id="searchSong" resultType="com.melon.dto.common.SearchDto" parameterType="string">
         SELECT S.SONG_NAME AS songName,
                A.ALBUM_NAME AS albumName,
                AR.ARTIST_NAME AS artistName,
