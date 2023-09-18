@@ -13,7 +13,7 @@
             </ul>
         </li>
         <li><a href="/genre">장르음악</a></li>
-        <li><a href="/qna">Q&A</a></li>
+<%--        <li><a href="/qna">Q&A</a></li>--%>
         <c:if test="${!empty user}">
             <c:if test="${user.role == 0}">
 <%--                <li>--%>
