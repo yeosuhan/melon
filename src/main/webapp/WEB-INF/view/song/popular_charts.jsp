@@ -21,7 +21,7 @@
 				<i class="fa-solid fa-rotate-right retate"></i>
 			</div>
 			<div style="width: 1350px; padding-top: 30px">
-				<button class="allplay">
+				<button class="allplay" id="allplay">
 					<i class="fa-solid fa-play" style="padding: 5px"></i>전체 재생
 				</button>
 			</div>
@@ -42,7 +42,7 @@
 					<tbody>
 						<c:forEach var="psd" items="${sd}" varStatus="loop">
 							<tr>
-								<td><input type="checkbox"></td>
+								<td><input type="checkbox" class="song_checkbox"></td>
 								<td><img
 									src="<%=request.getContextPath()%>/resources/Img/album2.png"
 									style="height: 55px;"></td>

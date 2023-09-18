@@ -44,7 +44,7 @@ public interface ISongDao {
 	*/
 	public void updatePlayCount(int songId);
 	/**
-	* 노래 조회수 증가
+	* 시간당 조회수 정보 넣기
 	* @author 여수한
 	 * @return 
 	*/
@@ -91,5 +91,10 @@ public interface ISongDao {
 	 * @return 
 	*/
 	public List<String> selectRankChange();
-
+	/**
+	* 리스트 형태의 노래 아이디 조회
+	* @author 여수한
+	 * @return 
+	*/
+	public List<Integer> selectSongIds(String SongName);
 }

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.melon.dao.artist.IArtistDao">
+
+    <select id="selectArtistInfo" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_LIKE AS artistLike,
+            S.SONG_ID AS songId,
+            A.ALBUM_ID AS albumId,
+            AR.ARTIST_NAME AS artistName,
+            AR.ACTIVITY_TYPE AS activityType,
+            S.SONG_NAME AS songName,
+            A.ALBUM_NAME AS albumName,
+            AR.AGENCY AS agency
+        FROM
+            ARTIST AR, SONG S, ALBUM A
+        WHERE
+            AR.ARTIST_ID = S.ARTIST_ID
+          AND
+            S.ALBUM_ID = A.ALBUM_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+          AND
+            ROWNUM = 1
+    </select>
+
+    <!--    가수 노래 최신순  -->
+
+    <select id="selectArtistSongs" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            A.ALBUM_ID AS albumId,
+            A.ALBUM_NAME AS albumName,
+            A.RELEASE_DATE AS releaseDate,
+            A.ALBUM_LIKE AS albumLike,
+            S.SONG_ID AS songId,
+            S.SONG_NAME AS songName,
+            S.SONG_LIKE AS songLike,
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_NAME AS artistName
+        FROM
+            ALBUM A, SONG S, ARTIST AR
+        WHERE
+            A.ALBUM_ID = S.ALBUM_ID
+          AND
+            S.ARTIST_ID = AR.ARTIST_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+        ORDER BY
+            TO_DATE(A.RELEASE_DATE, 'YYYY-MM-DD') DESC
+    </select>
+
+    <!--    가수 노래 인기순(좋아요 기준)-->
+
+    <select id="ArtistPopularSongsSort" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            A.ALBUM_ID AS albumId,
+            A.ALBUM_NAME AS albumName,
+            A.RELEASE_DATE AS releaseDate,
+            A.ALBUM_LIKE AS albumLike,
+            S.SONG_LIKE AS songLike,
+            S.SONG_ID AS songId,
+            S.SONG_NAME AS songName,
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_NAME AS artistName
+        FROM
+            ALBUM A, SONG S, ARTIST AR
+        WHERE
+            A.ALBUM_ID = S.ALBUM_ID
+          AND
+            S.ARTIST_ID = AR.ARTIST_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+        ORDER BY
+            S.SONG_LIKE DESC
+    </select>
+
+    <!--    가수 노래 가나다순 -->
+
+    <select id="ArtistSongNameSort" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            A.ALBUM_ID AS albumId,
+            A.ALBUM_NAME AS albumName,
+            A.RELEASE_DATE AS releaseDate,
+            A.ALBUM_LIKE AS albumLike,
+            S.SONG_LIKE AS songLike,
+            S.SONG_ID AS songId,
+            S.SONG_NAME AS songName,
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_NAME AS artistName
+        FROM
+            ALBUM A, SONG S, ARTIST AR
+        WHERE
+            A.ALBUM_ID = S.ALBUM_ID
+          AND
+            S.ARTIST_ID = AR.ARTIST_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+        ORDER BY
+            S.SONG_NAME ASC
+    </select>
+
+    <select id="selectArtistAlbums" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            S.SONG_ID AS songId,
+            S.SONG_NAME AS songName,
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_NAME AS artistName,
+            A.ALBUM_ID AS albumId,
+            A.ALBUM_NAME AS albumName,
+            A.RELEASE_DATE AS releaseDate
+        FROM
+            ALBUM A, SONG S, ARTIST AR
+        WHERE
+            A.ALBUM_ID = S.ALBUM_ID
+        AND
+            S.ARTIST_ID = AR.ARTIST_ID
+        AND
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+
+    <!--    가수 앨범목록 중복 제거-->
+    <select id="ArtistAlbumsRemoveDuplication" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT DISTINCT
+            A.ALBUM_NAME AS albumName,
+            AR.ARTIST_NAME AS artistName,
+            A.RELEASE_DATE AS releaseDate,
+            A.ALBUM_ID AS albumId,
+            AR.ARTIST_ID AS artistId,
+            S.SONG_ID AS songId
+        FROM
+            ALBUM A, SONG S, ARTIST AR
+        WHERE
+            A.ALBUM_ID = S.ALBUM_ID
+          AND
+            S.ARTIST_ID = AR.ARTIST_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+    <!--    가수 활동정보-->
+    <select id="selectArtistActivity" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            AR.DEBUT AS debut,
+            AR.ARTIST_NAME AS artistName,
+            S.SONG_NAME AS songName,
+            AR.ACTIVITY_TYPE AS activityType,
+            G.GENRE_NAME AS genreName,
+            AR.ARTIST_PRO AS artistPro
+        FROM
+            ARTIST AR, SONG S, GENRE G
+        WHERE
+            AR.ARTIST_ID = S.ARTIST_ID
+          AND
+            S.GENRE_ID = G.GENRE_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+          AND
+            ROWNUM = 1
+    </select>
+
+    <!--    가수 좋아요 증가-->
+    <update id="ArtistLikeUpdate">
+        UPDATE
+            ARTIST AR
+        SET
+            AR.ARTIST_LIKE = AR.ARTIST_LIKE + 1
+        WHERE
+            AR.ARTIST_ID = #{artistId}
+    </update>
+
+    <!--    가수 좋아요 삭제-->
+    <delete id="ArtistLikeDelete">
+        UPDATE
+            ARTIST AR
+        SET
+            AR.ARTIST_LIKE = AR.ARTIST_LIKE - 1
+        WHERE
+            AR.ARTIST_ID = #{artistId}
+    </delete>
+
+
+    <!--    현재 좋아요 조회-->
+    <select id="ArtistLikeCntNow" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            AR.ARTIST_ID AS artistId,
+            AR.ARTIST_LIKE AS artistLike
+        FROM
+            ARTIST AR
+        WHERE
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+
+<!--노래 좋아요 증가-->
+
+    <update id="ArtistSongLikeUpdate">
+        update
+            song
+        set
+            song_like = song_like + 1
+        where
+            ARTIST_ID = #{artistId}
+    </update>
+
+    <!--    가수 곡 노래 좋아요 삭제-->
+
+    <delete id="ArtistSongLikeDelete">
+        update
+            song
+        set
+            song_like = song_like - 1
+        where
+            ARTIST_ID = #{artistId}
+    </delete>
+
+
+<!--    현재 가수 노래 좋아요 조회-->
+
+    <select id="ArtistSongLikeCntNow" parameterType="int" resultType="com.melon.dto.artist.ArtistDto">
+        SELECT
+            S.SONG_LIKE AS songLike,
+            S.SONG_ID AS songId,
+            AR.ARTIST_ID AS artistId
+        FROM
+            SONG S, ARTIST AR
+        WHERE
+            S.ARTIST_ID = AR.ARTIST_ID
+          AND
+            AR.ARTIST_ID = #{artistId}
+    </select>
+
+    <select id="ArtistLikeCnt" parameterType="int" resultType="int">
+        select
+            count(*) like_cnt
+        from
+            user_like
+        where
+            member_id = 'admin'
+          and
+            artist_id = #{artistId}
+    </select>
+
+    <insert id="ArtistLikeToUserLike">
+        INSERT INTO
+            USER_LIKE(LIKE_CNT, ARTIST_ID, MEMBER_ID)
+        VALUES
+            (LIKE_CNT_SEQ.nextval, #{artistId}, #{memberId})
+    </insert>
+</mapper>

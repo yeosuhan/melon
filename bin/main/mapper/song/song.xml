@@ -81,6 +81,14 @@
      	WHERE
      		SONG_NAME = #{songName}
      </select>
+      <select id="selectSongIds" resultType="int" parameterType="String">
+     	SELECT
+     		SONG_ID AS songId
+     	FROM
+     		SONG
+     	WHERE
+     		SONG_NAME = #{songName}
+     </select>
      <update id="updatePlayCount" parameterType="int">
      	UPDATE
      		SONG
@@ -149,19 +157,25 @@
      <select id="selectRankChange" resultType="String">
      	<![CDATA[
      		SELECT
-    			CASE
-			        WHEN NC.NOW_CHART_ID > BC.BEFORE_CHART_ID THEN '-' || (NC.NOW_CHART_ID - BC.BEFORE_CHART_ID)
-			        WHEN NC.NOW_CHART_ID < BC.BEFORE_CHART_ID THEN '+' || (BC.BEFORE_CHART_ID - NC.NOW_CHART_ID)
-			        ELSE '0'
-  				END AS CHANGE_DESCRIPTION
+			    CASE
+			        WHEN NC.NOW_CHART_ID = BC.BEFORE_CHART_ID THEN '='
+			        WHEN BC.BEFORE_CHART_ID IS NULL THEN 'new'
+			        ELSE
+			            CASE
+			                WHEN NC.NOW_CHART_ID > BC.BEFORE_CHART_ID THEN '-' || (NC.NOW_CHART_ID - BC.BEFORE_CHART_ID)
+			                WHEN NC.NOW_CHART_ID < BC.BEFORE_CHART_ID THEN '+' || (BC.BEFORE_CHART_ID - NC.NOW_CHART_ID)
+			                ELSE '0'
+			            END
+			    END AS CHANGE_DESCRIPTION
 			FROM
-				NOW_CHART NC
-			JOIN
-				BEFORE_CHART BC
+			    NOW_CHART NC
+			LEFT JOIN
+			    BEFORE_CHART BC
 			ON
-				NC.SONG_ID = BC.SONG_ID
+			    NC.SONG_ID = BC.SONG_ID
 			ORDER BY
-				NC.NOW_CHART_ID
+			    NC.NOW_CHART_ID
      	]]>
      </select>
+     
 </mapper>
