@@ -98,7 +98,7 @@ $(document).ready(function() {
 		var ul = $("<ul></ul>");
 		$.each(data, function(index, ad) {
 			var li = $("<li></li>");
-			var a = $("<a href='#'><img src='/resources/Img/album2.png' style='width: 200px;'></a>");
+			var a = $("<a href='#'><img src='/resources/Img/song/"+ad.songName+".jpg' style='width: 200px;'></a>");
 			var div = $("<div></div>");
 
 			var p1 = $("<p class='album'></p>").text(ad.albumName);

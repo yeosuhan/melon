@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const ul = $("<ul></ul>");
 		$.each(data, function(index, ad) {
 			const li = $("<li></li>");
-			const a = $("<a href='#'><img src='/resources/Img/album2.png'></a>");
+			const a = $("<a href='#'><img src='/resources/Img/song/"+(ad.songName)+".jpg'></a>");
 			const div = $("<div></div>");
 
 			const p1 = $("<p class='album'></p>").text(ad.albumName);
@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		$.each(data, function(index, ad) {
 			const tr2 = $("<tr></tr>");
 			const td2_1 = $("<td><input type='checkbox'></td>");
-			const td2_2 = $("<td><img src='/resources/Img/album2.png' style='height: 55px;'></td>");
+			const td2_2 = $("<td><img src='/resources/Img/song/"+(ad.songName)+".jpg' style='height: 55px;'></td>");
 			const td2_3 = $("<td class='play_song'></td>").text(ad.songName);
 			const td2_4 = $("<td></td>").text(ad.artistName);
 			const td2_5 = $("<td></td>").text(ad.albumName);
