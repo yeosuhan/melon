@@ -67,10 +67,12 @@ public class ArtistController {
             }
         }
 
+        //가수 - 앨범 중복 제거
         List<ArtistDto> artistAlbumsRemoveDuplication = artistService.ArtistAlbumsRemoveDuplication(artistId);
         model.addAttribute("removeDuplication", artistAlbumsRemoveDuplication);
         log.info("remove : {}", artistAlbumsRemoveDuplication);
 
+        //가수 좋아요 조회
         int artistCnt = artistService.ArtistLikeCnt(artistId);
         model.addAttribute("artistCnt", artistCnt);
         System.out.println(artistCnt);
