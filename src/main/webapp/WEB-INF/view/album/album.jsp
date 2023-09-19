@@ -16,7 +16,7 @@
             <div class="album_top">
                 <div class="album_top_img">
                     <div class="album_img">
-                        <img src="<%= request.getContextPath() %>/resources/Img/artist/${albumDetails.artistName}.jpg" alt="노래 이미지">
+                        <img src="<%= request.getContextPath() %>/resources/Img/song/${albumDetails.albumName}.jpg" alt="노래 이미지">
                     </div>
                 </div>
                 <div class="album_top_text">
@@ -170,7 +170,12 @@
                                     <input type="text" class="comment" name="commentDetail" placeholder="댓글 작성하기"/>
                                 </div>
                                 <div class="comment_write_btn">
-                                    <button type="submit" name="reg_btn" id="reg_btn">등록</button>
+                                    <c:if test="${!empty user}">
+                                        <button type="submit" name="reg_btn" id="reg_btn">등록</button>
+                                    </c:if>
+                                    <c:if test="${empty user}">
+                                        <button type="submit" name="reg_btn" id="disabled">등록</button>
+                                    </c:if>
                                 </div>
                             </form>
                         </div>
@@ -188,7 +193,12 @@
                             <fmt:formatDate value="${albumComments.commentDate}" pattern="yyyy-MM-dd" var="formattedCommentDate"/>
                             <div class="member_comment_mem_date">${formattedCommentDate}</div>
                             <form action="/album/${albumId}/comment/delete/${albumComments.commentId}" method="post" class="delete_btn_box" onsubmit="showDeleteSuccessAlert()">
-                                <button type="submit" class="comment_delete_btn">삭제</button>
+                                <c:if test="${!empty user}">
+                                    <button type="submit" class="comment_delete_btn">삭제</button>
+                                </c:if>
+                                <c:if test="${empty user}">
+                                    <button type="submit" class="comment_delete_btn" id="delete_btn">삭제</button>
+                                </c:if>
                             </form>
                         </div>
                         </c:forEach>
@@ -199,4 +209,16 @@
     </div>
 </section>
 </body>
+<script>
+    const disableda = [ "disabled", "delete_btn" ];
+    disableda.forEach(function(moveLink) {
+        const linkElement = document.getElementById(moveLink);
+        if (linkElement) {
+            linkElement.addEventListener("click", function(event) {
+                event.preventDefault();
+                alert("로그인 후 이용 가능합니다.");
+            });
+        }
+    });
+</script>
 </html>
