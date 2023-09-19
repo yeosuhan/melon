@@ -1,6 +1,7 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="kor">
@@ -30,7 +31,7 @@
                                 <c:if test="${not empty artistCnt}">
                                     <div class="hart" id="hartCntDel" data-isArtistEmpty="false"><strong>♥ &nbsp;</strong></div>
                                 </c:if>
-                                <div class="hart_count">${artistInfo.artistLike}</div>
+                                <div class="hart_count"><fmt:formatNumber value="${artistInfo.artistLike}" type="number" pattern="###,###"/></div>
                                 <input type="hidden" id="artistInfoArtistId" name="artistInfoArtistId" value="${artistInfo.artistId}"/>
                             </div>
                             <div class="play_btn_box">
@@ -39,13 +40,13 @@
                             </div>
                         </div>
                         <div class="artist_top_agency">
-                            <div class="agency">소속사</div>
+                            <div class="agency"><p>소속사</p></div>
                             <c:choose>
                                 <c:when test="${empty artistInfo.agency}">
-                                    <div class="agency_name">없음</div>
+                                    <div class="agency_name"><p>없음</p></div>
                                 </c:when>
                                 <c:otherwise>
-                                    <div class="agency_name">${artistInfo.agency}</div>
+                                    <div class="agency_name"><p>${artistInfo.agency}</p></div>
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -153,7 +154,7 @@
                         <input type="hidden" name="albumArtistId" value="${albums.artistId}" id="albumArtistId"/>
                     <div class="artist_album_list_box">
                         <div class="artist_album_list_img">
-                            <img src="<%= request.getContextPath() %>/resources/Img/song/${albums.songName}.jpg" alt="노래 이미지">
+                            <img src="<%= request.getContextPath() %>/resources/Img/song/${albums.albumName}.jpg" alt="노래 이미지">
                         </div>
                         <div class="artist_album_text_box">
                             <a href="/album/${albums.albumId}"><p>${albums.albumName}</p></a>
@@ -207,7 +208,7 @@
                     </div>
                     <div class="artist_pro_content_box">
                         <div class="artist_pro_content">
-                            <p>${artistActivity.artistPro}</p>
+                            <div>${artistActivity.artistPro}</div>
                         </div>
                     </div>
                 </div>
