@@ -23,7 +23,7 @@ public class ChartScheduler {
 
 	// 1시간마다 now_chart 데이터(bcd), time_views 테이블에서 상위 100개차트(ncd) 가져오기
 	// 초 분 시 일 월 요일
-	@Scheduled(cron = "59 24 * * * *")
+	@Scheduled(cron = "59 59 * * * *")
 	public void before_chart() {
 		List<BeforeChartDto> bcd = songService.getNowChart();
 		schedulerService.setBeforeChartDto(bcd);
@@ -33,7 +33,7 @@ public class ChartScheduler {
 
 	// 1시간마다 before_chart, now_chart 테이블 데이터 삭제
 	// 초 분 시 일 월 요일
-	@Scheduled(cron = "0 25 * * * *")
+	@Scheduled(cron = "0 0 * * * *")
 	public void deleteChart() {
 		songService.deleteNowChart();
 		songService.deleteBeforeChart();
@@ -41,7 +41,7 @@ public class ChartScheduler {
 
 	// 1시간마다 bcd를 before_chart, ncd를 now_chart로 보내기
 	// 초 분 시 일 월 요일
-	@Scheduled(cron = "1 25 * * * *")
+	@Scheduled(cron = "1 0 * * * *")
 	public void now_chart() {
 		List<BeforeChartDto> bcd = schedulerService.getBeforeChartDto();
 		List<NowChartDto> ncd = schedulerService.getNowChartDto();

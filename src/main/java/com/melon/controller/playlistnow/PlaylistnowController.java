@@ -40,7 +40,6 @@ public class PlaylistnowController {
 		// 세션에 저장된 로그인 정보 가져오기
 		LoginDto loginDto = (LoginDto) session.getAttribute("user");
 		String memberId = loginDto.getId();
-		log.info(memberId + " " + songName);
 
 		int songId = songService.getSongId(songName); // songName => songId로 바꾸기
 		songService.updatePlayCount(songId); // 노래 조회수 증가
