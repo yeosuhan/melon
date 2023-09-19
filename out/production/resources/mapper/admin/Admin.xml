@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.melon.dao.admin.IAdmin">
-
+<mapper namespace="com.melon.dao.admin.Admin">
 
     <!--    관리자페이지 노래목록-->
     <select id="findAllSong"  resultType="com.melon.dto.admin.AdminSongDto">
@@ -145,7 +144,8 @@
             NICK as nick,
             BIRTHDAY as birthday,
             TEL as tel,
-            EMAIL as email
+            EMAIL as email,
+            TICKET_ID as ticketId
         FROM
             MEMBER
         WHERE
@@ -175,5 +175,14 @@
 
     </select>
 
+
+    <update id="memberBuyTicket" parameterType="com.melon.dto.admin.PaymentRequest">
+        UPDATE MEMBER m
+        SET
+            m.TICKET_ID = (SELECT TICKET_ID FROM TICKET WHERE TICKET_NAME = #{ticketName})
+        WHERE
+            m.NAME = #{userName}
+
+    </update>
 
 </mapper>

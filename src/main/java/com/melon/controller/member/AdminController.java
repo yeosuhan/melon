@@ -1,18 +1,13 @@
 package com.melon.controller.member;
 
-import com.melon.dto.admin.AdminAlbumDto;
-import com.melon.dto.admin.AdminArtistDto;
-import com.melon.dto.admin.AdminMemberDto;
-import com.melon.dto.admin.AdminSongDto;
+import com.melon.dto.admin.*;
 import com.melon.service.adminService.IAdminService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -72,6 +67,7 @@ public class AdminController {
     @GetMapping("/admin/member")
     public String adminMember(Model model) {
         List<AdminMemberDto> allMember = adminService.findAllMember();
+
         model.addAttribute("allMember", allMember);
         return "member/admin_member";
     }
@@ -116,4 +112,11 @@ public class AdminController {
 
 
 
+    @PostMapping("/process-payment")
+    public String processPayment(@RequestBody PaymentRequest paymentRequest) {
+
+        adminService.memberBuyTicket(paymentRequest);
+        return "index";
+
+    }
 }

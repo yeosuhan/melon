@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cc478a8-e533-4ead-94c8-90cd47bce535" name="Changes" comment="merge" />
+    <list default="true" id="9cc478a8-e533-4ead-94c8-90cd47bce535" name="Changes" comment="merge">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/46b7ef5e-a320-4557-810d-ca49b64a8fb8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/46b7ef5e-a320-4557-810d-ca49b64a8fb8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/mapper/admin/IAdmin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/mapper/admin/IAdmin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/common/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/common/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/controller/member/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/controller/member/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dao/admin/IAdmin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/dto/admin/AdminMemberDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/adminService/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/adminService/AdminServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/melon/service/adminService/IAdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/melon/service/adminService/IAdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/admin/IAdmin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/controller/common/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/controller/common/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/controller/member/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/controller/member/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/dao/admin/IAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/dao/admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/dto/admin/AdminMemberDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/dto/admin/AdminMemberDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/service/adminService/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/service/adminService/AdminServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/melon/service/adminService/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/melon/service/adminService/IAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/admin/IAdmin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/admin/Admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/admin_member.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/admin_member.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/ticket/ticket.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/ticket/ticket.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/admin_member.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/admin_member.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/ticket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/ticket.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +246,7 @@
       <workItem from="1694848805666" duration="172000" />
       <workItem from="1694996485574" duration="19696000" />
       <workItem from="1695020623205" duration="14259000" />
-      <workItem from="1695082462682" duration="326000" />
+      <workItem from="1695082462682" duration="21812000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <option name="closed" value="true" />

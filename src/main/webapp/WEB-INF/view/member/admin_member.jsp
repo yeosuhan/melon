@@ -28,6 +28,7 @@
                         <td><p>생년월일</p></td>
                         <td><p>연락처</p></td>
                         <td><p>이메일</p></td>
+                        <td><p>이용권</p></td>
                     </tr>
                     <c:forEach var="item" items="${allMember}">
                         <tr>
@@ -37,6 +38,9 @@
                             <td><p>${item.birthday}</p></td>
                             <td><p>${item.tel}</p></td>
                             <td><p>${item.email}</p></td>
+                            <c:if test="${item.ticketId != 0}">
+                                <td><p>○</p></td>
+                            </c:if>
                         </tr>
                     </c:forEach>
 

@@ -481,7 +481,7 @@
     </table>
     <table id="95" parent="25" name="MEMBER">
       <CreatedTimestamp>2023-09-19.01:45:04</CreatedTimestamp>
-      <DetailsLevel>3</DetailsLevel>
+      <DetailsLevel>2</DetailsLevel>
       <ModifiedTimestamp>2023-09-19.01:45:05</ModifiedTimestamp>
       <ObjectId>80023</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>

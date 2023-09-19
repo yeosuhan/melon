@@ -11,4 +11,5 @@ public class AdminMemberDto {
     private String birthday;
     private String tel;
     private String email;
+    private int ticketId;
 }

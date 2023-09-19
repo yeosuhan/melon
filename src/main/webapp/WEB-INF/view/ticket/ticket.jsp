@@ -23,6 +23,9 @@
                     <p class="active">전체 이용권</p>
                 </div>
             </div>
+            <c:if test="${!empty user}">
+                <button id="asd" type="button" disabled style="display: none;">${user.name}</button>
+            </c:if>
             <div class="ticket_payment_body">
                 <div class="ticket_payment_box">
                     <div class="ticket_text_box_payment_explain">

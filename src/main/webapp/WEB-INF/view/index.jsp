@@ -50,7 +50,7 @@
                             </td>
                             <td class="topsong_thd">
                                 <div>
-                                    <a href="/album/${item.songId}" class="play_song"><p>${item.songName}</p></a>
+                                    <a class="play_song"><p>${item.songName}</p></a>
                                     <a href="/artist/${item.artistId}"><p>${item.artistName}</p></a>
                                 </div>
                             </td>
@@ -68,7 +68,7 @@
                     <tr>
                         <c:forEach var="item" items="${recommendSong}">
                             <td>
-                                <img src="<%=request.getContextPath()%>/resources/Img/song/${item.songName}.jpg">
+                                <a href="/album/${item.albumId}"><img src="<%=request.getContextPath()%>/resources/Img/song/${item.songName}.jpg"></a>
                                 <div>
                                     <p class="play_song">${item.songName}</p>
                                     <a href="/artist/${item.artistId}"><p>${item.artistName}</p></a>
