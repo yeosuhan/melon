@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cc478a8-e533-4ead-94c8-90cd47bce535" name="Changes" comment="merge">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/admin/IAdmin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/admin/IAdmin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/mapper/common/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/mapper/common/main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/admin/IAdmin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/admin/IAdmin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/common/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/common/main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/adminAlbum.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/adminAlbum.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/adminArtist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/adminArtist.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/album/album.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/album/album.css" afterDir="false" />
-    </list>
+    <list default="true" id="9cc478a8-e533-4ead-94c8-90cd47bce535" name="Changes" comment="merge" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,6 +223,7 @@
       <workItem from="1694848805666" duration="172000" />
       <workItem from="1694996485574" duration="19696000" />
       <workItem from="1695020623205" duration="14259000" />
+      <workItem from="1695082462682" duration="326000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <option name="closed" value="true" />
