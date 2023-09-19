@@ -7,12 +7,12 @@ button:hover{cursor: pointer;}
 .kakao_btn{ position: relative; margin: 0 auto; width: 360px;}
 .kakao_btn form{ display: flex; justify-content: center; flex-wrap: wrap; width: 360px;}
 .kakao_btn input{width: 360px; height: 50px; border: none; margin: 0 0 6px 0; background: none; border-bottom: 1px solid #4c4c4c; font-size: 1rem; color: #fff; letter-spacing: 1.1px;}
-.kakao_btn form button{width: 360px; height: 50px; font-size: 0.95rem; position: relative; display: flex; justify-content: center; align-items: center; background: none; border-radius: 30px; margin: 0 0 14px 0; border:1px solid #04E632; color: #04E632;}
+.kakao_btn form button{width: 360px; height: 50px; font-size: 0.95rem; position: relative; display: flex; justify-content: center; align-items: center; background: none; border-radius: 30px; margin: 25px 0 -5px 0; border:1px solid #04E632; color: #04E632;}
 .kakao_btn form button:before{content: ''; position: absolute; width: 0; height: 100%; background-color: #04E632; transition: 0.3s all; border-radius: 30px;}
 .kakao_btn form button:hover:before{width: 100%; z-index: -1;}
 .kakao_btn form button:hover{color:#fff;}
 .kakao_btn form button:last-child{color: #fff;}
-.checkbox {width: 360px; height: 60px; position: relative; display: flex; align-items: center; margin: 0 0 6px 0;}
+.checkbox {width: 360px; height: 60px; position: relative; display: flex; align-items: center; margin: 0 0 6px 0; display: none;}
 .checkbox p{color: #ffffff; letter-spacing: 1.1px; font-weight: 300;}
 .checkbox input[type="checkbox"]{width: 16px; height: 16px; appearance: none; border: 1px solid #4c4c4c; margin: 0 19px 0 0;}
 .checkbox input[type="checkbox"]:checked::before{content: '\f00c'; font-family:"Font Awesome 5 free"; font-weight:900; font-size: 1rem; vertical-align: super; line-height: -1px;color: #04E632; }

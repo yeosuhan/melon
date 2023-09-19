@@ -1,14 +1,11 @@
 package com.melon.service.adminService;
 
-import com.melon.dao.admin.IAdmin;
-import com.melon.dto.admin.AdminAlbumDto;
-import com.melon.dto.admin.AdminArtistDto;
-import com.melon.dto.admin.AdminMemberDto;
-import com.melon.dto.admin.AdminSongDto;
-import com.melon.service.adminService.IAdminService;
+import com.melon.dao.admin.Admin;
+import com.melon.dto.admin.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,11 +13,11 @@ import java.util.List;
 @Log4j2
 public class AdminServiceImpl implements IAdminService {
 
-    private final IAdmin adminDao;
+    private final Admin adminDao;
 
     @Autowired
     // 생성자
-    public AdminServiceImpl(IAdmin adminDao) {
+    public AdminServiceImpl(Admin adminDao) {
         this.adminDao = adminDao;
     }
 
@@ -76,6 +73,7 @@ public class AdminServiceImpl implements IAdminService {
     }
 
     public List<AdminMemberDto> findAllMember() {
+
         return adminDao.findAllMember();
 
     }
@@ -83,5 +81,11 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public List<AdminSongDto> searchSong(String name) {
         return adminDao.searchSong(name);
+    }
+
+    @Override
+    @Transactional
+    public void memberBuyTicket(PaymentRequest paymentRequest) {
+        adminDao.memberBuyTicket(paymentRequest);
     }
 }

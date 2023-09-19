@@ -33,14 +33,12 @@ public class HomeController {
         // 앨범추천
         List<MainAlbumDto> fourAlbum = iMainService.fourAlbum();
         model.addAttribute("fourAlbum", fourAlbum);
-        System.out.println("함꼐들어요");
-        System.out.println(fourAlbum);
+
 
         // 추천음악
         List<MainSongDto> recommendSong = iMainService.recommendSong();
         model.addAttribute("recommendSong", recommendSong);
-        System.out.println("추천음악");
-        System.out.println(recommendSong);
+
 
         // 마이뮤직
         List<MainAlbumDto> myMusic = iMainService.myMusic();
@@ -51,8 +49,6 @@ public class HomeController {
         // top100
         List<MainSongDto> topMusic = iMainService.topMusic();
         model.addAttribute("topMusic", topMusic);
-        System.out.println("탑백");
-        System.out.println(topMusic);
         
         LoginDto loginDto = (LoginDto) session.getAttribute("user");
         if(loginDto==null) {

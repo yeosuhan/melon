@@ -1,9 +1,6 @@
 package com.melon.service.adminService;
 
-import com.melon.dto.admin.AdminAlbumDto;
-import com.melon.dto.admin.AdminArtistDto;
-import com.melon.dto.admin.AdminMemberDto;
-import com.melon.dto.admin.AdminSongDto;
+import com.melon.dto.admin.*;
 
 import java.util.List;
 
@@ -28,4 +25,6 @@ public interface IAdminService {
     List<AdminMemberDto> findAllMember();
 
     List<AdminSongDto> searchSong(String name);
+
+    void memberBuyTicket(PaymentRequest paymentRequest);
 }

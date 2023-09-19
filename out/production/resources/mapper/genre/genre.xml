@@ -34,7 +34,8 @@
             SELECT
                 AR.ARTIST_NAME AS artistName,
                 AL.ALBUM_NAME AS albumName,
-                AL.RELEASE_DATE AS releaseDate
+                AL.RELEASE_DATE AS releaseDate,
+                S.SONG_NAME AS songName
             FROM
                 SONG S, ALBUM AL, ARTIST AR, GENRE G
             WHERE
@@ -53,7 +54,8 @@
             SELECT
                 AR.ARTIST_NAME AS artistName,
                 AL.ALBUM_NAME AS albumName,
-                AL.RELEASE_DATE AS releaseDate
+                AL.RELEASE_DATE AS releaseDate,
+                S.SONG_NAME AS songName
             FROM
                 SONG S, ALBUM AL, ARTIST AR, GENRE G
             WHERE

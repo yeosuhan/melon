@@ -19,7 +19,42 @@ function requestPay() {
         // 티켓 정보를 추출합니다.
         var ticketName = ''; // 티켓 이름
         var ticketPrice = 0; // 티켓 가격
+        var buttonElement = document.querySelector("#asd"); // 맴버ID
+        var userName = buttonElement.textContent
+        console.log(userName);
 
+        function sendPaymentDataToServer(userName, ticketName) {
+            let data = {
+                userName: userName,
+                ticketName: ticketName,
+            };
+
+            fetch('/process-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        // 성공적으로 서버로 데이터를 전송한 경우
+                        window.location.href = "/";
+                    } else {
+                        // 서버에서 오류응답을 받을경우
+                        alert('서버 오류 발생');
+                    }
+                }).catch(function (error) {
+                    // 네트워크 오류 등 예외처리
+                console.error('에러 발생: ', error);
+            });
+        }
+
+        // 결제 성공 시 호출되는 함수
+        function handlePaymentSuccess(userName, ticketName) {
+            // memberId와 tickenName을 사용하여 서버로 데이터 전송
+            sendPaymentDataToServer(userName, ticketName);
+        }
         // 클릭된 버튼에 따라 티켓 정보를 설정합니다.
         var clickedButton = event.target;
         if (clickedButton.name === 'pay_btn') {
@@ -50,6 +85,7 @@ function requestPay() {
                 var msg = '';
                 msg += '결제 성공' ;
                 alert(msg);
+                handlePaymentSuccess(userName, ticketName);
             } else {
                 var msg = '';
                 msg += '결제 실패: ' + rsp.error_msg;
@@ -70,4 +106,9 @@ if (payButton) {
     payButton.addEventListener('click', function () {
         requestPay();
     });
+}
+
+function handlePaymentSuccess(userName, ticketName) {
+    // memberId와 ticketName을 사용하여 서버로 데이터 전송
+    sendPaymentDataToServer(userName, ticketName);
 }
