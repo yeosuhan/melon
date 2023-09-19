@@ -45,7 +45,7 @@ public interface IAlbumService {
 	    *
 	    * @author 임휘재
 	    */
-	   void saveComment(CommentDto commentDto, int albumId);
+	   void saveComment(CommentDto commentDto, int albumId, String memberId);
 
 	   /**
 	    * 앨범 댓글 조회
