@@ -119,7 +119,7 @@
 				<ul>
 					<c:forEach var="ad" items="${ad}">
 						<li><a href="#"> <img
-								src="<%=request.getContextPath()%>/resources/Img/album2.png">
+								src="<%=request.getContextPath()%>/resources/Img/song/${ad.songName}.jpg">
 						</a>
 							<div>
 								<p class="album">${ad.albumName}</p>

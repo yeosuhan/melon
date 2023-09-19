@@ -1,19 +1,20 @@
 package com.melon.controller.common;
 
+import java.util.List;
 
-import com.melon.dto.common.LoginDto;
-import com.melon.dto.common.MainAlbumDto;
-import com.melon.dto.common.MainSongDto;
-import com.melon.dto.playlistnow.PlaylistnowDto;
-import com.melon.service.common.IMainService;
-import com.melon.service.playlistnow.IPlaylistnowService;
-import lombok.RequiredArgsConstructor;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpSession;
-import java.util.List;
+import com.melon.dto.common.LoginDto;
+import com.melon.dto.common.MainAlbumDto;
+import com.melon.dto.common.MainSongDto;
+import com.melon.service.common.IMainService;
+import com.melon.service.playlistnow.IPlaylistnowService;
+
+import lombok.RequiredArgsConstructor;
 
 
 @Controller
@@ -57,5 +58,4 @@ public class HomeController {
 
         return "index";
     }
-
 }

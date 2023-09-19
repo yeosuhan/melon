@@ -68,15 +68,16 @@
 			</c:if>
 			<c:if test="${!empty user}">
 				<!-- 회원 재생 목록 구현-->
-				<img src="<%=request.getContextPath()%>/resources/Img/.png">
-				<p class="play_now_song_name">Next Level</p>
+				<c:set var="pd" value="${pd}"/>
+				<img src="<%=request.getContextPath()%>/resources/Img/default.png" class="playlist_main_img">
+				<p class="play_now_song_name"></p>
 				<p class="play_now_artist_name">
-					<span>aespa</span>
+					<span></span>
 				</p>
 				<p id="like_btn">
 					<a href="#" class="white"><strong>♥</strong></a>
 				</p>
-				<p class="play_now_song_time">00:00 | 04:15</p>
+				<p class="play_now_song_time">00:00 | 00:00</p>
 				<div class="playsong_oper">
 					<div class="playsong_oper_wrap">
 						<a href=""><i class="fa-solid fa-play"></i></a> <a href=""><i
@@ -116,7 +117,7 @@
 					<c:forEach var="pd" items="${pd}">
 						<li class="playsong_list_wrap"><input type="checkbox">
 							<img
-							src="<%=request.getContextPath()%>/resources/Img/next_level_img.png">
+							src="<%=request.getContextPath()%>/resources/Img/song/${pd.songName}.jpg">
 							<div class="playsong_list_wrap_div">
 								<p>${pd.songName}</p>
 								<p>${pd.artistName}</p>

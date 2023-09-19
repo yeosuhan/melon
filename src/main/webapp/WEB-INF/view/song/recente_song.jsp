@@ -41,7 +41,7 @@
 							<tr>
 								<td><input type="checkbox"></td>
 								<td><img
-									src="<%=request.getContextPath()%>/resources/Img/album2.png"
+									src="<%=request.getContextPath()%>/resources/Img/song/${rsd.songName}.jpg"
 									style="height: 55px;"></td>
 								<td class="play_song">${rsd.songName}</td>
 								<td>${rsd.artistName}</td>
