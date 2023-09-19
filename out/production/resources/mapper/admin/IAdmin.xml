@@ -131,7 +131,7 @@
             ALBUM_NAME = #{albumName}
     </select>
 
-    <delete id="deleteSongsById">
+    <delete id="deleteSongsById" >
         DELETE FROM SONG
         WHERE SONG_ID IN
         <foreach item="songId" collection="songIds" open="(" separator="," close=")">
@@ -162,7 +162,7 @@
             GENRE.GENRE_NAME as genreName
         FROM
             SONG
-                JOIN
+        JOIN
             ARTIST ON SONG.ARTIST_ID = ARTIST.ARTIST_ID
                 JOIN
             ALBUM ON SONG.ALBUM_ID = ALBUM.ALBUM_ID

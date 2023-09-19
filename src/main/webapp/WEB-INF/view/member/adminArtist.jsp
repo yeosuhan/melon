@@ -46,13 +46,6 @@
                     <th>가수소개</th>
                 </tr>
                 <tbody>
-                    <tr class="second_tr">
-                        <td><input type="checkbox" class="check_btn"></td>
-                        <td>이브,프시케 그리고 푸른수염의 아내</td>
-                        <td>Dance</td>
-                        <td>LE SSERAFIM(르세라핌)</td>
-                        <td>UNFORGIVEN</td>
-                    </tr>
                     <c:forEach var="item" items="${allartist}">
                         <tr class="second_tr">
                             <td><input type="checkbox" class="check_btn"></td>
