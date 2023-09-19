@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.melon.dto.album.AlbumDto;
 import com.melon.dto.common.LoginDto;
 import com.melon.dto.common.MainAlbumDto;
 import com.melon.dto.common.MainSongDto;
+import com.melon.dto.playlistnow.PlaylistnowDto;
 import com.melon.service.common.IMainService;
 import com.melon.service.playlistnow.IPlaylistnowService;
 
@@ -47,12 +49,15 @@ public class HomeController {
         // top100
         List<MainSongDto> topMusic = iMainService.topMusic();
         model.addAttribute("topMusic", topMusic);
-
-
-
-//        List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(m);
-//        model.addAttribute("pd",pd);
-
-        return "index";
-    }
+        
+        LoginDto loginDto = (LoginDto) session.getAttribute("user");
+        if(loginDto==null) {
+        	return "index";
+		} else {
+			String memberId = loginDto.getId();
+        	List<PlaylistnowDto> pd = playlistnowService.getMyPlaylist(memberId);
+			model.addAttribute("pd", pd);
+			return "index";
+		}
+    } 
 }
