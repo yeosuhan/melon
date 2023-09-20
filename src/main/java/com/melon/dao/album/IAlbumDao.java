@@ -52,7 +52,7 @@ public interface IAlbumDao {
 	 *
 	 * @author 임휘재
 	 */
-	void saveComment(@Param("albumId") int albumId, @Param("commentDto") CommentDto commentDto);
+	void saveComment(@Param("albumId") int albumId, @Param("commentDto") CommentDto commentDto, @Param("memberId") String memberId);
 
 	/**
 	 * 앨범 댓글 조회

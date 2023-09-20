@@ -40,16 +40,19 @@ public class AlbumController {
 	@GetMapping("/{albumId}")
 	public String albumDetails(@PathVariable("albumId") int albumId,
 							   Model model){
+		// 앨범 정보 조회
 		AlbumDetails albumDetails = albumService.getAlbumDetails(albumId);
 		model.addAttribute("albumDetails", albumDetails);
 
+		// 앨범 수록곡 조회
 		List<AlbumDetails> getAlbumSongList = albumService.getAlbumSongList(albumId);
 		model.addAttribute("getAlbumSongList", getAlbumSongList);
-//		log.info(getAlbumSongList.get(1).getSongLike());
 
+		// 앨범 상세 조회
 		AlbumDetails albumDetail = albumService.getAlbumDetail(albumId);
 		model.addAttribute("albumDetail", albumDetail);
 
+		// 앨범 댓글 조회
 		List<CommentDto> albumCommentList = albumService.getAlbumCommentList(albumId);
 		log.info("Number of comments retrieved: {}", albumCommentList.size());
 		model.addAttribute("albumComments", albumCommentList);
@@ -70,8 +73,9 @@ public class AlbumController {
 	@PostMapping("/{albumId}/comment/write")
 	public String addUserComment(@ModelAttribute CommentDto commentDto,
 								 @PathVariable("albumId") int albumId) {
+		String aa = "aa";
 		log.info("dto : {}", commentDto);
-		albumService.saveComment(commentDto, albumId);
+		albumService.saveComment(commentDto, albumId, aa);
 		return "redirect:/album/" + albumId;
 	}
 

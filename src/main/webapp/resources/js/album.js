@@ -94,10 +94,24 @@ function showDeleteSuccessAlert() {
     }
 }
 
-function writeSuccess() {
-    alert("댓글 작성 성공");
+function validateComment() {
+    // 댓글 입력값 가져오기
+    let commentInput = document.querySelector(".comment").value.trim();
+
+    // 입력값이 공백인 경우 알림창 표시 후 제출 방지
+    if (commentInput === "") {
+        alert("댓글은 공백일 수 없습니다.");
+        return false; // 제출 방지
+    }
+
+    // 모든 유효성 검사를 통과한 경우
+    return true;
 }
 
+function writeSuccess() {
+    alert("댓글 작성 성공");
+    return true; // 폼 제출 허용
+}
 
 $(document).ready(function() {
     let isLiked = localStorage.getItem('isLiked') === 'true';

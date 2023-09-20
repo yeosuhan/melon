@@ -160,7 +160,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url: `/artist/${artistId}/like/update`,
                     success: function(data) {
-                        // 성공한 경우 좋아요 수를 업데이트
+                        // 성공한 경우 좋아요 수를 업데이트하고 포맷
                         updateLikeCount(data);
                         setButtonState(true); // 클릭 상태 업데이트
                     },
@@ -173,7 +173,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url: `/artist/${artistId}/like/delete`,
                     success: function(data) {
-                        // 성공한 경우 좋아요 수를 업데이트
+                        // 성공한 경우 좋아요 수를 업데이트하고 포맷
                         updateLikeCount(data);
                         setButtonState(false); // 클릭 상태 업데이트
                     },
@@ -193,7 +193,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url: `/artist/${artistId}/like/update`,
                     success: function(data) {
-                        // 성공한 경우 좋아요 수를 업데이트
+                        // 성공한 경우 좋아요 수를 업데이트하고 포맷
                         updateLikeCount(data);
                         setButtonState(true); // 클릭 상태 업데이트
                     },
@@ -206,7 +206,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url: `/artist/${artistId}/like/delete`,
                     success: function(data) {
-                        // 성공한 경우 좋아요 수를 업데이트
+                        // 성공한 경우 좋아요 수를 업데이트하고 포맷
                         updateLikeCount(data);
                         setButtonState(false); // 클릭 상태 업데이트
                     },
@@ -219,7 +219,9 @@ $(document).ready(function() {
     }
 
     function updateLikeCount(data) {
-        $('.hart_count').text(data);
+        // 좋아요 수를 포맷하여 업데이트
+        let formattedCount = formatNumberWithCommas(data);
+        $('.hart_count').text(formattedCount);
     }
 
     // 클릭 상태를 로컬 스토리지에 저장하고 하트 색상을 업데이트하는 함수
@@ -235,4 +237,10 @@ $(document).ready(function() {
             $('#hartCntDel').html('<strong style="color: #04E632;">♡ &nbsp;</strong>');
         }
     }
+
+    // 숫자 포맷 함수 정의
+    function formatNumberWithCommas(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 });
+

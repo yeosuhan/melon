@@ -111,7 +111,7 @@ public class SongController {
 	 * @author 임휘재
 	 */
 	@PostMapping("/{songId}/like/update")
-	public ResponseEntity<Integer> albumLikeCntUpdate(@PathVariable("songId") int songId, HttpServletResponse res,
+	public ResponseEntity<Integer> songLikeCntUpdate(@PathVariable("songId") int songId, HttpServletResponse res,
 			@CookieValue(value = "isLiked", defaultValue = "false") boolean isLiked) {
 
 		Cookie cookie = new Cookie("isLiked", Boolean.toString(isLiked));
@@ -132,7 +132,7 @@ public class SongController {
 	}
 
 	@PostMapping("/{songId}/like/delete")
-	public ResponseEntity<Integer> albumLikeCntDelete(@PathVariable("songId") int songId, HttpServletResponse res,
+	public ResponseEntity<Integer> songLikeCntDelete(@PathVariable("songId") int songId, HttpServletResponse res,
 			@CookieValue(value = "isLiked", defaultValue = "false") boolean isLiked) {
 
 		Cookie cookie = new Cookie("isLiked", Boolean.toString(isLiked));

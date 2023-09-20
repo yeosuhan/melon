@@ -255,6 +255,7 @@ table.song_tb {
 }
 .body_tb tr td:nth-child(5){
     width: 10%; min-width: 150px; display: flex; align-items: center;
+    height: 70px;
 }
 .body_tb tr td:nth-child(6){
     width: 5%; min-width: 50px; text-align: center;
@@ -459,3 +460,5 @@ table.song_tb {
 .delete_btn_box > .comment_delete_btn:hover {
     color: #04E632; transition: 0.2s all;
 }
+
+

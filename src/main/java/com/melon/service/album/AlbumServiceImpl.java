@@ -84,8 +84,8 @@ public class AlbumServiceImpl implements IAlbumService {
 	    * @author 임휘재
 	    */
 	   @Override
-	   public void saveComment(CommentDto commentDto, int albumId) {
-	      albumDao.saveComment(albumId, commentDto);
+	   public void saveComment(CommentDto commentDto, int albumId, String memberId) {
+	      albumDao.saveComment(albumId, commentDto, memberId);
 	   }
 
 	   /**
